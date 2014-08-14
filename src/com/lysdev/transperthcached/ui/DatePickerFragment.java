@@ -31,7 +31,7 @@ public class DatePickerFragment extends DialogFragment
             DatePickerFragment.this.getActivity(),
             this,
             this.default_date.getYear(),
-            this.default_date.getMonthOfYear(),
+            this.default_date.getMonthOfYear() - 1, // android uses zero indexed months
             this.default_date.getDayOfMonth()
         );
     }
@@ -39,7 +39,7 @@ public class DatePickerFragment extends DialogFragment
     public void onDateSet(DatePicker view, int year, int month, int day) {
         this.activity.show_for_date = this.activity.show_for_date.withDate(
             year,
-            month,
+            month + 1,
             day
         );
 
