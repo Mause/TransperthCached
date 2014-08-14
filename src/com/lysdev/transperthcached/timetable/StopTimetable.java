@@ -39,7 +39,16 @@ public class StopTimetable {
 
     public Vector<Visit> getForWeekdayNumber(int day_num) {
         assert 0 <= day_num && day_num <= 6;
-        return getForWeekday(DAY_NAMES[day_num]);
+
+        if (0 <= day_num && day_num <= 4) {
+            return weekdays;
+        } else if (day_num == 5) {
+            return saturdays;
+        } else if (day_num == 6) {
+            return sundays;
+        } else {
+            throw new java.lang.Error("Bad day_num");
+        }
     }
 
     public Vector<Visit> getForDayType(String day_type) {
