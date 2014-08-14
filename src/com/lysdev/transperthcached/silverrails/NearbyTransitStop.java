@@ -22,8 +22,6 @@ import com.lysdev.transperthcached.Util;
 
 
 public class NearbyTransitStop extends TransitStop {
-    private static final String BASE_URL = "http://journeyplanner.silverrailtech.com/JourneyPlannerService/V2/REST/";
-
     public NearbyTransitStop(
         int distance,
 
