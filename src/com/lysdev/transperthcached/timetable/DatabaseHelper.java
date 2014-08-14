@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.myContext = context;
     }
 
-    public void createDataBase() throws IOException {
+    public void createDataBase() throws Error {
         if (!checkDataBase()) {
             this.getReadableDatabase();
 
