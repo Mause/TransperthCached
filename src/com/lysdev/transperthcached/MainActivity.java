@@ -63,6 +63,18 @@ public class MainActivity extends FragmentActivity {
 
         Log.d("TransperthCached", "initialized");
 
+        loadSaveInstanceState(savedInstanceState);
+        setupUI();
+
+        if (savedInstanceState != null) {
+            // cannot set this till the ui is setup
+            stop_num_widget.setText(
+                savedInstanceState.getString("stop_number")
+            );
+        }
+    }
+
+    protected void setupUI() {
         stop_display = (ListView) findViewById(R.id.visits);
 
         ArrayList<String> visits = new ArrayList<String>();
@@ -76,6 +88,23 @@ public class MainActivity extends FragmentActivity {
         show_for_date = new DateTime();
         updateTimeButtonText();
         updateDateButtonText();
+    }
+
+    protected void loadSaveInstanceState(Bundle inState) {
+        if (inState == null) {
+            show_for_date = new DateTime();
+        } else {
+            show_for_date = DateTime.parse(
+                inState.getString("show_for_date")
+            );
+
+        }
+    }
+
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString("show_for_date", show_for_date.toString());
+
+        outState.putString("stop_number", stop_num_widget.getText().toString());
     }
 
     protected void onDestroy() {
