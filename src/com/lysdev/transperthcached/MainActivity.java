@@ -249,7 +249,14 @@ public class MainActivity extends FragmentActivity {
         new MyLocation().getLocation(this, locationResult);
     }
 
+    // should stop multiple dialogs
+    private boolean waiting_for_user_selection = false;
     public void nearbyButtonCallback(Location location) {
+        if (waiting_for_user_selection) {
+            Log.d("TransperthCached", "Dialog already open");
+            return;
+        }
+        waiting_for_user_selection = true;
 
         ArrayList<NearbyTransitStop> stops = GetNearbyTransitStops.getNearby(
             getResources().getString(R.string.silverrails_apikey),
@@ -259,6 +266,7 @@ public class MainActivity extends FragmentActivity {
 
         SelectStopDialogOnSelected callback = new SelectStopDialogOnSelected() {
             public void onSelected(NearbyTransitStop stop) {
+                waiting_for_user_selection = false;
                 stop_num_widget.setText(stop.getCode());
             }
         };
