@@ -228,6 +228,8 @@ public class MainActivity extends FragmentActivity {
                 )
             );
         }
+
+        stop_display.setSelection(0);
     }
 
     public void nearbyButtonClicked(View v) {
