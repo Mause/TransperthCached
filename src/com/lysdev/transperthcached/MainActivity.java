@@ -1,10 +1,10 @@
 package com.lysdev.transperthcached;
 
 // Standard library
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Vector;
-import java.io.IOException;
 
 // android sdk
 import android.app.Activity;
@@ -91,7 +91,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     protected void setupUI() {
-        stop_display = (ListView) findViewById(R.id.visits);
+        stop_display =    (ListView) findViewById(R.id.visits);
         stop_num_widget = (EditText) findViewById(R.id.stop_number);
 
         stop_display_source = new ArrayAdapter<String>(
@@ -204,7 +204,7 @@ public class MainActivity extends FragmentActivity {
     public void hideSoftKeyboard() {
         InputMethodManager inputMethodManager;
 
-        inputMethodManager = (InputMethodManager)  getSystemService(
+        inputMethodManager = (InputMethodManager) getSystemService(
             Activity.INPUT_METHOD_SERVICE
         );
         inputMethodManager.hideSoftInputFromWindow(
@@ -278,8 +278,7 @@ public class MainActivity extends FragmentActivity {
             }
         };
 
-        MyLocation myLocation = new MyLocation();
-        myLocation.getLocation(this, locationResult);
+        new MyLocation().getLocation(this, locationResult);
     }
 
     public void nearbyButtonCallback(Location location) {
@@ -298,25 +297,15 @@ public class MainActivity extends FragmentActivity {
             location.getLongitude()
         );
 
-        for (NearbyTransitStop stop : stops) {
-            Log.d("TransperthCached", "Nearby: " + stop.toString());
-        }
-
         SelectStopDialogOnSelected callback = new SelectStopDialogOnSelected() {
             public void onSelected(NearbyTransitStop stop) {
-                nearbyStopSelect(stop);
+                stop_num_widget.setText(stop.getCode());
             }
         };
 
-        SelectStopDialog dialog = new SelectStopDialog(stops, callback);
-
-        dialog.show(
+        new SelectStopDialog(stops, callback).show(
             getSupportFragmentManager(),
             "TransperthCached"
         );
-    }
-
-    protected void nearbyStopSelect(NearbyTransitStop stop) {
-        stop_num_widget.setText(stop.getCode());
     }
 }

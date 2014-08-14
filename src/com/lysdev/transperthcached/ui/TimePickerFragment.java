@@ -29,15 +29,12 @@ public class TimePickerFragment extends DialogFragment
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         return new TimePickerDialog(
-            TimePickerFragment.this.getActivity(),
-            this,
+            getActivity(), this,
 
             this.default_time.getHourOfDay(),
             this.default_time.getMinuteOfHour(),
 
-            DateFormat.is24HourFormat(
-                TimePickerFragment.this.getActivity()
-            )
+            DateFormat.is24HourFormat(getActivity())
         );
     }
 
