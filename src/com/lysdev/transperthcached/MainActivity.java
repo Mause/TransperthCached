@@ -217,8 +217,8 @@ public class MainActivity extends FragmentActivity {
 
     private void displayVisits(Vector<Visit> visits) {
         // clear so we can display the new data
-
         stop_display_source.clear();
+
         for (Visit visit : visits) {
             stop_display_source.add(
                 String.format(
@@ -250,14 +250,6 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void nearbyButtonCallback(Location location) {
-        Log.d(
-            "TransperthCached",
-            String.format(
-                "Got location: %f S, %f S",
-                location.getLatitude(),
-                location.getLongitude()
-            )
-        );
 
         ArrayList<NearbyTransitStop> stops = GetNearbyTransitStops.getNearby(
             getResources().getString(R.string.silverrails_apikey),

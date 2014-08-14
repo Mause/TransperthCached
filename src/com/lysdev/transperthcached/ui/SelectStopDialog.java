@@ -85,4 +85,3 @@ public class SelectStopDialog extends DialogFragment {
         return dialog;
     }
 }
-
