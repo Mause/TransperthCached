@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <EditText
+        android:id="@+id/stop_number"
+        android:inputType="number"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center"
+
+        android:maxLength="5"
+        android:hint="@string/stop_number_hint"
+    />
+
+    <Button
+        android:id="@+id/date_select_button"
+        android:onClick="dateSelectButtonClicked"
+
+        android:gravity="center_vertical|center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/stop_number"
+        android:layout_toLeftOf="@+id/time_select_button"
+
+        android:text="@string/date_select_text"
+
+        />
+
+    <Button
+        android:id="@+id/time_select_button"
+        android:onClick="timeSelectButtonClicked"
+
+        android:gravity="center_vertical|center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/stop_number"
+
+        android:text="@string/time_select_text"
+        />
+
+    <Button
+        android:id="@+id/button_show"
+        android:onClick="showForStop"
+
+        android:gravity="center_vertical|center"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+
+        android:layout_below="@id/time_select_button"
+
+        android:text="@string/show_button_text"
+        />
+
+    <ListView
+        android:id="@+id/visits"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center"
+
+        android:layout_below="@id/button_show"
+        />
+</RelativeLayout>

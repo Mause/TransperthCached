@@ -1,0 +1,26 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.sublime-workspace",
+				"*.hx"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+    "SublimeLinter": {
+        "linters": {
+            "javac": {
+                "args": [
+	                "-cp",
+					"C:\\Program Files (x86)\\Android SDK\\platforms\\android-19\\android.jar;C:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCachedNativeA\\libs\\joda-time-2.4.jar;C:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCachedNativeA\\libs\\android-support-v4.jar",
+					"-sourcepath",
+					"C:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCachedNativeA\\gen\\com\\lysdev\\transperthcached\\;C:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCachedNativeA\\src"
+				]
+			}
+		}
+	}
+}

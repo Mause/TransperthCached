@@ -1,0 +1,3342 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"DateT",
+				"DateTimeFormatter"
+			],
+			[
+				"to",
+				"toLocalTime"
+			],
+			[
+				"Spin",
+				"SpinnerButtonStyle"
+			],
+			[
+				"show",
+				"show_for_date"
+			],
+			[
+				"stop",
+				"stop_display_source"
+			],
+			[
+				"stop_",
+				"stop_display_source"
+			],
+			[
+				"DatePick",
+				"DatePickerFragment"
+			],
+			[
+				"Date",
+				"DatePickerFragment"
+			],
+			[
+				"getS",
+				"getSupportFragmentManager"
+			],
+			[
+				"new",
+				"newFragment"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"cen",
+				"center_vertical"
+			],
+			[
+				"la",
+				"layout_height"
+			],
+			[
+				"lay",
+				"layout_width"
+			],
+			[
+				"TimeP",
+				"TimePickerFragment"
+			],
+			[
+				"Dat",
+				"DateFormat"
+			],
+			[
+				"Time",
+				"TimePickerFragment"
+			],
+			[
+				"hour",
+				"hourOfDay"
+			],
+			[
+				"sql",
+				"SQLException"
+			],
+			[
+				"SQ",
+				"SQLiteDatabase"
+			],
+			[
+				"DB",
+				"DB_PATH"
+			],
+			[
+				"D",
+				"DatabaseHelper"
+			],
+			[
+				"Tran",
+				"TransperthCached"
+			],
+			[
+				"Tr",
+				"TransperthCached"
+			],
+			[
+				"Trans",
+				"transperthcached"
+			],
+			[
+				"buil",
+				"build_result"
+			],
+			[
+				"Sqli",
+				"SQLiteDatabase"
+			],
+			[
+				"from",
+				"fromRaw"
+			],
+			[
+				"text",
+				"selectedTextFormat	openfl.text.TextFormat"
+			],
+			[
+				"get",
+				"getComponent(...)	haxe.ui.toolkit.core.Component"
+			],
+			[
+				"DC",
+				"DCCommands"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"tim",
+				"time"
+			],
+			[
+				"time",
+				"timetable"
+			],
+			[
+				"s",
+				"sort(...)	Void"
+			],
+			[
+				"date",
+				"dateSelectButtonClickedCallback	function"
+			],
+			[
+				"hx",
+				"hxcpp [3.1.39]"
+			],
+			[
+				"in",
+				"initalizeUI	function"
+			],
+			[
+				"hors",
+				"hours	var"
+			],
+			[
+				"find",
+				"findChild(...)	Null<findChild.T>"
+			],
+			[
+				"init",
+				"initialize	function"
+			],
+			[
+				"_d",
+				"_display	haxe.ui.toolkit.core.interfaces.IDisplayObject"
+			],
+			[
+				"i",
+				"initialize()	Void"
+			],
+			[
+				"g",
+				"getMinutes()	Int"
+			],
+			[
+				"val",
+				"val_field	var"
+			],
+			[
+				"upper",
+				"upper_limit_set	var"
+			],
+			[
+				"shw",
+				"show_for_day"
+			],
+			[
+				"Pop",
+				"PopupButton	haxe.ui.toolkit.core.PopupManager"
+			],
+			[
+				"Arr",
+				"ArrayDataSource	class"
+			],
+			[
+				"add",
+				"addChild(...)	haxe.ui.toolkit.core.interfaces.IDisplayObject"
+			],
+			[
+				"con",
+				"containers	package"
+			],
+			[
+				"Number",
+				"NumberSelect	class"
+			],
+			[
+				"Macros",
+				"Macros	haxe.ui.toolkit.core"
+			],
+			[
+				"Input",
+				"TextInput	haxe.ui.toolkit.controls"
+			],
+			[
+				"Display",
+				"DisplayObject	flash.display"
+			],
+			[
+				"Popup",
+				"PopupButton	haxe.ui.toolkit.core.PopupManager"
+			],
+			[
+				"list",
+				"List<T>	class"
+			],
+			[
+				"FileS",
+				"FileSystem	class"
+			],
+			[
+				"FIleS",
+				"FileSystem	class"
+			],
+			[
+				"Sq",
+				"SqliteConnection	class"
+			],
+			[
+				"Result",
+				"SqliteResultset	class"
+			],
+			[
+				"Sqlite",
+				"SqliteResultset	class"
+			],
+			[
+				"String",
+				"StringBuf	class"
+			],
+			[
+				"escape",
+				"escaped_stop_num"
+			],
+			[
+				"day",
+				"day_types"
+			],
+			[
+				"peek",
+				"peekBuffer	function"
+			],
+			[
+				"cache",
+				"CacheFormatSource	class"
+			],
+			[
+				"Invalid",
+				"InvalidCache	class"
+			],
+			[
+				"read",
+				"readByte	function"
+			],
+			[
+				"ftd",
+				"for_day_type	var"
+			],
+			[
+				"TUple",
+				"Tuple2	haxe.more.data.structures.Tuple"
+			],
+			[
+				"tuple",
+				"Tuple2	haxe.more.data.structures.Tuple"
+			],
+			[
+				"byte",
+				"byte	var"
+			],
+			[
+				"Byte",
+				"BytesInput	class"
+			],
+			[
+				"sut",
+				"saturday	forflow"
+			],
+			[
+				"dum",
+				"dump_day_type	function"
+			],
+			[
+				"trac",
+				"transperthcache"
+			],
+			[
+				"sk",
+				"skins(...)	ru.stablex.ui.skins.Skin>"
+			],
+			[
+				"Scr",
+				"ScrollView	haxe.ui.toolkit.containers"
+			],
+			[
+				"t",
+				"toolkit	package"
+			],
+			[
+				"da",
+				"dataSource"
+			],
+			[
+				"as",
+				"as24Hour"
+			],
+			[
+				"S",
+				"String"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"Fi",
+				"FileSystem"
+			],
+			[
+				"Ass",
+				"AssetData"
+			],
+			[
+				"bytes",
+				"Bytes	haxe.io"
+			],
+			[
+				"Com",
+				"CompressionAlgorithm	flash.utils"
+			],
+			[
+				"part",
+				"partOfDay"
+			],
+			[
+				"for",
+				"formatter	var"
+			],
+			[
+				"L",
+				"ListView	class"
+			],
+			[
+				"ad",
+				"addChild(...)	haxe.ui.toolkit.core.interfaces.IDisplayObject"
+			],
+			[
+				"pr",
+				"processXmlResource(...)	Null<processXmlResource.T>"
+			],
+			[
+				"St",
+				"StopTimetable"
+			],
+			[
+				"gz",
+				"gzipped_bytes	var"
+			],
+			[
+				"gen",
+				"generateImage(...)	Void"
+			],
+			[
+				"COlour",
+				"ColourStream	class"
+			],
+			[
+				"cde",
+				"code	var"
+			],
+			[
+				"getc",
+				"getChar( echo : Bool )	Int"
+			],
+			[
+				"std",
+				"stdout()	haxe.io.Output"
+			],
+			[
+				"Satte",
+				"States	class"
+			],
+			[
+				"Enum",
+				"Enum<T>	class"
+			],
+			[
+				"var",
+				"variables"
+			],
+			[
+				"inter",
+				"interpret	function"
+			],
+			[
+				"create",
+				"createInstance(...)	createInstance.T"
+			],
+			[
+				"en",
+				"engine	package"
+			],
+			[
+				"Internal",
+				"InternalFlashWorker	workers.FlashWorker"
+			],
+			[
+				"cr",
+				"createInstance(...)	createInstance.T"
+			],
+			[
+				"es",
+				"elseif"
+			],
+			[
+				"Th",
+				"ThreadPool	class"
+			],
+			[
+				"Deque",
+				"LinkedDeque<T>	de.polygonal.ds"
+			],
+			[
+				"Mutex",
+				"Mutex	flash.concurrent"
+			],
+			[
+				"Thread",
+				"ThreadWorker	class"
+			],
+			[
+				"Promise",
+				"PromiseNotYetResolved	threading.Promise"
+			],
+			[
+				"Autom",
+				"AutomicInteger	haxe.concurrent"
+			],
+			[
+				"Promi",
+				"PromiseNotYetResolved"
+			],
+			[
+				"Worker",
+				"WorkerJobQueue	class"
+			],
+			[
+				"Prm",
+				"PromiseArray"
+			],
+			[
+				"shut",
+				"shutdown"
+			],
+			[
+				"Threa",
+				"ThreadPool"
+			],
+			[
+				"else",
+				"elseif"
+			],
+			[
+				"Work",
+				"WorkerThread	ThreadPool"
+			],
+			[
+				"work",
+				"work_queue	var"
+			],
+			[
+				"wor",
+				"worker_num	var"
+			],
+			[
+				"Ite",
+				"Iterator<T>	class"
+			],
+			[
+				"Iter",
+				"Iterable<T>	class"
+			],
+			[
+				"pro",
+				"processor	var"
+			],
+			[
+				"pac",
+				"panicking"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/com/lysdev/transperthcached/MainActivity.java",
+			"settings":
+			{
+				"buffer_size": 5006,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "traces.txt",
+			"settings":
+			{
+				"buffer_size": 60002,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "package com.lysdev.transperthcached.ui;\n\nimport java.util.Calendar;\n\nimport android.app.Activity;\nimport android.app.DatePickerDialog;\nimport android.app.Dialog;\nimport android.os.Bundle;\nimport android.support.v4.app.DialogFragment;\nimport android.text.format.DateFormat;\nimport android.util.Log;\nimport android.widget.DatePicker;\n\n\nimport com.lysdev.transperthcached.MainActivity;\n\n\npublic class DatePickerFragment extends DialogFragment\n                             implements DatePickerDialog.OnDateSetListener {\n\n    private MainActivity activity;\n\n    public DatePickerFragment(MainActivity activity) {\n        super();\n        this.activity = activity;\n    }\n\n    @Override\n    public Dialog onCreateDialog(Bundle savedInstanceState) {\n        // Use the current date as the default date in the picker\n        final Calendar c = Calendar.getInstance();\n        int year = c.get(Calendar.YEAR);\n        int month = c.get(Calendar.MONTH);\n        int day = c.get(Calendar.DAY_OF_MONTH);\n\n        // Create a new instance of DatePickerDialog and return it\n        return new DatePickerDialog(DatePickerFragment.this.getActivity(), this, year, month, day);\n    }\n\n    public void onDateSet(DatePicker view, int year, int month, int day) {\n        this.activity.show_for_date = this.activity.show_for_date.withDate(\n            year,\n            month,\n            day\n        );\n\n        view.\n    }\n}\n",
+			"file": "src/com/lysdev/transperthcached/ui/DatePickerFragment.java",
+			"file_size": 1437,
+			"file_write_time": 130520356332996153,
+			"settings":
+			{
+				"buffer_size": 1405,
+				"line_ending": "Windows",
+				"name": "public static class DatePickerFragment extends Dia"
+			}
+		},
+		{
+			"file": "src/com/lysdev/transperthcached/timetable/StopTimetable.java",
+			"settings":
+			{
+				"buffer_size": 2265,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/com/lysdev/transperthcached/ui/TimePickerFragment.java",
+			"settings":
+			{
+				"buffer_size": 1725,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "i didn't go because all that would have happened would and me finding myself in a corner feeling sorry for myself, denying all offers or requests for dances or drinks, just as i have at every remotely smiiliar social gathering; socials all through primary schools, high school, the school ball and assosiated afters, and the party at the strt of this year.\n\nexcuse enough?",
+			"settings":
+			{
+				"buffer_size": 372,
+				"line_ending": "Windows",
+				"name": "i didn't go because all that would have happened w"
+			}
+		},
+		{
+			"file": "src/com/lysdev/transperthcached/Main.hx",
+			"settings":
+			{
+				"buffer_size": 1538,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/com/lysdev/transperthcached/timetable/Timetable.java",
+			"settings":
+			{
+				"buffer_size": 3686,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/com/lysdev/transperthcached/timetable/DatabaseHelper.java",
+			"settings":
+			{
+				"buffer_size": 3274,
+				"line_ending": "Windows",
+				"name": "public class"
+			}
+		},
+		{
+			"contents": "Searching 6 files for \"Log.d\" (case sensitive)\n\nC:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCachedNativeA\\src\\com\\lysdev\\transperthcached\\MainActivity.java:\n   31  \n   32          this.timetable = new Timetable();\n   33:         Log.d(\"TransperthCached\", \"initializing\");\n   34          this.timetable.initialize(getApplicationContext());\n   35:         Log.d(\"TransperthCached\", \"initialized\");\n   36  \n   37          stop_display = (ListView) findViewById(R.id.visits);\n   ..\n   51          StopTimetable stop_timetable = this.timetable.getVisitsForStop(stop_num);\n   52          if (stop_timetable == null) {\n   53:             Log.d(\"TransperthCached\", String.format(\"No such stop as %s\", stop_num));\n   54              return;\n   55          } else {\n   56:             Log.d(\n   57                  \"TransperthCached\",\n   58                  String.format(\"Displaying visits for %s\", stop_num)\n   ..\n   67  \n   68          if (forDayType == null || forDayType.isEmpty()) {\n   69:             Log.d(\n   70                  \"TransperthCached\",\n   71                  String.format(\n   ..\n   77          }\n   78  \n   79:         // Log.d(\"TransperthCached\", \"for time: \" + forTime.as24Hour() + \" ->\" + forTime);\n   80  \n   81  \n   ..\n   85          //     var isValid = visit.time.as24Hour() > forTime.as24Hour();\n   86  \n   87:         //     // if (isValid) Log.d(visit + ' is valid');\n   88:         //     // else         Log.d(visit + ' is not valid');\n   89  \n   90          //     return isValid;\n   ..\n  100  \n  101          if (valid.isEmpty()) {\n  102:             Log.d(\"TransperthCached\", \"No more stops today\");\n  103              return;\n  104          } else {\n  105:             Log.d(\"TransperthCached\", valid.toString());\n  106          }\n  107  \n\nC:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCachedNativeA\\src\\com\\lysdev\\transperthcached\\timetable\\Timetable.java:\n   36              this.db = helper.openDataBase();\n   37          } catch (SQLException sqle) {\n   38:             Log.d(\"TransperthCached\", \"Caught SQLException\");\n   39              throw sqle;\n   40          }\n   ..\n   46          //     SQLiteDatabase.OPEN_READONLY\n   47          // );\n   48:         Log.d(\"TransperthCached\", \"Its open? \"  + db.isOpen());\n   49      }\n   50  \n   ..\n   79  \n   80      private StopTimetable _getVisitsForStop_uncached(String stop_num) {\n   81:         Log.d(\"TransperthCached\", \"getting results from db\");\n   82  \n   83          if (db == null)\n   84:             Log.d(\"TransperthCached\", \"Bad database\");\n   85  \n   86          Cursor cursor = db.query(\n   ..\n  100          }\n  101  \n  102:         Log.d(\"columns:\", cursor.getColumnNames().toString());\n  103  \n  104          Vector<Visit> weekdays = new Vector<Visit>();\n  ...\n  119              num_results++;\n  120          }\n  121:         Log.d(\"TransperthCached\", num_results + \" results\");\n  122  \n  123:         // Log.d(\"TransperthCached\", weekdays.length + \" weekdays\");\n  124:         // Log.d(\"TransperthCached\", saturday.length + \" saturday\");\n  125:         // Log.d(\"TransperthCached\", sunday.length   + \" sunday\");\n  126  \n  127          StopTimetable st = new StopTimetable(\n  ...\n  133          );\n  134          _cache.put(stop_num, st);\n  135:         Log.d(\"TransperthCached\", \"cached\");\n  136  \n  137          // StopTimetable st = new StopTimetable(\n\nC:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCachedNativeA\\src\\com\\lysdev\\transperthcached\\ui\\TimePickerFragment.java:\n   29      //     );\n   30  \n   31:     //     Log.d(\"onTimeSet:\", getActivity().show_for_day.toString());\n   32  \n   33      //     // show_for_day = content.selectedTime.addToDate(\n\n21 matches across 3 files\n",
+			"settings":
+			{
+				"buffer_size": 3687,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "transperthcachednativea.sublime-project",
+			"settings":
+			{
+				"buffer_size": 740,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "res/layout/main.xml",
+			"settings":
+			{
+				"buffer_size": 1852,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "res/values/strings.xml",
+			"settings":
+			{
+				"buffer_size": 283,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/com/lysdev/transperthcached/timetable/Visit.java",
+			"settings":
+			{
+				"buffer_size": 972,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 287.0,
+		"selected_items":
+		[
+			[
+				"disa",
+				"SublimeLinter: Disable Debug Mode"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"enable",
+				"SublimeLinter: Enable Debug Mode"
+			],
+			[
+				"an",
+				"Import Android Classes"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"lowe",
+				"Convert Case: Lower Case"
+			],
+			[
+				"shwo",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"debug",
+				"SublimeLinter: Disable Debug Mode"
+			],
+			[
+				"show",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"haxe",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"sypy",
+				"Set Syntax: Python 3"
+			],
+			[
+				"upgrade",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"hax",
+				"Haxe: Choose Build Target"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"pgrade",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reindent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"redi",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"redin",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reidn",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"sho",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"reindnet",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reine",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"shw",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"reint",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"syndjango",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"sow",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"disaac",
+				"Package Control: Disable Package"
+			],
+			[
+				"dis",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"showsave",
+				"SublimeLinter: Don’t Show Errors on Save"
+			],
+			[
+				"errors on ",
+				"SublimeLinter: Show Errors on Save"
+			],
+			[
+				"python",
+				"Set Syntax: Python 3"
+			],
+			[
+				"hsow",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"synpy",
+				"Set Syntax: Python 3"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"uniq",
+				"Permute Lines: Unique"
+			],
+			[
+				"unique",
+				"Permute Lines: Unique"
+			],
+			[
+				"upgrd",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"shiw",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"showe",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"http",
+				"HttpStatusCode: Http Status Code"
+			],
+			[
+				"dsiable",
+				"Package Control: Disable Package"
+			],
+			[
+				"diable",
+				"Package Control: Disable Package"
+			],
+			[
+				"disl",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"disabl",
+				"Package Control: Disable Package"
+			],
+			[
+				"sshwo",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"shwp",
+				"Snippet: While Loop"
+			],
+			[
+				"replpy",
+				"SublimeREPL: Python"
+			],
+			[
+				"enal",
+				"Package Control: Enable Package"
+			],
+			[
+				"how",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"sshow",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"minimap",
+				"View: Toggle Minimap"
+			],
+			[
+				"sh",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"SHOW",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"django",
+				"Django: Custom Command"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"markdown",
+				"Set Syntax: Markdown"
+			],
+			[
+				"shwoe",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"replp",
+				"SublimeREPL: Python"
+			],
+			[
+				"sublimerepl ipyhon",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"howe",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"a",
+				"About"
+			],
+			[
+				"upgrae",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"upd",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"pyh",
+				"Set Syntax: Python 3"
+			],
+			[
+				"sowe",
+				"SublimeREPL: PowerShell"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"sor",
+				"Sort Lines"
+			],
+			[
+				"run",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"lowee",
+				"Convert Case: Lower Case"
+			],
+			[
+				"soet",
+				"Set Syntax: Objective-C"
+			],
+			[
+				"shwe",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"sjowe",
+				"SublimeREPL: ClojureScript Browser REPL"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"shoe",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"sjow",
+				"SublimeREPL: ClojureScript Browser REPL"
+			],
+			[
+				"wrap",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"console",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"en",
+				"Package Control: Enable Package"
+			],
+			[
+				"jin",
+				"Set Syntax: Jinja Templates"
+			],
+			[
+				"disco",
+				"Package Control: Discover Packages"
+			],
+			[
+				"pep",
+				"Package Control: Enable Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"sublimelinter",
+				"SublimeLinter: Choose Mark Style"
+			],
+			[
+				"gutter",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"package control: u",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"sublime",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"enabl",
+				"Package Control: Enable Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"syn handle",
+				"Set Syntax: Handlebars"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"subrepl",
+				"SublimeREPL: SBT for opened folder"
+			],
+			[
+				"subrepl ",
+				"SublimeREPL: SBT for opened folder"
+			],
+			[
+				"sublimerepl",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"sub power",
+				"SublimeREPL: PowerShell"
+			],
+			[
+				"sube power",
+				"SublimeREPL: PowerShell"
+			],
+			[
+				"ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"snippet",
+				"Snippet: Prototype"
+			],
+			[
+				"linter",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"shwoo",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"htp",
+				"HttpStatusCode: Http Status Code"
+			],
+			[
+				"handle",
+				"Set Syntax: Handlebars"
+			],
+			[
+				"hand",
+				"Set Syntax: Handlebars"
+			],
+			[
+				"handl",
+				"Set Syntax: Handlebars"
+			],
+			[
+				"snippet: handlebars",
+				"Snippet: handlebars template"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"hso",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"h",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"anno",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"extact",
+				"SublimeLinter: Extract Annotations"
+			]
+		],
+		"width": 402.0
+	},
+	"console":
+	{
+		"height": 543.0,
+		"history":
+		[
+			"sublime.windows()[1].project_data()",
+			"sublime.windows()[0].project_data()",
+			"sublime.windows()[0]",
+			"sublime.windows()",
+			"3 % 12",
+			"13 % 12",
+			"12 % 12",
+			"125/2",
+			"125/3",
+			"125/10",
+			"b''",
+			"b''",
+			"0x1c",
+			"b''",
+			"b'    '",
+			"'    '",
+			"0x1c",
+			"0 / 5",
+			"str.__contains__",
+			"''.__contains__",
+			"chr(ord('m'))",
+			"chr.__doc__",
+			"int(False)",
+			"object.__getattribute__",
+			"object.__getattr__",
+			"os.path.splitext",
+			"os.splitext",
+			"import os",
+			"imp.load_source('', '')",
+			"imp.load_source('', '')(",
+			"import imp",
+			"os.system('taskmgr')",
+			"import os",
+			"pow",
+			"help",
+			"format",
+			"datetime.__doc__",
+			"from datetime import datetime",
+			"round.__doc__",
+			"round.__help__",
+			"True / True / 5**5",
+			"True / True / 5",
+			"True / True / 1",
+			"True / True / 0",
+			"True / True / False",
+			"True / True",
+			"True * True",
+			"True - True",
+			"True + True",
+			"True & True",
+			"True and True",
+			"True or True",
+			"True || True",
+			"True | True",
+			"'1' > '0'",
+			"'' > '0'",
+			"'' > ''",
+			"False()",
+			"defaultdict.__doc__",
+			"from collections import defaultdict",
+			"max.__doc__",
+			"bool()",
+			"[].get",
+			"exec",
+			"$lng = 'w'",
+			"$lng = w",
+			"os.getcwd()",
+			"import lint",
+			"import lnt",
+			"os.getcwd()",
+			"import os",
+			"which",
+			"key",
+			"TimeoutError",
+			"bytes.decode(b'')",
+			"str.decode(b'')",
+			"str.encode(b'')",
+			"str.encode",
+			"str.decode",
+			"int('')",
+			"int()",
+			"enumerate",
+			"string.punctuation.strip(string.punctuation)",
+			"string.punctuation",
+			"string.puncuation",
+			"import string",
+			"pprint(list(str.__dict__.keys()))",
+			"from pprint import pprint",
+			"str.__dict__.keys()",
+			"str.__dict__",
+			"str.alphabet",
+			"str",
+			"int.__str__(555**555)",
+			"int.__str__(0)",
+			"int.__str__()",
+			"int.__str__",
+			"import UserDict",
+			"ctypes.load",
+			"ctypes.loadDll",
+			"ctypes.loaddll",
+			"import ctypes",
+			"dir(types)",
+			"pydoc.help(types)",
+			"import pydoc",
+			"pydoc.help(types)",
+			"help(types)",
+			"types.function",
+			"import types",
+			"19/2",
+			"tuple",
+			"tuple()",
+			"()()",
+			"tuple = lambda: None",
+			"()()",
+			"os.environ.get",
+			"os.environ",
+			"import os",
+			"imoprt os",
+			"os",
+			"raise RuntimeError('the world is ending')",
+			"raise RuntimeError(*[])",
+			"raise RuntimeError()",
+			"raise RuntimeError*(",
+			"raise RuntimeError",
+			"int('a')",
+			"int('a",
+			"object.__reduce__(0, 1)",
+			"object.__reduce__(self, 1)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": false,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/gen/com",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/gen/com/lysdev",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/gen/com/lysdev/transperthcached",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/res",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/res/layout",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/res/values",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/src",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/src/com",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/src/com/lysdev",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/src/com/lysdev/transperthcached",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/src/com/lysdev/transperthcached/timetable",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/src/com/lysdev/transperthcached/ui"
+	],
+	"file_history":
+	[
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/gen/com/lysdev/transperthcached/R.java",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/dumpstate.log",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/transperthcachednativea.sublime-project",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/proguard-project.txt",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/project.properties",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCachedNativeA/src/com/lysdev/transperthcached/timetable/DatabaseHelper.java",
+		"/C/Users/Mause/AppData/Local/Temp/7zO2485.tmp/README.txt",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/PrimaryController.hx",
+		"/C/Videos/to_get.txt",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/gistfile1.xxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/project.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/haxe/debug.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/haxe/release.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/haxe/final.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/flash/haxe/ApplicationMain.hx",
+		"/C/Users/Mause/Dropbox/Tumblr/find-original/main.py",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/documentation/ImportAll.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/transperthcached/ImportAll.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/haxe/ui/toolkit/themes/GradientMobileTheme.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/format/gfx/GfxExtent.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/haxe/ui/toolkit/containers/Grid.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/motion/_Actuate/TransformOptions.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/transperthcache.json",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/TTime.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/Main.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/ByteArrayTools.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/ui/TimeSelectPopupContent.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/ui/NumberSelect.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/timetable/Visit.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/timetable/Timetable.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/timetable/StopTimetable.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/PrimaryController.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/neko/haxe/debug.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/neko/bin/assets/stablex_ui.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/neko/bin/assets/ui.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/neko/bin/assets/timetable.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/neko/bin/assets/timeselect.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/neko/bin/assets/numberselect.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/neko/bin/lime.ndll",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/numberselect.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/flash/haxe/debug.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/flash/haxe/final.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/flash/haxe/release.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/cpp/haxe/debug.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/cpp/haxe/final.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/cpp/haxe/release.hxml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/haxe/ui/toolkit/core/XMLController.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/deps/extension-api/src/org/haxe/HXCPP.java",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/openfl/events/HTTPStatusEvent.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/Xml.h",
+		"/C/Users/Mause/Enc/brd.txt",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/timeselect.xml",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/std/sys/db/Sqlite.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/build_db.py",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/Visit.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/TimeSelectPopupContent.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/NumberSelect.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/haxe/DefaultAssetLibrary.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/Timetable.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/StopTimetable.hx",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/std/neko/_std/Date.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/openfl/text/TextLineMetrics.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/motion/_Actuate/TweenTimer.h",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/std/Date.hx",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/lib/openfl/2,0,1/backends/native/openfl/Lib.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/haxe/lime/AssetData.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/ui.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/stablex_ui.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/TransperthCached-debug-unaligned.apk.d",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/gen_code/assets_stablex_ui_xml.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/Options.txt",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/Build.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/StablexMain.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/TransperthCached.sublime-project",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/std/cpp/_std/sys/db/Sqlite.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/android/db/SqliteResultSet.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/android/db/Sqlite.hx",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/lib/hxcpp/3,1,39/src/hx/Lib.cpp",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/strings.txt",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/sqlite3",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/TransperthCached.ap_.d",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/TransperthCached-debug-unaligned.apk",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/TransperthCached-debug.apk",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/TransperthCached.ap_",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/TransperthCached.hxproj",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/transperthcache.json.gz",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/.build",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/dexedLibs/MANIFEST.MF",
+		"/C/Users/Mause/AppData/Local/Temp/7zE1405.tmp/MANIFEST.MF",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/android/db/Connection.hx",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/std/sys/db/Connection.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/libsqlite3.so",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/lib/hxcpp/3,1,39/java/org/haxe/HXCPP.java",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/TTime.hx.tmp",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/CacheFormat.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/reformat.py",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/transperthcache.bin",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/world.log",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/gviz.html",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/lib/openfl/2,0,0/openfl/Assets.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Source/what",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/src/com/example/transperthcached/MainActivity.java",
+		"/C/Program Files (x86)/Android SDK/add-ons/addon-Galaxy_ace/hardware.ini",
+		"/C/Program Files (x86)/Android SDK/add-ons/addon-Galaxy_ace/manifest.ini",
+		"/C/Program Files (x86)/Android SDK/add-ons/addon-Galaxy_ace/layout",
+		"/C/Program Files (x86)/Android SDK/SDK Readme.txt",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/push.bat",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/adb.bat",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/cpp/Lib.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/openfl/display/LoaderInfo.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/timetable.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/format/svg/DisplayElement.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/format/svg/ArcSegment.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/windows/cpp/haxe/ApplicationMain.hx",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/lib/openfl/2,0,0/backends/flash/openfl/utils/ByteArray.hx",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/lib/openfl/2,0,0/openfl/utils/ByteArray.hx",
+		"/C/Program Files (x86)/HaxeToolkit/haxe/std/flash/utils/ByteArray.hx",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/dexedLibs/classes-4164ca53b693ad6cdc1e313623306a83.jar",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/AndroidManifest.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/TransperthCached-debug - Copy/AndroidManifest.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/bin/TransperthCached-debug - Copy/resources.arsc",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Assets/transperthcache.json.gz",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/bin/AndroidManifest.xml",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/Time.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/haxe/ui/toolkit/controls/CalendarLayout.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/src/IntIterator.cpp",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/IntIterator.h",
+		"/C/Users/Mause/Dropbox/haxe_android/TransperthCached/Export/android/obj/include/IMap.h"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 92.0,
+		"where_history":
+		[
+			"C:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCachedNativeA\\src,-*.hx",
+			"C:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCachedNativeA\\src",
+			"C:\\Users\\Mause\\Dropbox\\colour_box\\src",
+			"D:\\Program Files (x86)\\Steam\\steamapps\\common\\sid meier's civilization v\\Assets\\UI",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp\\gs_interface",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\alp\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\SQuery",
+			"C:\\Users\\Mause\\Shared\\pyalp\\gsQuery",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp\\gs_interface",
+			"%userprofile%\\Shared\\pyalp\\pyalp\\gs_interface",
+			"C:\\Python34\\lib\\site-packages\\tinyrpc\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pualp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp,-*.js,-migrations",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp,-*.js",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\palp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\gameq",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp\\modules\\templates",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp,-*.php",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\",
+			"C:\\Users\\Mause\\Shared\\pyalp\\alp",
+			"C:\\Users\\Mause\\Shared\\pyalp\\pyalp",
+			"C:\\Users\\Mause\\Shared\\pyalp",
+			"C:\\Users\\Mause\\Downloads\\channel4",
+			"C:\\Users\\Mause\\Shared\\table_select_web\\app\\src",
+			"C:\\Users\\Mause\\Shared\\table_select_web\\src\\static\\js",
+			"C:\\Users\\Mause\\Shared\\table_select_web\\src\\js",
+			"C:\\Users\\Mause\\Shared\\table_select_web\\src\\",
+			"C:\\Users\\Mause\\Shared\\table_select_web\\src\\static\\js\\app",
+			"C:\\Users\\Mause\\Shared\\table_select_web\\src\\js\\app",
+			"C:\\Users\\Mause\\Shared\\table_select_web\\src\\app",
+			"C:\\Users\\Mause\\Shared\\table_select_web\\src"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"LinearLayout",
+			"BUilder",
+			"%s",
+			"Visit",
+			"Time",
+			"adapter.",
+			"Activity",
+			"show_for_day",
+			"Activity",
+			"anddroid",
+			"SelectButton\"",
+			"SelectButton",
+			"android:id=\"",
+			"Year",
+			"TimePicker",
+			"TimePickerFragment.this.getActivity()",
+			"lib",
+			", ",
+			"dep",
+			"return ",
+			"Log.d",
+			"trace",
+			"$",
+			"${",
+			"i",
+			"SqliteException",
+			"Log.d(\"_getVisitsForStop_uncached: \", ",
+			"Log.d",
+			"\"showForStop:\", ",
+			"\"initialization: \", ",
+			"Log.d",
+			"'",
+			"trans",
+			"transperthcached",
+			"case",
+			"res.",
+			"getInteger",
+			"getString",
+			"'",
+			"trace",
+			";",
+			"scrollview",
+			"parts",
+			"Std.parseInt(",
+			"button",
+			", ",
+			"initalizeUI",
+			"ShowButtonController",
+			" , ",
+			"__",
+			"default_value",
+			"t.",
+			".default_value",
+			"() d",
+			"val_field.text = default_value;",
+			"(val_field.trim()",
+			"default_value",
+			"num_value != null",
+			"\"0\";",
+			"        if (num_value != null) {",
+			"upper",
+			" : Int;",
+			", '",
+			"(val_field.text != null",
+			"val_field.text",
+			"haxe.ui.toolkit.containers.ListView",
+			"MOUSE_DOWN",
+			"upper",
+			".onClick",
+			"findChildAs",
+			", Button",
+			"_numvalue",
+			"_value",
+			"XMLController",
+			"haxe.ui.toolkit.controls.",
+			"cont.",
+			"tAs",
+			"child.",
+			"haxe.ui.toolkit.containers.",
+			"haxe.ui.toolkit.controls.",
+			" = ",
+			");",
+			"date",
+			"haxe.ui.toolkit.core.PopupManager",
+			"No stops",
+			"sqlite",
+			"close",
+			"srequest",
+			" = ",
+			"result_",
+			"\"sqlite\"",
+			"sys.File.",
+			"sys.File",
+			"_results",
+			"results",
+			"Resultset",
+			"sys.db.Sqlite",
+			"results",
+			"=  ",
+			"built_results",
+			"var ",
+			"escape",
+			"int",
+			"CacheFormat.",
+			"more.exceptions.",
+			"Std.string(",
+			"trace",
+			", ",
+			":",
+			"\"",
+			", ",
+			"bdata.readByte()",
+			"horizontalAlign=\"'center'\"",
+			" verticalAlign=\"bottom\"",
+			"ShowButtonController",
+			"t.",
+			"gzipped_bytes",
+			"bytes",
+			",",
+			"var raw_json",
+			"Time",
+			"return",
+			"\"",
+			"$stop_num",
+			"visit.time.",
+			"int",
+			"seconds",
+			"minutes"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"self.write(packet",
+			",\\n    ",
+			"\\n    ",
+			"\\n",
+			",\\n",
+			" ",
+			"Session",
+			"",
+			"r_session",
+			"json",
+			"",
+			"winreg"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 11,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/com/lysdev/transperthcached/MainActivity.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5006,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								426,
+								426
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "traces.txt",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 60002,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/com/lysdev/transperthcached/ui/DatePickerFragment.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1405,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1382,
+								1382
+							]
+						],
+						"settings":
+						{
+							"auto_name": "public static class DatePickerFragment extends Dia",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/com/lysdev/transperthcached/timetable/StopTimetable.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1532,
+								1532
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 278.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/com/lysdev/transperthcached/ui/TimePickerFragment.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1725,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1337,
+								1347
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								372,
+								372
+							]
+						],
+						"settings":
+						{
+							"auto_name": "i didn't go because all that would have happened w",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/com/lysdev/transperthcached/Main.hx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1538,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								328,
+								328
+							]
+						],
+						"settings":
+						{
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 219.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/com/lysdev/transperthcached/timetable/Timetable.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3686,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1092,
+								1092
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/com/lysdev/transperthcached/timetable/DatabaseHelper.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3274,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1668,
+								1668
+							]
+						],
+						"settings":
+						{
+							"auto_name": "public class",
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 766.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3687,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										231,
+										236
+									],
+									[
+										356,
+										361
+									],
+									[
+										633,
+										638
+									],
+									[
+										777,
+										782
+									],
+									[
+										1000,
+										1005
+									],
+									[
+										1137,
+										1142
+									],
+									[
+										1365,
+										1370
+									],
+									[
+										1431,
+										1436
+									],
+									[
+										1580,
+										1585
+									],
+									[
+										1700,
+										1705
+									],
+									[
+										2005,
+										2010
+									],
+									[
+										2196,
+										2201
+									],
+									[
+										2381,
+										2386
+									],
+									[
+										2493,
+										2498
+									],
+									[
+										2631,
+										2636
+									],
+									[
+										2827,
+										2832
+									],
+									[
+										2906,
+										2911
+									],
+									[
+										2982,
+										2987
+									],
+									[
+										3058,
+										3063
+									],
+									[
+										3255,
+										3260
+									],
+									[
+										3524,
+										3529
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								2940,
+								2940
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 963.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "transperthcachednativea.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 740,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								720,
+								720
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "res/layout/main.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1852,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								466,
+								466
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "res/values/strings.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 283,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								283,
+								283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "src/com/lysdev/transperthcached/timetable/Visit.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 972,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								972,
+								972
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 448.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 236.0
+	},
+	"project": "transperthcachednativea.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"project",
+				"transperthcachednativea.sublime-project"
+			],
+			[
+				"timetable",
+				"src\\com\\lysdev\\transperthcached\\timetable\\Timetable.java"
+			],
+			[
+				"game",
+				"Export\\android\\bin\\src\\org\\haxe\\lime\\GameActivity.java"
+			],
+			[
+				"hxml",
+				"Export\\android\\haxe\\release.hxml"
+			],
+			[
+				"tt",
+				"Source\\TTime.hx"
+			],
+			[
+				"ttime",
+				"Source\\TTime.hx"
+			],
+			[
+				"transperthcached",
+				"Export\\android\\bin\\bin\\TransperthCached-debug-unaligned.apk.d"
+			],
+			[
+				"main",
+				"Source\\Main.hx"
+			],
+			[
+				"libhx",
+				"C:\\Program Files (x86)\\HaxeToolkit\\haxe\\lib\\openfl\\2,0,1\\backends\\native\\openfl\\Lib.hx"
+			],
+			[
+				"def",
+				"Export\\android\\haxe\\DefaultAssetLibrary.hx"
+			],
+			[
+				"defa",
+				"Export\\android\\haxe\\DefaultAssetLibrary.hx"
+			],
+			[
+				"assetdata",
+				"Export\\android\\haxe\\lime\\AssetData.hx"
+			],
+			[
+				"include/",
+				"Export\\android\\obj\\include\\Time.h"
+			],
+			[
+				"include/time.h",
+				"Export\\android\\obj\\include\\Time.h"
+			],
+			[
+				"push",
+				"push.bat"
+			],
+			[
+				"timeta",
+				"Source\\Timetable.hx"
+			],
+			[
+				"ui",
+				"Assets\\ui.xml"
+			],
+			[
+				"applicationmainhx",
+				"Export\\windows\\cpp\\haxe\\ApplicationMain.hx"
+			],
+			[
+				"timetal",
+				"Source\\Timetable.hx"
+			],
+			[
+				"cc",
+				"src\\ColourCube.hx"
+			],
+			[
+				"util",
+				"src\\Util.hx"
+			],
+			[
+				"image.",
+				"src\\Image.hx"
+			],
+			[
+				"colourstream.js",
+				"Export\\html5\\bin\\ColourStream.js"
+			],
+			[
+				"coloustream",
+				"src\\ColourStream.hx"
+			],
+			[
+				"proj",
+				"project.xml"
+			],
+			[
+				"colourst",
+				"src\\ColourStream.hx"
+			],
+			[
+				"test",
+				"src\\TestThreadPool.hx"
+			],
+			[
+				"sig",
+				"src\\threading\\Signal.hx"
+			],
+			[
+				"wro",
+				"src\\threading\\Worker.hx"
+			],
+			[
+				"tst",
+				"src\\tst.hxml"
+			],
+			[
+				"mute",
+				"src\\threading\\Mutex.hx"
+			],
+			[
+				"threadpool",
+				"src\\threading\\ThreadPool.hx"
+			],
+			[
+				"worker",
+				"src\\threading\\Worker.hx"
+			],
+			[
+				"thread",
+				"src\\threading\\ThreadPool.hx"
+			],
+			[
+				"wjq",
+				"src\\threading\\WorkerJobQueue.hx"
+			],
+			[
+				"wor",
+				"src\\threading\\Worker.hx"
+			],
+			[
+				"work",
+				"src\\threading\\WorkerJobQueue.hx"
+			],
+			[
+				"promise",
+				"src\\threading\\Promise.hx"
+			],
+			[
+				"threa",
+				"src\\threading\\ThreadPool.hx"
+			],
+			[
+				"threadpol",
+				"src\\threading\\ThreadPool.hx"
+			],
+			[
+				"colourstream",
+				"src\\ColourStream.hx"
+			],
+			[
+				"out.js",
+				"src\\out.js"
+			],
+			[
+				"network",
+				"InGame\\NetworkDebug.lua"
+			],
+			[
+				"gameqconfig",
+				"gameq\\gameq\\GameQ\\config.py"
+			],
+			[
+				"config",
+				"pyalp\\pyalp\\config.py"
+			],
+			[
+				"gsinterface/",
+				"pyalp\\gs_interface\\interfaces\\__init__.py"
+			],
+			[
+				"secur",
+				"pyalp\\pyalp\\security.py"
+			],
+			[
+				"adminsched",
+				"alp\\admin_schedule.php"
+			],
+			[
+				"enphp",
+				"pyalp\\locale_data\\en.php"
+			],
+			[
+				"enpgp",
+				"pyalp\\locale_data\\en_data\\global.php"
+			],
+			[
+				"schedule.php",
+				"alp\\admin_schedule.php"
+			],
+			[
+				"disp",
+				"alp\\disp_schedule.php"
+			],
+			[
+				"",
+				"C:\\Users\\Mause\\Dropbox\\transperth\\timetable.py"
+			],
+			[
+				"shwo",
+				"pyalp\\templates\\pyalp_forms\\whole_uni_form.html"
+			],
+			[
+				"schedu",
+				"pyalp\\apps\\schedule\\templates\\schedule.html"
+			],
+			[
+				"scheduleru",
+				"pyalp\\apps\\schedule\\urls.py"
+			],
+			[
+				"modsched",
+				"pyalp\\apps\\schedule\\templates\\mod_schedule.html"
+			],
+			[
+				"load",
+				"pyalp\\cl_module\\templatetags\\load_modules.py"
+			],
+			[
+				"flags",
+				"pyalp\\pyalp\\flags.json"
+			],
+			[
+				"urls",
+				"pyalp\\pyalp\\urls.py"
+			],
+			[
+				"include",
+				"pyalp\\cl_module\\templatetags\\include_module.py"
+			],
+			[
+				"defaultgreyconfig.py",
+				"pyalp\\skins\\skins\\default_grey\\_config.py"
+			],
+			[
+				"timeremining",
+				"pyalp\\modules\\modules\\mod_timeremaining.py"
+			],
+			[
+				"config.json",
+				"pyalp\\pyalp\\config.json"
+			],
+			[
+				"context",
+				"pyalp\\pyalp\\contexts.py"
+			],
+			[
+				"credits.html",
+				"pyalp\\modules\\templates\\credits.html"
+			],
+			[
+				"credits.py",
+				"pyalp\\modules\\modules\\mod_credits.py"
+			],
+			[
+				"modschedu",
+				"pyalp\\apps\\schedule\\modules\\mod_schedule.py"
+			],
+			[
+				"modtime",
+				"pyalp\\modules\\modules\\mod_timeremaining.py"
+			],
+			[
+				"getgo",
+				"pyalp\\skins\\templatetags\\get_go.py"
+			],
+			[
+				"configjson",
+				"pyalp\\pyalp\\config.json"
+			],
+			[
+				"modtr",
+				"pyalp\\modules\\modules\\mod_timeremaining.py"
+			],
+			[
+				"time",
+				"pyalp\\modules\\modules\\mod_timeremaining.py"
+			],
+			[
+				"moduleutils",
+				"pyalp\\modules\\module_utils.py"
+			],
+			[
+				"itemblock",
+				"pyalp\\custom_template_tags\\templatetags\\item_block.py"
+			],
+			[
+				"includemodule",
+				"pyalp\\cl_module\\templatetags\\include_module.py"
+			],
+			[
+				"indexmodules",
+				"pyalp\\common\\templatetags\\index_modules.py"
+			],
+			[
+				"dott",
+				"pyalp\\pyalp_page\\templatetags\\dotted_line.py"
+			],
+			[
+				"templatetagsnews",
+				"pyalp\\apps\\news\\templatetags\\news.py"
+			],
+			[
+				"mod_news",
+				"pyalp\\apps\\news\\modules\\mod_news.py"
+			],
+			[
+				"indexmodule",
+				"pyalp\\common\\templatetags\\index_modules.py"
+			],
+			[
+				"modmusic",
+				"pyalp\\apps\\music\\modules\\mod_music.py"
+			],
+			[
+				"includemo",
+				"pyalp\\cl_module\\templatetags\\include_module.py"
+			],
+			[
+				"gener",
+				"pyalp\\common\\generic_template_tag.py"
+			],
+			[
+				"contrpy",
+				"pyalp\\modules\\modules\\controlpanel.py"
+			],
+			[
+				"control",
+				"pyalp\\modules\\modules\\controlpanel.py"
+			],
+			[
+				"contro",
+				"pyalp\\modules\\templates\\controlpanel.html"
+			],
+			[
+				"module.",
+				"pyalp\\cl_module\\templates\\module.html"
+			],
+			[
+				"gen",
+				"pyalp\\common\\generic_template_tag.py"
+			],
+			[
+				"tourmo",
+				"pyalp\\apps\\tournaments\\models.py"
+			],
+			[
+				"modtour",
+				"pyalp\\apps\\tournaments\\modules\\mod_tournaments.py"
+			],
+			[
+				"guides.py",
+				"pyalp\\modules\\modules\\guides.py"
+			],
+			[
+				"admincon",
+				"pyalp\\modules\\modules\\admincontrolpanel.py"
+			],
+			[
+				"module.html",
+				"pyalp\\cl_module\\templates\\module.html"
+			],
+			[
+				"module.py",
+				"pyalp\\cl_module\\templatetags\\module.py"
+			],
+			[
+				"getarr",
+				"pyalp\\skins\\templatetags\\get_arrow.py"
+			],
+			[
+				"controlpanel",
+				"pyalp\\modules\\modules\\controlpanel.py"
+			],
+			[
+				"displaymod",
+				"pyalp\\cl_module\\templatetags\\display_module.py"
+			],
+			[
+				"trans",
+				"pyalp\\pyalp_translation\\templatetags\\trans.py"
+			],
+			[
+				"displallm",
+				"pyalp\\cl_module\\templatetags\\display_all_modules.py"
+			],
+			[
+				"cpmenu",
+				"pyalp\\custom_template_tags\\templatetags\\cp_menu.py"
+			],
+			[
+				"mini",
+				"pyalp\\custom_template_tags\\templatetags\\mini_menu.py"
+			],
+			[
+				"loadmodul",
+				"pyalp\\cl_module\\templatetags\\load_modules.py"
+			],
+			[
+				"spae",
+				"pyalp\\pyalp_page\\templatetags\\spacer.py"
+			],
+			[
+				"display.py",
+				"pyalp\\pyalp_page\\templatetags\\display.py"
+			],
+			[
+				"dispdate",
+				"pyalp\\custom_template_tags\\templatetags\\disp_datetime.py"
+			],
+			[
+				"spacer.py",
+				"pyalp\\pyalp_page\\templatetags\\spacer.py"
+			],
+			[
+				"spacer",
+				"pyalp\\pyalp_page\\templates\\spacer.html"
+			],
+			[
+				"sett",
+				"pyalp\\pyalp\\settings.py"
+			],
+			[
+				"modschedule",
+				"alp\\include\\modules\\mod_schedule.php"
+			],
+			[
+				"interface",
+				"pyalp\\pyalp_translation\\interface.py"
+			],
+			[
+				"scheduleadmin",
+				"pyalp\\apps\\schedule\\admin.py"
+			],
+			[
+				"schedviews",
+				"pyalp\\apps\\schedule\\views.py"
+			],
+			[
+				"settings",
+				"pyalp\\pyalp\\settings.py"
+			],
+			[
+				"req",
+				"requirements.txt"
+			],
+			[
+				"conte",
+				"pyalp\\pyalp\\contexts.py"
+			],
+			[
+				"skins.py",
+				"pyalp\\skins\\skins.py"
+			],
+			[
+				"config.py",
+				"pyalp\\pyalp\\config.py"
+			],
+			[
+				"utils",
+				"pyalp\\pyalp\\utils.py"
+			],
+			[
+				"sche",
+				"pyalp\\apps\\schedule\\templates\\schedule.html"
+			],
+			[
+				"pyalputils",
+				"pyalp\\pyalp\\utils.py"
+			],
+			[
+				"disp_",
+				"alp\\disp_schedule.php"
+			],
+			[
+				"license.html",
+				"pyalp\\common\\templates\\license.html"
+			],
+			[
+				"credits.hml",
+				"pyalp\\common\\templates\\credits.html"
+			],
+			[
+				"credits.p",
+				"alp\\credits.php"
+			],
+			[
+				"credits",
+				"pyalp\\common\\templates\\credits.html"
+			],
+			[
+				"item",
+				"pyalp\\custom_template_tags\\templatetags\\item_block.py"
+			],
+			[
+				"find",
+				"Find Results"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Mause\\Dropbox\\haxe_android\\TransperthCached\\TransperthCached.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 87.0,
+		"selected_items":
+		[
+			[
+				"getw",
+				"getForWeekdayNumber"
+			],
+			[
+				"main",
+				"MainActivity"
+			],
+			[
+				"ini",
+				"initialize"
+			],
+			[
+				"show",
+				"showForStop"
+			],
+			[
+				"init",
+				"initialize"
+			],
+			[
+				"getvis",
+				"getVisitsForStop"
+			],
+			[
+				"loadcache",
+				"loadCache"
+			],
+			[
+				"memoi",
+				"memoize"
+			],
+			[
+				"earest",
+				"nearest"
+			],
+			[
+				"near",
+				"nearest"
+			],
+			[
+				"toarr",
+				"toArray"
+			],
+			[
+				"promisea",
+				"PromiseArray"
+			],
+			[
+				"wait",
+				"wait"
+			],
+			[
+				"g",
+				"GameQ_Protocol_cube"
+			],
+			[
+				"resolv",
+				"resolve_many"
+			],
+			[
+				"try",
+				"try_with_custom"
+			],
+			[
+				"resolve_",
+				"resolve_many"
+			],
+			[
+				"servers",
+				"servers"
+			],
+			[
+				"calc",
+				"calcqport"
+			],
+			[
+				"rpc",
+				"RPCClient"
+			],
+			[
+				"vie",
+				"view_server"
+			],
+			[
+				"batch",
+				"create_batch_request"
+			],
+			[
+				"parse",
+				"parse_request"
+			],
+			[
+				"setup",
+				"setup_auth"
+			],
+			[
+				"setu",
+				"setup_auth"
+			],
+			[
+				"setup_",
+				"setup_auth"
+			],
+			[
+				"query",
+				"query_server_from_instance"
+			],
+			[
+				"quer",
+				"query_server_from_instance"
+			],
+			[
+				"source",
+				"SourceQueryResult"
+			],
+			[
+				"qe",
+				"QueryResult"
+			],
+			[
+				"get",
+				"get_reqs"
+			],
+			[
+				"mon",
+				"monkey_patches"
+			],
+			[
+				"testtr",
+				"test_transport_rejects_bad_values"
+			],
+			[
+				"getmho",
+				"get_method"
+			],
+			[
+				"test_parsing",
+				"test_parsing_good_request_samples"
+			],
+			[
+				"pa",
+				"parse_request"
+			],
+			[
+				"pars",
+				"parse_reply"
+			],
+			[
+				"send",
+				"send_message"
+			],
+			[
+				"displaysmall",
+				"display_smallwindow_top"
+			],
+			[
+				"tournament",
+				"tournament_is_secure"
+			],
+			[
+				"isundr",
+				"is_under_max_teams"
+			],
+			[
+				"getscored",
+				"get_scores_submitted"
+			],
+			[
+				"teamtype",
+				"TeamType"
+			],
+			[
+				"selec",
+				"select_tournament"
+			],
+			[
+				"add",
+				"add_hidden_dos"
+			],
+			[
+				"tour",
+				"Tournament"
+			],
+			[
+				"node",
+				"GetArrowNode"
+			],
+			[
+				"getur",
+				"get_urls"
+			],
+			[
+				"getar",
+				"GetArrowNode"
+			],
+			[
+				"geturl",
+				"get_urls"
+			],
+			[
+				"geturls",
+				"get_urls"
+			],
+			[
+				"match",
+				"Match"
+			],
+			[
+				"mk",
+				"make_tournament_link"
+			],
+			[
+				"game",
+				"Game"
+			],
+			[
+				"isunder",
+				"is_under_max_teams"
+			],
+			[
+				"mini",
+				"MiniMenuNode"
+			],
+			[
+				"sta",
+				"start_elements"
+			],
+			[
+				"sar",
+				"start_elements"
+			],
+			[
+				"displatop",
+				"display_top"
+			],
+			[
+				"displaytop",
+				"display_top"
+			],
+			[
+				"display",
+				"display_top"
+			],
+			[
+				"all",
+				"all_scores_submitted"
+			],
+			[
+				"getstring",
+				"get_string"
+			],
+			[
+				"open",
+				"open"
+			],
+			[
+				"getip",
+				"getIp"
+			],
+			[
+				"addserver",
+				"addServer"
+			],
+			[
+				"wri",
+				"write"
+			],
+			[
+				"listen",
+				"listen"
+			],
+			[
+				"close",
+				"close"
+			],
+			[
+				"getpackets",
+				"getPackets"
+			],
+			[
+				"write",
+				"write"
+			],
+			[
+				"getpcke",
+				"getPackets"
+			],
+			[
+				"getpack",
+				"getPackets"
+			],
+			[
+				"process",
+				"processResponses"
+			],
+			[
+				"req",
+				"requestData"
+			],
+			[
+				"modif",
+				"modifyPackets"
+			],
+			[
+				"getpa",
+				"getPackets"
+			],
+			[
+				"modify",
+				"modifyPackets"
+			],
+			[
+				"reqe",
+				"requestData"
+			],
+			[
+				"processchall",
+				"processChallengeResponses"
+			],
+			[
+				"commun",
+				"Communicate"
+			],
+			[
+				"getpro",
+				"getProtocol"
+			],
+			[
+				"getprot",
+				"getProtocol"
+			],
+			[
+				"getpacke",
+				"getPackets"
+			],
+			[
+				"readgame",
+				"readGamesConfig"
+			],
+			[
+				"getgame",
+				"getGame"
+			],
+			[
+				"addserv",
+				"addServer"
+			],
+			[
+				"readini",
+				"readIniFile"
+			],
+			[
+				"test",
+				"test"
+			],
+			[
+				"tes",
+				"test"
+			],
+			[
+				"include",
+				"IncludeModuleNode"
+			],
+			[
+				"includemod",
+				"IncludeModuleNode"
+			],
+			[
+				"moduleman",
+				"ModuleManager"
+			],
+			[
+				"displaallmodu",
+				"DisplayAllModulesNode"
+			],
+			[
+				"start",
+				"start_elements"
+			],
+			[
+				"includemodule",
+				"IncludeModuleNode"
+			],
+			[
+				"displ",
+				"DisplayAllModulesNode"
+			],
+			[
+				"displayll",
+				"display_all_modules"
+			],
+			[
+				"getiwdth",
+				"get_width"
+			],
+			[
+				"getinn",
+				"get_inner_width"
+			],
+			[
+				"displa",
+				"display_all_modules"
+			],
+			[
+				"getwidth",
+				"get_inner_width"
+			],
+			[
+				"displaymod",
+				"display_module"
+			],
+			[
+				"displaymodule",
+				"display_module"
+			],
+			[
+				"gettype",
+				"get_type"
+			],
+			[
+				"displayallmodules",
+				"display_all_modules"
+			],
+			[
+				"displayallm",
+				"display_all_modules"
+			],
+			[
+				"displaallm",
+				"display_all_modules"
+			],
+			[
+				"star",
+				"start_module"
+			],
+			[
+				"displaymodul",
+				"display_module"
+			],
+			[
+				"displaymodules",
+				"display_modules_left"
+			],
+			[
+				"Module",
+				"ModuleNode"
+			],
+			[
+				"module",
+				"modulelist"
+			],
+			[
+				"su",
+				"sufficient_security"
+			],
+			[
+				"",
+				"AdminControlPanelNode"
+			],
+			[
+				"render",
+				"render"
+			],
+			[
+				"disltop",
+				"display_top"
+			],
+			[
+				"go",
+				"goToSide"
+			],
+			[
+				"spac",
+				"SpacerNode"
+			],
+			[
+				"suff",
+				"sufficient_security"
+			],
+			[
+				"cpm",
+				"CPMenuNode"
+			],
+			[
+				"Song",
+				"Song"
+			],
+			[
+				"in",
+				"IndexModulesNode"
+			],
+			[
+				"inc",
+				"IncludeModuleNode"
+			],
+			[
+				"index",
+				"index_modules"
+			],
+			[
+				"indexmodules",
+				"index_modules"
+			],
+			[
+				"pizza",
+				"PizzaOrder"
+			],
+			[
+				"displt",
+				"display_top"
+			]
+		],
+		"width": 378.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 243.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
