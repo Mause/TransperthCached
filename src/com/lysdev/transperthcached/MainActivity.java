@@ -38,6 +38,7 @@ import com.lysdev.transperthcached.ui.TimePickerFragment;
 public class MainActivity extends FragmentActivity {
     private Timetable timetable;
     ListView stop_display;
+    EditText stop_num_widget;
     ArrayAdapter<String> stop_display_source;
 
     public DateTime show_for_date; // public so the ui fragment can pass back data
@@ -76,6 +77,7 @@ public class MainActivity extends FragmentActivity {
 
     protected void setupUI() {
         stop_display = (ListView) findViewById(R.id.visits);
+        stop_num_widget = (EditText) findViewById(R.id.stop_number);
 
         ArrayList<String> visits = new ArrayList<String>();
         stop_display_source = new ArrayAdapter<String>(
@@ -125,7 +127,6 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void showForStop(View view) {
-        EditText stop_num_widget = (EditText) findViewById(R.id.stop_number);
         hideSoftKeyboard();
 
         String stop_num = stop_num_widget.getText().toString();
