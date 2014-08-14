@@ -97,6 +97,7 @@ public class MainActivity extends FragmentActivity {
 
     public void showForStop(View view) {
         EditText stop_num_widget = (EditText) findViewById(R.id.stop_number);
+        hideSoftKeyboard();
 
         String stop_num = stop_num_widget.getText().toString();
         if (stop_num == null) return;
@@ -157,7 +158,21 @@ public class MainActivity extends FragmentActivity {
         displayVisits(valid);
     }
 
+    public void hideSoftKeyboard() {
+        InputMethodManager inputMethodManager;
+
+        inputMethodManager = (InputMethodManager)  getSystemService(
+            Activity.INPUT_METHOD_SERVICE
+        );
+        inputMethodManager.hideSoftInputFromWindow(
+            getCurrentFocus().getWindowToken(),
+            0
+        );
+    }
+
     public void timeSelectButtonClicked(View v) {
+        hideSoftKeyboard();
+
         DialogFragment newFragment = new TimePickerFragment(
             this, this.show_for_date.toLocalTime()
         );
@@ -174,6 +189,8 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void dateSelectButtonClicked(View v) {
+        hideSoftKeyboard();
+
         DialogFragment newFragment = new DatePickerFragment(
             this, this.show_for_date
         );
