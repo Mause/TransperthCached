@@ -149,7 +149,7 @@ public class MainActivity extends FragmentActivity {
         }
 
         Vector<Visit> forDayType = stop_timetable.getForWeekdayNumber(
-            show_for_date.getDayOfWeek()
+            show_for_date.getDayOfWeek() - 1  // getDayOfWeek returns 1 through 7
         );
 
         if (forDayType == null || forDayType.isEmpty()) {
