@@ -7,7 +7,6 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.widget.TimePicker;
 
 import org.joda.time.LocalTime;
