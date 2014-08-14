@@ -79,15 +79,13 @@ public class MainActivity extends FragmentActivity {
         stop_display = (ListView) findViewById(R.id.visits);
         stop_num_widget = (EditText) findViewById(R.id.stop_number);
 
-        ArrayList<String> visits = new ArrayList<String>();
         stop_display_source = new ArrayAdapter<String>(
             this,
             android.R.layout.simple_list_item_1,
-            visits
+            new ArrayList<String>()
         );
         stop_display.setAdapter(stop_display_source);
 
-        show_for_date = new DateTime();
         updateTimeButtonText();
         updateDateButtonText();
     }
@@ -239,22 +237,13 @@ public class MainActivity extends FragmentActivity {
     private void displayVisits(Vector<Visit> visits) {
         // clear so we can display the new data
 
-        Log.d("TransperthCached", "Clearing display");
-
-
         stop_display_source.clear();
-
-        Log.d("TransperthCached", "Displaying");
         for (Visit visit : visits) {
-
-            Log.d("TransperthCached", "Displaying: " + visit.toString());
-
             stop_display_source.add(
                 String.format(
                     "%s : %s",
                     visit.route_number,
                     visit.formatTime()
-                    // visit.time.toString()
                 )
             );
         }
