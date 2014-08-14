@@ -117,6 +117,11 @@ public class Timetable {
         }
         Log.d("TransperthCached", num_results + " results");
 
+        if (num_results == 0) {
+            // ie, no such stop
+            return null;
+        }
+
         StopTimetable st = new StopTimetable(
             stop_num,
 
