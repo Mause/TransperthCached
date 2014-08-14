@@ -2,6 +2,7 @@ package com.lysdev.transperthcached;
 
 // Standard library
 import java.io.IOException;
+import java.lang.Exception;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Vector;
@@ -28,13 +29,10 @@ import android.location.Location;
 // Joda
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
-import org.joda.time.LocalTime;
 
 // Project specific
-import com.lysdev.transperthcached.timetable.StopTimetable;
 import com.lysdev.transperthcached.timetable.Timetable;
 import com.lysdev.transperthcached.timetable.Visit;
-import com.lysdev.transperthcached.timetable.VisitComparator;
 
 import com.lysdev.transperthcached.ui.DatePickerFragment;
 import com.lysdev.transperthcached.ui.OkDialog;
@@ -44,9 +42,9 @@ import com.lysdev.transperthcached.ui.TimePickerFragment;
 
 import com.lysdev.transperthcached.R;
 
-import com.lysdev.transperthcached.silverrails.NearbyTransitStop;
 import com.lysdev.transperthcached.MyLocation.LocationResult;
 import com.lysdev.transperthcached.silverrails.GetNearbyTransitStops;
+import com.lysdev.transperthcached.silverrails.NearbyTransitStop;
 
 
 public class MainActivity extends FragmentActivity {
@@ -146,60 +144,19 @@ public class MainActivity extends FragmentActivity {
         String stop_num = stop_num_widget.getText().toString();
         if (stop_num == null) return;
 
-        if (stop_num.length() != 5) {
-            ok_dialog("Bad stop", "Please provide a 5 digit stop number");
-            stop_display_source.clear();
-            return;
-        }
-
-        StopTimetable stop_timetable = this.timetable.getVisitsForStop(stop_num);
-        if (stop_timetable == null) {
-            String error = String.format("No such stop as %s", stop_num);
-            Log.d("TransperthCached", error);
-            stop_display_source.clear();
-            ok_dialog("Bad stop", error);
-
-            return;
-        }
-
-        Vector<Visit> forDayType = stop_timetable.getForWeekdayNumber(
-            show_for_date.getDayOfWeek() - 1  // getDayOfWeek returns 1 through 7
-        );
-
-        if (forDayType == null || forDayType.isEmpty()) {
-            String error = String.format(
-                "No stops on (%s) for %s",
-                DateTimeFormat.forPattern("hh:mmaa, EEE, MMMM dd, yyyy").print(
-                    show_for_date
-                ), stop_num
+        Vector<Visit> visits = null;
+        try {
+            visits = MainActivityBusinessLogic.getVisitsForStop(
+                stop_num, timetable, show_for_date
             );
 
-            Log.d("TransperthCached", error);
+        } catch (StateException state) {
             stop_display_source.clear();
-            ok_dialog("No stops", error);
-
-            return;
+            this.ok_dialog(state.getTitle(), state.getMessage());
         }
 
-        LocalTime forTime = this.show_for_date.toLocalTime();
-
-        Vector<Visit> valid = new Vector<Visit>();
-        for (Visit visit : forDayType) {
-            if (visit.time.isAfter(forTime)) {
-                valid.add(visit);
-            }
-        }
-        Collections.sort(valid, new VisitComparator());
-
-        if (valid.isEmpty()) {
-            String error = "No more stops today";
-            Log.d("TransperthCached", error);
-            stop_display_source.clear();
-            ok_dialog("No stops", error);
-            return;
-        }
-
-        displayVisits(valid);
+        if (visits == null) return;
+        displayVisits(visits);
     }
 
     public void hideSoftKeyboard() {
