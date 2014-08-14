@@ -78,15 +78,15 @@ public class MainActivity extends FragmentActivity {
 
         Log.d("TransperthCached", "initialized");
 
-        loadSaveInstanceState(savedInstanceState);
-        setupUI();
-
-        if (savedInstanceState != null) {
-            // cannot set this till the ui is setup
-            stop_num_widget.setText(
-                savedInstanceState.getString("stop_number")
-            );
+        if (savedInstanceState == null) {
+            Log.d("TransperthCached", "No bundled state received");
+        } else {
+            Log.d("TransperthCached", "Bundled state received, rebuilding app");
         }
+
+        preUiLoadSaveInstanceState(savedInstanceState);
+        setupUI();
+        postUiLoadSaveInstanceState(savedInstanceState);
     }
 
     protected void setupUI() {
@@ -104,14 +104,22 @@ public class MainActivity extends FragmentActivity {
         updateDateButtonText();
     }
 
-    protected void loadSaveInstanceState(Bundle inState) {
+    protected void preUiLoadSaveInstanceState(Bundle inState) {
         if (inState == null) {
             show_for_date = new DateTime();
         } else {
             show_for_date = DateTime.parse(
                 inState.getString("show_for_date")
             );
+        }
+    }
 
+    protected void postUiLoadSaveInstanceState(Bundle inState) {
+        if (inState != null) {
+            // cannot set this till the ui is setup
+            stop_num_widget.setText(
+                inState.getString("stop_number")
+            );
         }
     }
 
