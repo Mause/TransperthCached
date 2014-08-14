@@ -6,4 +6,5 @@
     <string name="show_button_text">Show</string>
     <string name="stop_number_hint">55555</string>
     <string name="time_select_text">Select time</string>
+    <string name="nearby_button_text">Nearby</string>
 </resources>

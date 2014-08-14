@@ -18,12 +18,24 @@
     />
 
     <Button
+        android:id="@+id/nearby_button"
+        android:onClick="nearbyButtonClicked"
+
+        android:gravity="center_vertical|center"
+
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/stop_number"
+        android:layout_width="wrap_content"
+
+        android:text="@string/nearby_button_text"
+        />
+
+    <Button
         android:id="@+id/date_select_button"
         android:onClick="dateSelectButtonClicked"
 
         android:gravity="center_vertical|center"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
 
         android:layout_alignParentLeft="true"
         android:layout_below="@id/stop_number"
