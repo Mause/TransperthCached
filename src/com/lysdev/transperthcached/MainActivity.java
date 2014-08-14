@@ -31,6 +31,7 @@ import com.lysdev.transperthcached.timetable.Visit;
 import com.lysdev.transperthcached.timetable.VisitComparator;
 
 import com.lysdev.transperthcached.ui.DatePickerFragment;
+import com.lysdev.transperthcached.ui.OkDialog;
 import com.lysdev.transperthcached.ui.TimePickerFragment;
 
 
@@ -52,11 +53,12 @@ public class MainActivity extends FragmentActivity {
 
         try {
             this.timetable.initialize(getApplicationContext());
-        } catch (java.io.IOException ioe) {
-            AlertDialog dialog = new AlertDialog.Builder(
-                getApplicationContext()
-            ).create();
-            dialog.show();
+        } catch (java.lang.Error e) {
+            ok_dialog("Could not initialize database", null);
+            throw new java.lang.Error(e.toString());
+        } catch (java.io.IOException e) {
+            ok_dialog("Could not initialize database", null);
+            throw new java.lang.Error(e.toString());
         }
 
         Log.d("TransperthCached", "initialized");
@@ -81,20 +83,36 @@ public class MainActivity extends FragmentActivity {
         this.timetable.onDestroy();
     }
 
+    private void ok_dialog(String title, String message) {
+        OkDialog dialog = new OkDialog();
+
+        Bundle args = new Bundle();
+        args.putString("title", title);
+        args.putString("message", message);
+        dialog.setArguments(args);
+
+        // dialog.setTargetFragment(this, 0);
+        dialog.show(getSupportFragmentManager(), "TransperthCached");
+    }
+
     public void showForStop(View view) {
         EditText stop_num_widget = (EditText) findViewById(R.id.stop_number);
 
         String stop_num = stop_num_widget.getText().toString();
         if (stop_num == null) return;
 
+        if (stop_num.length() != 5) {
+            ok_dialog("Bad stop", "Please provide a 5 digit stop number");
+            stop_display_source.clear();
+            return;
+        }
+
         StopTimetable stop_timetable = this.timetable.getVisitsForStop(stop_num);
         if (stop_timetable == null) {
-            Log.d("TransperthCached", String.format("No such stop as %s", stop_num));
-
-            AlertDialog dialog = new AlertDialog.Builder(
-                getApplicationContext()
-            ).create();
-            dialog.show();
+            String error = String.format("No such stop as %s", stop_num);
+            Log.d("TransperthCached", error);
+            stop_display_source.clear();
+            ok_dialog("Bad stop", error);
 
             return;
         }
@@ -104,13 +122,17 @@ public class MainActivity extends FragmentActivity {
         );
 
         if (forDayType == null || forDayType.isEmpty()) {
-            Log.d(
-                "TransperthCached",
-                String.format(
-                    "No stops on (%s) for %s",
-                    show_for_date, stop_num
-                )
+            String error = String.format(
+                "No stops on (%s) for %s",
+                DateTimeFormat.forPattern("hh:mmaa, EEE, MMMM dd, yyyy").print(
+                    show_for_date
+                ), stop_num
             );
+
+            Log.d("TransperthCached", error);
+            stop_display_source.clear();
+            ok_dialog("No stops", error);
+
             return;
         }
 
@@ -125,10 +147,11 @@ public class MainActivity extends FragmentActivity {
         Collections.sort(valid, new VisitComparator());
 
         if (valid.isEmpty()) {
-            Log.d("TransperthCached", "No more stops today");
+            String error = "No more stops today";
+            Log.d("TransperthCached", error);
+            stop_display_source.clear();
+            ok_dialog("No stops", error);
             return;
-        } else {
-            Log.d("TransperthCached", valid.toString());
         }
 
         displayVisits(valid);
