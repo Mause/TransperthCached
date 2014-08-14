@@ -4,9 +4,12 @@ package com.lysdev.transperthcached;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Vector;
+import java.io.IOException;
 
 // android sdk
-import android.app.AlertDialog;
+import android.app.Activity;
+import android.app.ProgressDialog;
+
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
@@ -20,10 +23,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import android.location.Location;
+
 // Joda
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.LocalTime;
 
 // Project specific
@@ -34,15 +38,24 @@ import com.lysdev.transperthcached.timetable.VisitComparator;
 
 import com.lysdev.transperthcached.ui.DatePickerFragment;
 import com.lysdev.transperthcached.ui.OkDialog;
+import com.lysdev.transperthcached.ui.SelectStopDialog;
+import com.lysdev.transperthcached.ui.SelectStopDialogOnSelected;
 import com.lysdev.transperthcached.ui.TimePickerFragment;
+
+import com.lysdev.transperthcached.R;
+
+import com.lysdev.transperthcached.silverrails.NearbyTransitStop;
+import com.lysdev.transperthcached.MyLocation.LocationResult;
 
 
 public class MainActivity extends FragmentActivity {
     private Timetable timetable;
+
     ListView stop_display;
     EditText stop_num_widget;
     ArrayAdapter<String> stop_display_source;
 
+    // TODO: mend the issue mentioned on the line below
     public DateTime show_for_date; // public so the ui fragment can pass back data
 
     /** Called when the activity is first created. */
@@ -249,5 +262,61 @@ public class MainActivity extends FragmentActivity {
                 )
             );
         }
+    }
+
+    public void nearbyButtonClicked(View v) {
+        final ProgressDialog mDialog = new ProgressDialog(this);
+                mDialog.setMessage("Determining location...");
+                mDialog.setCancelable(false);
+                mDialog.show();
+
+        LocationResult locationResult = new LocationResult() {
+            @Override
+            public void gotLocation(Location location){
+                mDialog.dismiss();
+                MainActivity.this.nearbyButtonCallback(location);
+            }
+        };
+
+        MyLocation myLocation = new MyLocation();
+        myLocation.getLocation(this, locationResult);
+    }
+
+    public void nearbyButtonCallback(Location location) {
+        Log.d(
+            "TransperthCached",
+            String.format(
+                "Got location: %f S, %f S",
+                location.getLatitude(),
+                location.getLongitude()
+            )
+        );
+
+        ArrayList<NearbyTransitStop> stops = NearbyTransitStop.getNearby(
+            getResources().getString(R.string.silverrails_apikey),
+            location.getLatitude(),
+            location.getLongitude()
+        );
+
+        for (NearbyTransitStop stop : stops) {
+            Log.d("TransperthCached", "Nearby: " + stop.toString());
+        }
+
+        SelectStopDialogOnSelected callback = new SelectStopDialogOnSelected() {
+            public void onSelected(NearbyTransitStop stop) {
+                nearbyStopSelect(stop);
+            }
+        };
+
+        SelectStopDialog dialog = new SelectStopDialog(stops, callback);
+
+        dialog.show(
+            getSupportFragmentManager(),
+            "TransperthCached"
+        );
+    }
+
+    protected void nearbyStopSelect(NearbyTransitStop stop) {
+        stop_num_widget.setText(stop.getCode());
     }
 }
