@@ -82,10 +82,10 @@ public class Timetable {
             Log.d("TransperthCached", "Bad database");
 
         Cursor cursor = db.query(
-            "visit",
-            new String[] { "*" },
-            "stop_num=?",
-            new String[] { String.valueOf(stop_num) },
+            "visit",              // table
+            new String[] { "*" }, // selected fields
+            "stop_num=?",         // where clause
+            new String[] { String.valueOf(stop_num) },  // where fields
             null, // having
             null, // orderBy
             null  // limit
@@ -97,14 +97,9 @@ public class Timetable {
             return null;
         }
 
-
-        for (String column : cursor.getColumnNames()) {
-            Log.d("TransperthCached", "column: " + column);
-        }
-
-        Vector<Visit> weekdays = new Vector<Visit>();
-        Vector<Visit> saturday = new Vector<Visit>();
-        Vector<Visit> sunday   = new Vector<Visit>();
+        Vector<Visit> weekdays = new Vector<Visit>(),
+                      saturday = new Vector<Visit>(),
+                      sunday   = new Vector<Visit>();
 
         int num_results = 0;
         while (!cursor.isAfterLast()) {
@@ -115,7 +110,7 @@ public class Timetable {
                 case WEEKDAYS:  weekdays.add(result);   break;
                 case SATURDAY:  saturday.add(result);   break;
                 case SUNDAY:    sunday.add(result);     break;
-                default:        throw new java.lang.Error();
+                default:        throw new java.lang.Error("Bad visit type");
             }
             num_results++;
             cursor.moveToNext();
