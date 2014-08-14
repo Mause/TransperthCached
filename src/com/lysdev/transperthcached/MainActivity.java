@@ -46,6 +46,7 @@ import com.lysdev.transperthcached.R;
 
 import com.lysdev.transperthcached.silverrails.NearbyTransitStop;
 import com.lysdev.transperthcached.MyLocation.LocationResult;
+import com.lysdev.transperthcached.silverrails.GetNearbyTransitStops;
 
 
 public class MainActivity extends FragmentActivity {
@@ -291,7 +292,7 @@ public class MainActivity extends FragmentActivity {
             )
         );
 
-        ArrayList<NearbyTransitStop> stops = NearbyTransitStop.getNearby(
+        ArrayList<NearbyTransitStop> stops = GetNearbyTransitStops.getNearby(
             getResources().getString(R.string.silverrails_apikey),
             location.getLatitude(),
             location.getLongitude()
