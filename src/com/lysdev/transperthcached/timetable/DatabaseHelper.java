@@ -63,8 +63,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return checkDB != null;
     }
-  private void copyDataBase() throws IOException{
 
+    private void copyDataBase() throws IOException {
         // Open your local db as the input stream
         InputStream myInput = myContext.getAssets().open(DB_NAME);
 
@@ -87,37 +87,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         myInput.close();
     }
 
+    // Open the database
     public SQLiteDatabase openDataBase() throws SQLException {
-
-        //Open the database
         String myPath = DB_PATH + DB_NAME;
-        return (
-            myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY)
+
+        myDataBase = SQLiteDatabase.openDatabase(
+            myPath, null, SQLiteDatabase.OPEN_READONLY
         );
+
+        return myDataBase;
     }
 
     @Override
     public synchronized void close() {
+        if(myDataBase != null) {
+            myDataBase.close();
+        }
 
-            if(myDataBase != null)
-                myDataBase.close();
-
-            super.close();
-
+        super.close();
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-
-    }
+    public void onCreate(SQLiteDatabase db) {}
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
-    }
-
-        // Add your public helper methods to access and get content from the database.
-       // You could return cursors by doing "return myDataBase.query(....)" so it'd be easy
-       // to you to create adapters for your views.
-
+    // Add your public helper methods to access and get content from the database.
+    // You could return cursors by doing "return myDataBase.query(....)" so it'd be easy
+    // to you to create adapters for your views.
 }
