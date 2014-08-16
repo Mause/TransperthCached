@@ -21,17 +21,6 @@ import org.xml.sax.SAXException;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.DateTimeFormat;
 
-
-class GetWrapper {
-    private Element enode;
-
-    public GetWrapper(Element enode) { this.enode = enode; }
-
-    public String get(String tag) {
-        return enode.getElementsByTagName(tag).item(0).getTextContent();
-    }
-}
-
 public class GetTimesForPlatform {
     private static final String BASE_URL = "http://livetimes.transperth.wa.gov.au/LiveTimes.asmx/";
 
