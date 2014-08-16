@@ -50,33 +50,9 @@ public class GetTimesForPlatform {
         NodeList nodeList = doc.getElementsByTagName("Trip");
         if (nodeList == null) return null;
 
-        ArrayList<TimeForPlatform> trains = new ArrayList<TimeForPlatform>();
-        for (int i=0; i < nodeList.getLength(); i++) {
-            GetWrapper enode = new GetWrapper(
-                (Element) nodeList.item(i)
-            );
-
-            trains.add(
-                new TimeForPlatform(
-                    enode.get("Run"),                      // String run,
-                    Integer.parseInt(enode.get("Uid")),    // int uid,
-                    enode.get("Cancelled").equals("True"), // boolean cancelled,
-                    Integer.parseInt(enode.get("Ncar")),   // int num_cars,
-                    DateTimeFormat.forPattern("HH:mm:ss").parseLocalTime(
-                        enode.get("Schedule")
-                    ),   // DateTime schedule,
-                    DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss").parseDateTime(
-                        enode.get("Actual")
-                    ),      // DateTime actual,
-                    Integer.parseInt(enode.get("Delay")),  // int delay,
-                    enode.get("Destination"),              // String destination,
-                    new ArrayList<String>(
-                        Arrays.asList(enode.get("Pattern").split(","))
-                    ),       // ArrayList<String> pattern,
-                    enode.get("Line"),                     // String line,
-                    enode.get("Link")                      // String link
-                )
-            );
+        ArrayList<Trip> trains = new ArrayList<Trip>();
+        for (Node node : NodeListIterator.iterator(nodeList)) {
+            trains.add(Trip.fromNode(node));
         }
 
         GetWrapper wrap = new GetWrapper((Element) doc);
