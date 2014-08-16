@@ -23,29 +23,12 @@ import org.joda.time.format.DateTimeFormat;
 
 public class GetTimesForPlatform {
 
-    public static TimesForPlatform getTimes(String code) {
-
-        Document doc = null;
-        DocumentBuilder db = null;
-        URL url = null;
-
-        try {
-            url = new URL(
-                BASE_URL + String.format("/GetTimesForPlatform?code=%s", code)
-            );
-        } catch (MalformedURLException mue) {}
-
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        try {
-            db = dbf.newDocumentBuilder();
-        } catch (ParserConfigurationException pce) {}
-        try {
-            doc = db.parse(new InputSource(url.openStream()));
-        } catch (SAXException se) {
-        } catch (IOException ioe) {}
-
-        doc.getDocumentElement().normalize();
-
+    public static TimesForPlatform getTimes(String code) throws InvalidPlatformCodeException {
+        HashMap<String,String> queryParams = new HashMap<String,String>();
+        queryParams.put("code", code);
+        Document doc = Util.getXML(
+            "/GetTimesForPlatform", queryParams
+        );
 
         NodeList nodeList = doc.getElementsByTagName("Trip");
         if (nodeList == null) return null;
