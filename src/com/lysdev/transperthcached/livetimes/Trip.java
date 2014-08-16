@@ -1,9 +1,14 @@
 package com.lysdev.transperthcached.livetimes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.DateTimeFormat;
 
 public class Trip {
     private String run;
@@ -63,6 +68,34 @@ public class Trip {
             getRun(),
             getLine(),
             getNumCars()
+        );
+    }
+
+    public static Trip fromNode(Node node) {
+        return fromElement((Element) node);
+    }
+
+    public static Trip fromElement(Element el) {
+        GetWrapper enode = new GetWrapper(el);
+
+        return new Trip(
+            enode.get("Run"),                      // String run,
+            Integer.parseInt(enode.get("Uid")),    // int uid,
+            enode.get("Cancelled").equals("True"), // boolean cancelled,
+            Integer.parseInt(enode.get("Ncar")),   // int num_cars,
+            DateTimeFormat.forPattern("HH:mm:ss").parseLocalTime(
+                enode.get("Schedule")
+            ),   // DateTime schedule,
+            DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss").parseDateTime(
+                enode.get("Actual")
+            ),      // DateTime actual,
+            Integer.parseInt(enode.get("Delay")),  // int delay,
+            enode.get("Destination"),              // String destination,
+            new ArrayList<String>(
+                Arrays.asList(enode.get("Pattern").split(","))
+            ),       // ArrayList<String> pattern,
+            enode.get("Line"),                     // String line,
+            enode.get("Link")                      // String link
         );
     }
 }
