@@ -38,8 +38,7 @@ public class GetTimesForPlatform {
             trains.add(Trip.fromNode(node));
         }
 
-        GetWrapper wrap = new GetWrapper((Element) doc);
-
+        GetWrapper wrap = new GetWrapper(doc.getDocumentElement());
         return new TimesForPlatform(
             Integer.parseInt(wrap.get("Number")),
             wrap.get("Code"),
