@@ -22,7 +22,6 @@ import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.DateTimeFormat;
 
 public class GetTimesForPlatform {
-    private static final String BASE_URL = "http://livetimes.transperth.wa.gov.au/LiveTimes.asmx/";
 
     public static TimesForPlatform getTimes(String code) {
 
