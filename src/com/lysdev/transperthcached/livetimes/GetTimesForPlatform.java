@@ -40,7 +40,7 @@ public class GetTimesForPlatform {
 
         GetWrapper wrap = new GetWrapper(doc.getDocumentElement());
         return new TimesForPlatform(
-            Integer.parseInt(wrap.get("Number")),
+            Integer.parseInt(wrap.get("Number").trim()),
             wrap.get("Code"),
             wrap.get("StopNumber"),
             wrap.get("Position"),
