@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
 
-public class TimeForPlatform {
+public class Trip {
     private String run;
     private int uid;
     private boolean cancelled = false;
@@ -18,7 +18,7 @@ public class TimeForPlatform {
     private String line;
     private String link;
 
-    public TimeForPlatform(
+    public Trip(
         String run,
         int uid,
         boolean cancelled,
