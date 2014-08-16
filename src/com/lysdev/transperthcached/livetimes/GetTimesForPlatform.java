@@ -23,7 +23,19 @@ import org.joda.time.format.DateTimeFormat;
 
 public class GetTimesForPlatform {
 
+    private static boolean isValidCode(String code) {
+        Pattern patt = Pattern.compile("[A-Z]{3}\\d");
+
+        Matcher match = patt.matcher(code);
+
+        return match.matches();
+    }
+
     public static TimesForPlatform getTimes(String code) throws InvalidPlatformCodeException {
+        if (!isValidCode(code)) {
+            throw new InvalidPlatformCodeException();
+        }
+
         HashMap<String,String> queryParams = new HashMap<String,String>();
         queryParams.put("code", code);
         Document doc = Util.getXML(
