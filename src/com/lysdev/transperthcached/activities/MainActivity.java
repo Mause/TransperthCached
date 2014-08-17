@@ -10,6 +10,15 @@ import android.widget.TabHost.TabSpec;
 import com.lysdev.transperthcached.R;
 
 public class MainActivity extends TabActivity {
+    public TabSpec tab(Class<?> cls, String tab_spec, int resource_id) {
+        return getTabHost()
+            .newTabSpec(tab_spec)
+            .setIndicator("", getResources().getDrawable(resource_id))
+            .setContent(
+                new Intent().setClass(this, cls)
+            )
+        ;
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,26 +27,17 @@ public class MainActivity extends TabActivity {
         Resources resources = getResources();
         TabHost tabHost = getTabHost();
 
-        // Android tab
-        Intent intentTrain = new Intent().setClass(this, TrainActivity.class);
-        TabSpec tabSpecTrain = tabHost
-          .newTabSpec("Train")
-          .setIndicator("", resources.getDrawable(R.drawable.icon_train_config))
-          .setContent(intentTrain);
+        TabSpec tabSpecTrain = tab(
+            TrainActivity.class, "Train", R.drawable.icon_train_config
+        );
 
-        // FavouriteStops tab
-        Intent intentFavouriteStops = new Intent().setClass(this, FavouriteStopsActivity.class);
-        TabSpec tabSpecFavouriteStops = tabHost
-          .newTabSpec("FavouriteStops")
-          .setIndicator("", resources.getDrawable(R.drawable.icon_star_config))
-          .setContent(intentFavouriteStops);
+        TabSpec tabSpecFavouriteStops = tab(
+            FavouriteStopsActivity.class, "FavouriteStops", R.drawable.icon_star_config
+        );
 
-        // StopTimetable tab
-        Intent intentStopTimetable = new Intent().setClass(this, StopTimetableActivity.class);
-        TabSpec tabSpecStopTimetable = tabHost
-          .newTabSpec("StopTimetable")
-          .setIndicator("", resources.getDrawable(R.drawable.icon_timetable_config))
-          .setContent(intentStopTimetable);
+        TabSpec tabSpecStopTimetable = tab(
+            StopTimetableActivity.class, "StopTimetable", R.drawable.icon_timetable_config
+        );
 
         // // Blackberry tab
         // Intent intentBerry = new Intent().setClass(this, BlackBerryActivity.class);
