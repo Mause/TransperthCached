@@ -6,6 +6,7 @@ import java.lang.Exception;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Vector;
+import android.content.Intent;
 
 // android sdk
 import android.app.Activity;
@@ -126,6 +127,16 @@ public class StopTimetableActivity extends FragmentActivity {
             stop_num_widget.setText(
                 inState.getString("stop_number")
             );
+        }
+
+        // this is for when a user selects a stop in favourites
+        Intent intent = getIntent();
+        if (intent != null) {
+            String stop_num = intent.getStringExtra("stop_num");
+
+            if (stop_num != null) {
+                stop_num_widget.setText(stop_num);
+            }
         }
     }
 

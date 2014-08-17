@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import android.widget.AdapterView;
 import android.database.Cursor;
 import android.app.TabActivity;
+import android.content.Intent;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -78,8 +79,9 @@ public class FavouriteStopsActivity extends FragmentActivity
 
         Log.d("TransperthCached", "Selected stop: " + selected_stop.toString());
 
-        TabActivity acparent = (TabActivity) getParent();
-        acparent.getTabHost().setCurrentTab(2);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("stop_num", selected_stop.getStopNumber());
+        startActivity(intent);
     }
 
     public void deleteButtonClicked(View view) {}
