@@ -2,11 +2,13 @@
 <resources>
     <string name="app_name">TransperthCached</string>
 
-    <string name="date_select_text">Select date</string>
-    <string name="show_button_text">Show</string>
     <string name="stop_number_hint">55555</string>
-    <string name="time_select_text">Select time</string>
+
+    <string name="date_select_text">Select date</string>
     <string name="nearby_button_text">Nearby</string>
+    <string name="now_button_text">Now</string>
+    <string name="show_button_text">Show</string>
+    <string name="time_select_text">Select time</string>
 
     <string name="delete_button_text">Delete</string>
     <string name="add_button_text">Add</string>
