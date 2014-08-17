@@ -14,20 +14,14 @@ public class CustomTimePickerDialog extends TimePickerDialog {
             TimePickerDialog.OnTimeSetListener callBack,
             int hourOfDay, int minute,
             boolean is24HourView) {
-        super(
-            context,
-            callBack,
-            hourOfDay,
-            minute,
-            is24HourView
-        );
-
-        setButton(TimePickerDialog.BUTTON_NEUTRAL, "Now", this);
+        super(context, callBack, hourOfDay, minute, is24HourView);
     }
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+
+        setButton(TimePickerDialog.BUTTON_NEUTRAL, "Now", this);
 
         getButton(TimePickerDialog.BUTTON_NEUTRAL).setOnClickListener(
             new View.OnClickListener() {
