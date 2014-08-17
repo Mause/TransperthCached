@@ -47,6 +47,7 @@ import com.lysdev.transperthcached.silverrails.GetNearbyTransitStops;
 import com.lysdev.transperthcached.silverrails.NearbyTransitStop;
 import com.lysdev.transperthcached.utils.MyLocation.LocationResult;
 import com.lysdev.transperthcached.utils.MyLocation;
+import com.lysdev.transperthcached.utils.Util;
 
 
 public class StopTimetableActivity extends FragmentActivity {
@@ -159,7 +160,7 @@ public class StopTimetableActivity extends FragmentActivity {
     }
 
     public void showForStop(View view) {
-        hideSoftKeyboard();
+        Util.hideSoftKeyboard(this);
 
         String stop_num = stop_num_widget.getText().toString();
         if (stop_num == null) return;
@@ -179,20 +180,8 @@ public class StopTimetableActivity extends FragmentActivity {
         displayVisits(visits);
     }
 
-    public void hideSoftKeyboard() {
-        InputMethodManager inputMethodManager;
-
-        inputMethodManager = (InputMethodManager) getSystemService(
-            Activity.INPUT_METHOD_SERVICE
-        );
-        inputMethodManager.hideSoftInputFromWindow(
-            getCurrentFocus().getWindowToken(),
-            0
-        );
-    }
-
     public void timeSelectButtonClicked(View v) {
-        hideSoftKeyboard();
+        Util.hideSoftKeyboard(this);
 
         TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -221,7 +210,7 @@ public class StopTimetableActivity extends FragmentActivity {
     }
 
     public void dateSelectButtonClicked(View v) {
-        hideSoftKeyboard();
+        Util.hideSoftKeyboard(this);
 
         DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
             public void onDateSet(DatePicker view, int year, int month, int day) {

@@ -4,7 +4,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.lang.StringBuilder;
-// import java.nio.charset.StandardCharsets;
+
+import android.app.Activity;
+import android.view.inputmethod.InputMethodManager;
 
 
 public class Util {
@@ -26,5 +28,17 @@ public class Util {
         }
 
         return builder.toString();
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager;
+
+        inputMethodManager = (InputMethodManager) activity.getSystemService(
+            Activity.INPUT_METHOD_SERVICE
+        );
+        inputMethodManager.hideSoftInputFromWindow(
+            activity.getCurrentFocus().getWindowToken(),
+            0
+        );
     }
 }
