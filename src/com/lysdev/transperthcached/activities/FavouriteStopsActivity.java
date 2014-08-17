@@ -1,16 +1,20 @@
 package com.lysdev.transperthcached.activities;
 
 import java.util.ArrayList;
-import android.widget.AdapterView;
+
 import android.database.Cursor;
-import android.app.TabActivity;
-import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.TabActivity;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -22,6 +26,7 @@ import android.view.Gravity;
 import android.view.View;
 
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,9 +40,15 @@ import com.lysdev.transperthcached.R;
 
 class FavouriteStop {
     private String stop_number;
+    private Integer sid = null;
 
     public FavouriteStop(String stop_number) {
         this.stop_number = stop_number;
+    }
+
+    public FavouriteStop(Integer sid, String stop_number) {
+        this(stop_number);
+        this.sid = sid;
     }
 
     public String getStopNumber() {
@@ -50,6 +61,71 @@ class FavouriteStop {
 }
 
 
+
+class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
+    private static final String DB_NAME = "FavouriteStopDatabase";
+    private SQLiteDatabase db;
+
+    public FavouriteStopDatabaseHelper(Context context) {
+        super(context, DB_NAME, null, 1);
+        db = getWritableDatabase();
+    }
+    public void onUpgrade(SQLiteDatabase db, int a, int b) {}
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(
+            "CREATE TABLE IF NOT EXISTS favourite_stops (" +
+            "    sid INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "    stop_number TEXT" +
+            ");"
+        );
+    }
+
+    public void addFavouriteStop(FavouriteStop toAdd) {
+        ContentValues values = new ContentValues();
+        values.put("stop_number", toAdd.getStopNumber());
+
+        db.insert("favourite_stops", null, values);
+    }
+
+    public ArrayList<FavouriteStop> getFavouriteStops() {
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.query(
+            "favourite_stops",    // table
+            new String[] { "*" }, // selected fields
+            null, // where clause
+            null, // where fields
+            null, // having
+            null, // orderBy
+            null  // limit
+        );
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        } else {
+            return null;
+        }
+
+        ArrayList<FavouriteStop> stops = new ArrayList<FavouriteStop>();
+
+        while (!cursor.isAfterLast()) {
+            stops.add(
+                new FavouriteStop(
+                    cursor.getInt(0),
+                    cursor.getString(1)
+                )
+            );
+
+            cursor.moveToNext();
+        }
+
+        return stops;
+    }
+}
+
+
+
 public class FavouriteStopsActivity extends FragmentActivity
                                  implements DialogInterface.OnClickListener,
                                             AdapterView.OnItemClickListener {
@@ -58,20 +134,30 @@ public class FavouriteStopsActivity extends FragmentActivity
     private ListView stops;
     private ArrayAdapter<FavouriteStop> stops_adapter;
     private Cursor stops_cursor;
+    private FavouriteStopDatabaseHelper db;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favourite_stops);
 
+        db = new FavouriteStopDatabaseHelper(this);
+
         stops = (ListView) findViewById(R.id.favourite_stops);
         stops_adapter = new ArrayAdapter<FavouriteStop>(
             this,
+            // android.R.layout.simple_list_item_checked,
             android.R.layout.simple_list_item_1,
             // R.id.chk,
-            new ArrayList<FavouriteStop>()
+            db.getFavouriteStops()
         );
         stops.setAdapter(stops_adapter);
         stops.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        db.close();
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -116,9 +202,13 @@ public class FavouriteStopsActivity extends FragmentActivity
         if (stop_number.length() == 5) {
             Log.d("TransperthCached", "Stop number: " + stop_number);
 
-            stops_adapter.add(
-                new FavouriteStop(stop_number)
-            );
+            db.addFavouriteStop(new FavouriteStop(stop_number));
+
+            stops_adapter.clear();
+            for (FavouriteStop stop : db.getFavouriteStops()) {
+                stops_adapter.add(stop);
+            }
+            stops_adapter.notifyDataSetChanged();
 
             dialog.dismiss();
         } else {
