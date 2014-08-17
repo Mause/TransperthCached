@@ -30,12 +30,12 @@ public class MainActivity extends TabActivity {
           .setIndicator("", resources.getDrawable(R.drawable.icon_star_config))
           .setContent(intentFavouriteStops);
 
-        // // Windows tab
-        // Intent intentWindows = new Intent().setClass(this, WindowsActivity.class);
-        // TabSpec tabSpecWindows = tabHost
-        //   .newTabSpec("Windows")
-        //   .setIndicator("", resources.getDrawable(R.drawable.icon_windows_config))
-        //   .setContent(intentWindows);
+        // StopTimetable tab
+        Intent intentStopTimetable = new Intent().setClass(this, StopTimetableActivity.class);
+        TabSpec tabSpecStopTimetable = tabHost
+          .newTabSpec("StopTimetable")
+          .setIndicator("", resources.getDrawable(R.drawable.icon_timetable_config))
+          .setContent(intentStopTimetable);
 
         // // Blackberry tab
         // Intent intentBerry = new Intent().setClass(this, BlackBerryActivity.class);
@@ -47,10 +47,10 @@ public class MainActivity extends TabActivity {
         // // add all tabs
         tabHost.addTab(tabSpecTrain);
         tabHost.addTab(tabSpecFavouriteStops);
-        // tabHost.addTab(tabSpecWindows);
+        tabHost.addTab(tabSpecStopTimetable);
         // tabHost.addTab(tabSpecBerry);
 
-        //set Windows tab as default (zero based)
+        //set StopTimetable tab as default (zero based)
         tabHost.setCurrentTab(0);
     }
 }

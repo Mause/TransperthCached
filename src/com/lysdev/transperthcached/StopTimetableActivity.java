@@ -65,7 +65,7 @@ public class StopTimetableActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.stop_timetable);
 
         this.timetable = new Timetable();
         Log.d("TransperthCached", "initializing");
