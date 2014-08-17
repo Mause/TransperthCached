@@ -47,7 +47,7 @@ import com.lysdev.transperthcached.silverrails.GetNearbyTransitStops;
 import com.lysdev.transperthcached.silverrails.NearbyTransitStop;
 
 
-public class MainActivity extends FragmentActivity {
+public class StopTimetableActivity extends FragmentActivity {
     private Timetable timetable;
 
     ListView stop_display;
@@ -154,7 +154,7 @@ public class MainActivity extends FragmentActivity {
 
         Vector<Visit> visits = null;
         try {
-            visits = MainActivityBusinessLogic.getVisitsForStop(
+            visits = StopTimetableBusinessLogic.getVisitsForStop(
                 stop_num, timetable, show_for_date
             );
 
@@ -242,7 +242,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void gotLocation(Location location){
                 mDialog.dismiss();
-                MainActivity.this.nearbyButtonCallback(location);
+                nearbyButtonCallback(location);
             }
         };
 

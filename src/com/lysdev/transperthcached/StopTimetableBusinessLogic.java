@@ -17,7 +17,7 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 
 
-public class MainActivityBusinessLogic {
+public class StopTimetableBusinessLogic {
     public static Vector<Visit> getVisitsForStop(
             String stop_num,
             Timetable timetable,
