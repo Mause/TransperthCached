@@ -5,16 +5,16 @@ import java.util.Vector;
 import android.location.Location;
 
 public class TransitStop {
-    String dataSet;
-    int code;
-    String stopUid;
-    String description;
-    Location position;
-    int zone;
-    String[] supportedModes;
-    String[] routes;
+    private int code;
+    private int zone;
+    private Location position;
+    private String dataSet;
+    private String description;
+    private String stopUid;
+    private String[] routes;
+    private String[] supportedModes;
 
-    double latitude, longitude;
+    private double latitude, longitude;
 
     public TransitStop(double latitude, double longitude, String description, int code) {
         this.latitude = latitude;

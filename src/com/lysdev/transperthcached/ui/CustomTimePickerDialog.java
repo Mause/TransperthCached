@@ -36,16 +36,13 @@ public class CustomTimePickerDialog extends TimePickerDialog {
         getButton(TimePickerDialog.BUTTON_NEUTRAL).setOnClickListener(
             new View.OnClickListener() {
                 public void onClick(View view) {
-
                     LocalTime now = LocalTime.now();
-                    CustomTimePickerDialog.this.updateTime(
+                    updateTime(
                         now.getHourOfDay(),
                         now.getMinuteOfHour()
                     );
 
-                    // CustomTimePickerDialog.this.dismiss();
-
-                    Log.d("TransperthCached", "Neutral button clicked");
+                    getButton(TimePickerDialog.BUTTON_POSITIVE).performClick();
                 }
             }
         );
