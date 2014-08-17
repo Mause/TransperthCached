@@ -126,7 +126,7 @@ public class FavouriteStopsActivity extends FragmentActivity
                 this,
                 "Stop numbers must be five digits long",
                 Toast.LENGTH_LONG
-            );
+            ).show();
         }
     }
 
