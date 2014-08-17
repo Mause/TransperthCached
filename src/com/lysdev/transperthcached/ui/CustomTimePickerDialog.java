@@ -3,13 +3,9 @@ package com.lysdev.transperthcached.ui;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import org.joda.time.LocalTime;
-import com.lysdev.transperthcached.R;
 
 
 public class CustomTimePickerDialog extends TimePickerDialog {

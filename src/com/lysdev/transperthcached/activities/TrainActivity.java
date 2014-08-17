@@ -1,4 +1,4 @@
-package com.lysdev.transperthcached;
+package com.lysdev.transperthcached.activities;
 
 import android.app.Activity;
 import android.os.Bundle;

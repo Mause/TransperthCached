@@ -1,16 +1,14 @@
-package com.lysdev.transperthcached;
+package com.lysdev.transperthcached.activities;
 
 import java.util.Vector;
 import android.util.Log;
 import java.util.Collections;
 
-
 import com.lysdev.transperthcached.timetable.Visit;
 import com.lysdev.transperthcached.timetable.VisitComparator;
 import com.lysdev.transperthcached.timetable.StopTimetable;
 import com.lysdev.transperthcached.timetable.Timetable;
-import com.lysdev.transperthcached.StateException;
-
+import com.lysdev.transperthcached.exceptions.StateException;
 
 import org.joda.time.LocalTime;
 import org.joda.time.DateTime;

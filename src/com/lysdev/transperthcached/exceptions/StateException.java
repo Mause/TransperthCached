@@ -1,4 +1,4 @@
-package com.lysdev.transperthcached;
+package com.lysdev.transperthcached.exceptions;
 
 import java.lang.Exception;
 

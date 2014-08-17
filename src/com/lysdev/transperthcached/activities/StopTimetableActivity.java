@@ -1,4 +1,4 @@
-package com.lysdev.transperthcached;
+package com.lysdev.transperthcached.activities;
 
 // Standard library
 import java.io.IOException;
@@ -46,9 +46,11 @@ import com.lysdev.transperthcached.ui.TimePickerFragment;
 
 import com.lysdev.transperthcached.R;
 
-import com.lysdev.transperthcached.MyLocation.LocationResult;
+import com.lysdev.transperthcached.exceptions.StateException;
 import com.lysdev.transperthcached.silverrails.GetNearbyTransitStops;
 import com.lysdev.transperthcached.silverrails.NearbyTransitStop;
+import com.lysdev.transperthcached.utils.MyLocation.LocationResult;
+import com.lysdev.transperthcached.utils.MyLocation;
 
 
 public class StopTimetableActivity extends FragmentActivity {

@@ -1,4 +1,4 @@
-package com.lysdev.transperthcached;
+package com.lysdev.transperthcached.activities;
 
 import android.app.TabActivity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+
+import com.lysdev.transperthcached.R;
 
 public class MainActivity extends TabActivity {
 

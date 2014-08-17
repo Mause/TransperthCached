@@ -13,7 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.lysdev.transperthcached.Util;
+import com.lysdev.transperthcached.utils.Util;
 import com.lysdev.transperthcached.silverrails.Constants;
 
 

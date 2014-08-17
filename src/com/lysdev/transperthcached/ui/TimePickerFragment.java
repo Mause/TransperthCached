@@ -1,17 +1,14 @@
 package com.lysdev.transperthcached.ui;
 
-import java.util.Calendar;
-
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
-import android.widget.TimePicker;
 
 import org.joda.time.LocalTime;
 
-import com.lysdev.transperthcached.MainActivity;
+import com.lysdev.transperthcached.R;
 
 
 public class TimePickerFragment extends DialogFragment {

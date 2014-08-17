@@ -1,4 +1,4 @@
-package com.lysdev.transperthcached;
+package com.lysdev.transperthcached.utils;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
