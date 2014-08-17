@@ -29,6 +29,7 @@ public class GetTimesForPlatform {
         Document doc = Util.getXML(
             "/GetTimesForPlatform", queryParams
         );
+        if (doc == null) return null;
 
         NodeList nodeList = doc.getElementsByTagName("Trip");
         if (nodeList == null) return null;
