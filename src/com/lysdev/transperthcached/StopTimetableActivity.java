@@ -9,7 +9,9 @@ import java.util.Vector;
 
 // android sdk
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -21,8 +23,10 @@ import android.view.View;
 
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TimePicker;
 
 import android.location.Location;
 
@@ -182,10 +186,21 @@ public class StopTimetableActivity extends FragmentActivity {
     public void timeSelectButtonClicked(View v) {
         hideSoftKeyboard();
 
-        DialogFragment newFragment = new TimePickerFragment(
-            this, this.show_for_date.toLocalTime()
-        );
-        newFragment.show(getSupportFragmentManager(), "timePicker");
+        TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                show_for_date = show_for_date.withTime(
+                    hourOfDay,
+                    minute,
+                    0, 0
+                );
+
+                updateTimeButtonText();
+            }
+        };
+
+        new TimePickerFragment(
+            listener, this.show_for_date.toLocalTime()
+        ).show(getSupportFragmentManager(), "timePicker");
     }
 
     public void updateTimeButtonText() {
@@ -200,10 +215,21 @@ public class StopTimetableActivity extends FragmentActivity {
     public void dateSelectButtonClicked(View v) {
         hideSoftKeyboard();
 
-        DialogFragment newFragment = new DatePickerFragment(
-            this, this.show_for_date
-        );
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+        DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                show_for_date = show_for_date.withDate(
+                    year,
+                    month + 1,
+                    day
+                );
+
+                updateDateButtonText();
+            }
+        };
+
+        new DatePickerFragment(
+            listener, this.show_for_date
+        ).show(getSupportFragmentManager(), "datePicker");
     }
 
     public void updateDateButtonText() {
