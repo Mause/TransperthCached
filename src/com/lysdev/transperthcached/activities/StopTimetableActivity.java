@@ -2,24 +2,19 @@ package com.lysdev.transperthcached.activities;
 
 // Standard library
 import java.io.IOException;
-import java.lang.Exception;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Vector;
-import android.content.Intent;
 
 // android sdk
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
-import android.view.inputmethod.InputMethodManager;
 import android.view.View;
 
 import android.widget.ArrayAdapter;
