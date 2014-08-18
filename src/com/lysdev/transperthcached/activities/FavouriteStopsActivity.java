@@ -87,6 +87,44 @@ class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
         db.insert("favourite_stops", null, values);
     }
 
+    public boolean stopExists(FavouriteStop stop) {
+        return stopExists(stop.getStopNumber());
+    }
+
+    public boolean stopExists(String stop_number) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.query(
+            "favourite_stops",
+            new String[] { "count(*)" },
+            "stop_number=?",
+            new String[] { stop_number },
+            null, null, null
+        );
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        } else {
+            return false;
+        }
+
+        return cursor.getInt(0) > 0;
+    }
+
+    public void deleteStop(FavouriteStop stop) {
+        deleteStop(stop.getStopNumber());
+    }
+
+    public void deleteStop(String stop_number) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        db.delete(
+            "favourite_stops",
+            "stop_number=?",
+            new String[] { stop_number }
+        );
+    }
+
     public ArrayList<FavouriteStop> getFavouriteStops() {
 
         SQLiteDatabase db = getReadableDatabase();
