@@ -12,4 +12,7 @@
 
     <string name="delete_button_text">Delete</string>
     <string name="add_button_text">Add</string>
+
+    <string name="stop_number_not_long_enough">Stop numbers must be five digits long</string>
+    <string name="favourite_stop_exists">Stop number exists</string>
 </resources>

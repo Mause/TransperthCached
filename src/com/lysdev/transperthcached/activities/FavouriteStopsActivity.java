@@ -303,7 +303,7 @@ public class FavouriteStopsActivity extends FragmentActivity
 
             Toast.makeText(
                 this,
-                "Stop numbers must be five digits long",
+                R.string.stop_number_not_long_enough,
                 Toast.LENGTH_LONG
             ).show();
         }
