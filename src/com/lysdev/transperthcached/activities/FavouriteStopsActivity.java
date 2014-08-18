@@ -286,13 +286,16 @@ public class FavouriteStopsActivity extends FragmentActivity
         if (stop_number.length() == 5) {
             Log.d("TransperthCached", "Stop number: " + stop_number);
 
-            db.addFavouriteStop(new FavouriteStop(stop_number));
-
-            stops_adapter.clear();
-            for (FavouriteStop stop : db.getFavouriteStops()) {
-                stops_adapter.add(stop);
+            if (db.stopExists(stop_number)) {
+                Toast.makeText(
+                    this,
+                    R.string.favourite_stop_exists,
+                    Toast.LENGTH_LONG
+                ).show();
+            } else {
+                db.addFavouriteStop(new FavouriteStop(stop_number));
+                updateStops();
             }
-            stops_adapter.notifyDataSetChanged();
 
             dialog.dismiss();
         } else {
@@ -304,6 +307,14 @@ public class FavouriteStopsActivity extends FragmentActivity
                 Toast.LENGTH_LONG
             ).show();
         }
+    }
+
+    private void updateStops() {
+        stops_adapter.clear();
+        for (FavouriteStop stop : db.getFavouriteStops()) {
+            stops_adapter.add(stop);
+        }
+        stops_adapter.notifyDataSetChanged();
     }
 
     // protected void onSaveInstanceState(Bundle outState) {
