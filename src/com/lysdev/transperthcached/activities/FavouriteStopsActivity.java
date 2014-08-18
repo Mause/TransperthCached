@@ -163,14 +163,58 @@ class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
 }
 
 
+interface OnDeleteListener<T> {
+    void onDelete(T t);
+}
+
+
+class ArrayAdapterWrapper<T> extends ArrayAdapter<T> {
+    public ArrayAdapterWrapper(Context context, int rida, int ridb, List<T> list) {
+        super(context, rida, ridb, list);
+    }
+
+    public ArrayAdapterWrapper(Context context, int rida, List<T> list) {
+        super(context, rida, list);
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        return true;
+    }
+
+    private OnDeleteListener<T> deleteListener = null;
+    public void setOnDeleteListener(OnDeleteListener<T> listener) {
+        this.deleteListener = listener;
+    }
+
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        View view = super.getView(position, convertView, parent);
+
+        Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
+        deleteBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (deleteListener == null)
+                    throw new IllegalArgumentException("you must set the delete listener");
+
+                deleteListener.onDelete(getItem(position));
+            }
+        });
+
+        return view;
+    }
+}
+
 
 public class FavouriteStopsActivity extends FragmentActivity
                                  implements DialogInterface.OnClickListener,
-                                            AdapterView.OnItemClickListener {
+                                            AdapterView.OnItemClickListener,
+                                            OnDeleteListener<FavouriteStop> {
 
     private EditText stopInput;
     private ListView stops;
-    private ArrayAdapter<FavouriteStop> stops_adapter;
+    private ArrayAdapterWrapper<FavouriteStop> stops_adapter;
     private Cursor stops_cursor;
     private FavouriteStopDatabaseHelper db;
 
@@ -181,15 +225,21 @@ public class FavouriteStopsActivity extends FragmentActivity
         db = new FavouriteStopDatabaseHelper(this);
 
         stops = (ListView) findViewById(R.id.favourite_stops);
-        stops_adapter = new ArrayAdapter<FavouriteStop>(
+        stops_adapter = new ArrayAdapterWrapper<FavouriteStop>(
             this,
-            // android.R.layout.simple_list_item_checked,
-            android.R.layout.simple_list_item_1,
-            // R.id.chk,
+            R.layout.favourite_stop_item,
+            R.id.text1,
             db.getFavouriteStops()
         );
         stops.setAdapter(stops_adapter);
         stops.setOnItemClickListener(this);
+        stops_adapter.setOnDeleteListener(this);
+    }
+
+    public void onDelete(FavouriteStop fav) {
+        Log.d("TransperthCached", "Delete: " + fav.toString());
+        db.deleteStop(fav);
+        updateStops();
     }
 
     @Override
