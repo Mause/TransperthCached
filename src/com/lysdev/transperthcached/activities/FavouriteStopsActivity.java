@@ -132,11 +132,7 @@ class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.query(
             "favourite_stops",    // table
             new String[] { "*" }, // selected fields
-            null, // where clause
-            null, // where fields
-            null, // having
-            null, // orderBy
-            null  // limit
+            null, null, null, null, null
         );
 
         if (cursor != null) {
