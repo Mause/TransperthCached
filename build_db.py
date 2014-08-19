@@ -72,23 +72,22 @@ def dump_data(data, conn):
     cursor = conn.cursor()
 
     print("Adding stops to visit table")
-    for stop_num, day_types in data.items():
-        types = zip([WEEKDAYS, SATURDAY, SUNDAY], day_types)
 
-        for day_type_num, day_type in types:
-            for visit in day_type:
-                hour, minute = map(int, visit[1].split(':'))
+    visits = (
+        (
+            str(stop_num),
+            day_type_num,
+            visit[0],
+        ) + tuple(map(int, visit[1].split(':')))
 
-                cursor.execute(
-                    'INSERT INTO visit VALUES (?, ?, ?, ?, ?)',
-                    (
-                        str(stop_num),
-                        day_type_num,
-                        visit[0],
-                        hour,
-                        minute
-                    )
-                )
+        for stop_num, day_types in data.items()
+        for day_type_num, day_type in zip(
+            [WEEKDAYS, SATURDAY, SUNDAY], day_types
+        )
+        for visit in day_type
+    )
+
+    cursor.executemany('INSERT INTO visit VALUES (?, ?, ?, ?, ?)', visits)
 
 
 def valid_key(haystack, needle):
@@ -99,39 +98,43 @@ def dump_stop_data(data, conn):
     cursor = conn.cursor()
 
     print("Dumping data into stops table")
-    for item in data["TransitStopReferenceData"]:
-        cursor.execute(
-            'INSERT INTO stops VALUES (?,?,?,?,?,?,?,?)',
-            (
-                valid_key(item, "DataSet"),
-                valid_key(item, "Code"),
-                valid_key(item, "StopUid"),
-                valid_key(item, "Description"),
-                valid_key(item, "Position"),
-                valid_key(item, "Zone"),
-                valid_key(item, "SupportedModes"),
-                valid_key(item, "Routes")
-            )
+
+    transit_stops = (
+        (
+            valid_key(item, "DataSet"),
+            valid_key(item, "Code"),
+            valid_key(item, "StopUid"),
+            valid_key(item, "Description"),
+            valid_key(item, "Position"),
+            valid_key(item, "Zone"),
+            valid_key(item, "SupportedModes"),
+            valid_key(item, "Routes")
         )
+        for item in data["TransitStopReferenceData"]
+    )
+
+    cursor.execute('INSERT INTO stops VALUES (?,?,?,?,?,?,?,?)', transit_stops)
 
 
 def dump_route_data(data, conn):
     cursor = conn.cursor()
 
     print("Dumping data into routes table")
-    for item in data["RouteReferenceData"]:
-        cursor.execute(
-            'INSERT INTO routes VALUES (?,?,?,?,?,?,?)',
-            (
-                valid_key(item, "RouteUid"),
-                valid_key(item, "Code"),
-                valid_key(item, "Name"),
-                valid_key(item, "ServiceProviderUid"),
-                valid_key(item, "TransportMode"),
-                valid_key(item, "Url"),
-                valid_key(item, "RouteTimetableGroupId")
-            )
+
+    routes = (
+        (
+            valid_key(item, "RouteUid"),
+            valid_key(item, "Code"),
+            valid_key(item, "Name"),
+            valid_key(item, "ServiceProviderUid"),
+            valid_key(item, "TransportMode"),
+            valid_key(item, "Url"),
+            valid_key(item, "RouteTimetableGroupId")
         )
+        for item in data["RouteReferenceData"]
+    )
+
+    cursor.execute('INSERT INTO routes VALUES (?,?,?,?,?,?,?)', routes)
 
 
 def main():
