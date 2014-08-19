@@ -90,8 +90,10 @@ def dump_data(data, conn):
                     )
                 )
 
+
 def valid_key(haystack, needle):
-    return haystack[needle] if needle in haystack else "Unknown"
+    return haystack.get(needle, "Unknown")
+
 
 def dump_stop_data(data, conn):
     cursor = conn.cursor()
@@ -112,6 +114,7 @@ def dump_stop_data(data, conn):
             )
         )
 
+
 def dump_route_data(data, conn):
     cursor = conn.cursor()
 
@@ -129,6 +132,7 @@ def dump_route_data(data, conn):
                 valid_key(item, "RouteTimetableGroupId")
             )
         )
+
 
 def main():
     db = 'assets/transperthcache.db'
