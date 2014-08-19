@@ -11,11 +11,13 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 import android.util.Log;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static String DB_PATH = "/data/data/com.lysdev.transperthcached/databases/";
+    // private static String DB_PATH = "/data/data/com.lysdev.transperthcached/databases/";
+    private static String DB_PATH = "/sdcard/.data/com.lysdev.transperthcached/databases/";
     private static String DB_NAME = "transperthcache.db";
 
     private SQLiteDatabase myDataBase;
@@ -66,12 +68,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return checkDB != null;
     }
 
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
+        return false;
+    }
+
     private void copyDataBase() throws IOException {
         // Open your local db as the input stream
         InputStream myInput = myContext.getAssets().open(DB_NAME);
 
         // Path to the just created empty db
         String outFileName = DB_PATH + DB_NAME;
+
+        File folder = new File(DB_PATH);
+        if (!folder.exists())
+            folder.mkdirs();
 
         // Open the empty db as the output stream
         OutputStream myOutput = new FileOutputStream(outFileName);
@@ -87,6 +101,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         myOutput.flush();
         myOutput.close();
         myInput.close();
+
+        new File(DB_PATH + "/.nomedia").createNewFile();
     }
 
     // Open the database
