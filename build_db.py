@@ -26,6 +26,13 @@ def setup(conn):
 
     cursor.execute('CREATE INDEX visit_stop_num_idx ON visit (stop_num);')
 
+    cursor.execute(
+        'CREATE TABLE "android_metadata" ("locale" TEXT DEFAULT "en_US");'
+    )
+    cursor.execute(
+        'INSERT INTO "android_metadata" VALUES ("en_US")'
+    )
+
 
 def dump_data(data, conn):
     cursor = conn.cursor()
@@ -50,7 +57,7 @@ def dump_data(data, conn):
 
 
 def main():
-    db = 'Assets/transperthcache.db'
+    db = 'assets/transperthcache.db'
     if os.path.exists(db):
         os.unlink(db)
 
@@ -65,6 +72,7 @@ def main():
         )
 
     conn.commit()
+    conn.close()
 
 
 if __name__ == '__main__':
