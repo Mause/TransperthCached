@@ -15,4 +15,6 @@
 
     <string name="stop_number_not_long_enough">Stop numbers must be five digits long</string>
     <string name="favourite_stop_exists">Stop number exists</string>
+
+    <string name="silverrails_apikey">INSERT API KEY</string>
 </resources>
