@@ -17,7 +17,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     // private static String DB_PATH = "/data/data/com.lysdev.transperthcached/databases/";
-    private static String DB_PATH = "/sdcard/.data/com.lysdev.transperthcached/databases/";
+    private static String DB_PATH = "/sdcard/Android/data/com.lysdev.transperthcached/databases/";
     private static String DB_NAME = "transperthcache.db";
 
     private SQLiteDatabase myDataBase;
