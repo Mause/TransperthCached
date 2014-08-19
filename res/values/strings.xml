@@ -17,4 +17,8 @@
     <string name="favourite_stop_exists">Stop number exists</string>
 
     <string name="silverrails_apikey">INSERT API KEY</string>
+    <!--
+    if you have legitimate cause for requiring the api key,
+    contact me (Dominic May/Mause/Lord_DeathMatch) @ me@mause.me
+    -->
 </resources>
