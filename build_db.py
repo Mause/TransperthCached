@@ -1,3 +1,4 @@
+from os.path import join, dirname
 import json
 import os
 import sqlite3
@@ -6,6 +7,8 @@ import sqlite3
 WEEKDAYS = 0x1
 SATURDAY = 0x2
 SUNDAY = 0x3
+
+HERE = dirname(__file__)
 
 
 def setup(conn):
@@ -138,7 +141,7 @@ def dump_route_data(data, conn):
 
 
 def main():
-    db = 'assets/transperthcache.db'
+    db = join(HERE, 'assets/transperthcache.db')
     if os.path.exists(db):
         os.unlink(db)
 
@@ -146,21 +149,22 @@ def main():
 
     setup(conn)
 
-    with open('transperthcache.json') as fh:
+    RAW_ASSETS = join(HERE, 'raw_assets')
+    with open(join(RAW_ASSETS, 'transperthcache.json')) as fh:
         dump_data(
             json.load(fh),
             conn
         )
 
-    with open('TransitStops.json') as fhb:
+    with open(join(RAW_ASSETS, 'TransitStops.json')) as fh:
         dump_stop_data(
-            json.load(fhb),
+            json.load(fh),
             conn
         )
 
-    with open('Routes.json') as fhc:
+    with open(join(RAW_ASSETS, 'Routes.json')) as fh:
         dump_route_data(
-            json.load(fhc),
+            json.load(fh),
             conn
         )
 

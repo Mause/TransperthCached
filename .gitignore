@@ -19,3 +19,4 @@ hs_err_pid*
 
 # android dev specific
 local.properties
+raw_assets/*
