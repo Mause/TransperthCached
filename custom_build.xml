@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <target name="check_for_changed_raw_assets">
+        <uptodate property="nochanges" targetfile="assets/assets_built">
+            <srcfiles dir="raw_assets" includes="**/**" />
+        </uptodate>
+    </target>
+
+    <target name="build_assets" depends="check_for_changed_raw_assets" unless="nochanges">
+        <exec executable="python" failonerror="true">
+            <arg value="build_db.py" />
+        </exec>
+        <touch file="assets/assets_built" />
+    </target>
+
+    <target name="clean_assets">
+        <delete>
+            <fileset dir="assets">
+                <include name="*" />
+            </fileset>
+        </delete>
+    </target>
+</project>
