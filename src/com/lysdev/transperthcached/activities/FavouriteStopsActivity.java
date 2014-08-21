@@ -1,17 +1,9 @@
 package com.lysdev.transperthcached.activities;
 
-import java.util.ArrayList;
 
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.TabActivity;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,17 +17,15 @@ import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lysdev.transperthcached.R;
-
+import com.lysdev.transperthcached.database.FavouriteStopDatabaseHelper;
+import com.lysdev.transperthcached.ui.DeleteButtonArrayAdapter;
 
 
 class FavouriteStop {
@@ -61,152 +51,10 @@ class FavouriteStop {
 }
 
 
-
-class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
-    private static final String DB_NAME = "FavouriteStopDatabase";
-    private SQLiteDatabase db;
-
-    public FavouriteStopDatabaseHelper(Context context) {
-        super(context, DB_NAME, null, 1);
-        db = getWritableDatabase();
-    }
-    public void onUpgrade(SQLiteDatabase db, int a, int b) {}
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL(
-            "CREATE TABLE IF NOT EXISTS favourite_stops (" +
-            "    sid INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "    stop_number TEXT" +
-            ");"
-        );
-    }
-
-    public void addFavouriteStop(FavouriteStop toAdd) {
-        ContentValues values = new ContentValues();
-        values.put("stop_number", toAdd.getStopNumber());
-
-        db.insert("favourite_stops", null, values);
-    }
-
-    public boolean stopExists(FavouriteStop stop) {
-        return stopExists(stop.getStopNumber());
-    }
-
-    public boolean stopExists(String stop_number) {
-        SQLiteDatabase db = getReadableDatabase();
-
-        Cursor cursor = db.query(
-            "favourite_stops",
-            new String[] { "count(*)" },
-            "stop_number=?",
-            new String[] { stop_number },
-            null, null, null
-        );
-
-        if (cursor != null) {
-            cursor.moveToFirst();
-        } else {
-            return false;
-        }
-
-        return cursor.getInt(0) > 0;
-    }
-
-    public void deleteStop(FavouriteStop stop) {
-        deleteStop(stop.getStopNumber());
-    }
-
-    public void deleteStop(String stop_number) {
-        SQLiteDatabase db = getWritableDatabase();
-
-        db.delete(
-            "favourite_stops",
-            "stop_number=?",
-            new String[] { stop_number }
-        );
-    }
-
-    public ArrayList<FavouriteStop> getFavouriteStops() {
-
-        SQLiteDatabase db = getReadableDatabase();
-
-        Cursor cursor = db.query(
-            "favourite_stops",    // table
-            new String[] { "*" }, // selected fields
-            null, null, null, null, null
-        );
-
-        if (cursor != null) {
-            cursor.moveToFirst();
-        } else {
-            return null;
-        }
-
-        ArrayList<FavouriteStop> stops = new ArrayList<FavouriteStop>();
-
-        while (!cursor.isAfterLast()) {
-            stops.add(
-                new FavouriteStop(
-                    cursor.getInt(0),
-                    cursor.getString(1)
-                )
-            );
-
-            cursor.moveToNext();
-        }
-
-        return stops;
-    }
-}
-
-
-interface OnDeleteListener<T> {
-    void onDelete(T t);
-}
-
-
-class ArrayAdapterWrapper<T> extends ArrayAdapter<T> {
-    public ArrayAdapterWrapper(Context context, int rida, int ridb, List<T> list) {
-        super(context, rida, ridb, list);
-    }
-
-    public ArrayAdapterWrapper(Context context, int rida, List<T> list) {
-        super(context, rida, list);
-    }
-
-    @Override
-    public boolean isEnabled(int position) {
-        return true;
-    }
-
-    private OnDeleteListener<T> deleteListener = null;
-    public void setOnDeleteListener(OnDeleteListener<T> listener) {
-        this.deleteListener = listener;
-    }
-
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        View view = super.getView(position, convertView, parent);
-
-        Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
-        deleteBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                if (deleteListener == null)
-                    throw new IllegalArgumentException("you must set the delete listener");
-
-                deleteListener.onDelete(getItem(position));
-            }
-        });
-
-        return view;
-    }
-}
-
-
 public class FavouriteStopsActivity extends FragmentActivity
                                  implements DialogInterface.OnClickListener,
                                             AdapterView.OnItemClickListener,
-                                            OnDeleteListener<FavouriteStop> {
+                                            DeleteButtonArrayAdapter.OnDeleteListener<FavouriteStop> {
 
     private EditText stopInput;
     private ListView stops;
@@ -221,7 +69,7 @@ public class FavouriteStopsActivity extends FragmentActivity
         db = new FavouriteStopDatabaseHelper(this);
 
         stops = (ListView) findViewById(R.id.favourite_stops);
-        stops_adapter = new ArrayAdapterWrapper<FavouriteStop>(
+        stops_adapter = new DeleteButtonArrayAdapter<FavouriteStop>(
             this,
             R.layout.favourite_stop_item,
             R.id.text1,
