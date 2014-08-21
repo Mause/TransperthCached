@@ -35,11 +35,11 @@ public class FavouriteStopsActivity extends FragmentActivity
                                             AdapterView.OnItemClickListener,
                                             DeleteButtonArrayAdapter.OnDeleteListener<FavouriteStop> {
 
-    private EditText stopInput;
-    private ListView stops;
-    private ArrayAdapterWrapper<FavouriteStop> stops_adapter;
     private Cursor stops_cursor;
+    private DeleteButtonArrayAdapter<FavouriteStop> stops_adapter;
+    private EditText stopInput;
     private FavouriteStopDatabaseHelper db;
+    private ListView stops;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

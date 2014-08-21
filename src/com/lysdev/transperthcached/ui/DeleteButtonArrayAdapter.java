@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.view.View;
 import android.widget.Button;
 
+import com.lysdev.transperthcached.R;
+
 
 public class DeleteButtonArrayAdapter<T> extends ArrayAdapter<T> {
     public interface OnDeleteListener<T> {
