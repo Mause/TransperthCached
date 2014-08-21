@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.lysdev.transperthcached.models.FavouriteStop;
+
 
 public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "FavouriteStopDatabase";
