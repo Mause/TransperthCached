@@ -137,13 +137,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // to you to create adapters for your views.
 
     private Visit build_result(Cursor cursor) {
-        String stop_num, time;
-        int route_num, time_hour, time_minute;
+        String time;
+        int stop_num, route_num, time_hour, time_minute;
 
         time_hour = cursor.getInt(3);
         time_minute = cursor.getInt(4);
 
-        stop_num = cursor.getString(0);
+        stop_num = cursor.getInt(0);
         route_num = cursor.getInt(2);
 
         return Visit.fromRaw(
@@ -154,7 +154,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
-    public StopTimetable getVisitsForStop(String stop_num) {
+    public StopTimetable getVisitsForStop(int stop_num) {
         Log.d("TransperthCached", "getting results from db");
         Log.d("TransperthCached", "DB Path: " + db.getPath());
 

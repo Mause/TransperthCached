@@ -12,15 +12,13 @@ public class Timetable {
     public static final int SATURDAY = 0x2;
     public static final int SUNDAY   = 0x3;
 
-    private HashMap<String, StopTimetable> _cache;
+    private HashMap<Integer, StopTimetable> _cache;
 
     public Timetable() {
-        _cache = new HashMap<String, StopTimetable>();
+        _cache = new HashMap<Integer, StopTimetable>();
     }
 
-    public StopTimetable getVisitsForStop(String stop_num) {
-        if (stop_num == null) return null;
-
+    public StopTimetable getVisitsForStop(int stop_num) {
         // first check the in-memory cache
         StopTimetable cached_val = _cache.get(stop_num);
         if (cached_val != null) return cached_val;
@@ -29,7 +27,7 @@ public class Timetable {
         return _getVisitsForStop_uncached(stop_num);
     }
 
-    private StopTimetable _getVisitsForStop_uncached(String stop_num) {
+    private StopTimetable _getVisitsForStop_uncached(int stop_num) {
         StopTimetable st = MainActivity.getConstantDB().getVisitsForStop(stop_num);
 
         if (st == null) return st;

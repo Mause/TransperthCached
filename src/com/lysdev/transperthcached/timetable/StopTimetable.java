@@ -4,7 +4,7 @@ import java.util.Vector;
 
 
 public class StopTimetable {
-    String stop_num;
+    int stop_num;
     Vector<Visit> weekdays;
     Vector<Visit> saturdays;
     Vector<Visit> sundays;
@@ -20,7 +20,7 @@ public class StopTimetable {
     };
 
     public StopTimetable(
-            String stop_num,
+            int stop_num,
             Vector<Visit> weekdays,
             Vector<Visit> saturdays,
             Vector<Visit> sundays) {

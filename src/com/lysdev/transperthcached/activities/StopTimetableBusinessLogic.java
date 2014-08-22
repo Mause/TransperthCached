@@ -29,7 +29,9 @@ public class StopTimetableBusinessLogic {
             );
         }
 
-        StopTimetable stop_timetable = timetable.getVisitsForStop(stop_num);
+        StopTimetable stop_timetable = timetable.getVisitsForStop(
+            Integer.parseInt(stop_num)
+        );
         if (stop_timetable == null) {
             String error = String.format("No such stop as %s", stop_num);
             Log.d("TransperthCached", error);
