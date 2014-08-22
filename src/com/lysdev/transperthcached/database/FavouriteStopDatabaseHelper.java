@@ -43,14 +43,14 @@ public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
         return stopExists(stop.getStopNumber());
     }
 
-    public boolean stopExists(String stop_number) {
+    public boolean stopExists(int stop_number) {
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.query(
             "favourite_stops",
             new String[] { "count(*)" },
             "stop_number=?",
-            new String[] { stop_number },
+            new String[] { String.valueOf(stop_number) },
             null, null, null
         );
 
@@ -67,13 +67,13 @@ public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
         deleteStop(stop.getStopNumber());
     }
 
-    public void deleteStop(String stop_number) {
+    public void deleteStop(int stop_number) {
         SQLiteDatabase db = getWritableDatabase();
 
         db.delete(
             "favourite_stops",
             "stop_number=?",
-            new String[] { stop_number }
+            new String[] { String.valueOf(stop_number) }
         );
     }
 
@@ -99,7 +99,7 @@ public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
             stops.add(
                 new FavouriteStop(
                     cursor.getInt(0),
-                    cursor.getString(1)
+                    cursor.getInt(1)
                 )
             );
 

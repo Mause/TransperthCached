@@ -112,14 +112,16 @@ public class FavouriteStopsActivity extends FragmentActivity
         if (stop_number.length() == 5) {
             Log.d("TransperthCached", "Stop number: " + stop_number);
 
-            if (db.stopExists(stop_number)) {
+            int istop_number = Integer.parseInt(stop_number);
+            if (db.stopExists(istop_number)) {
                 Toast.makeText(
                     this,
                     R.string.favourite_stop_exists,
                     Toast.LENGTH_LONG
                 ).show();
             } else {
-                db.addFavouriteStop(new FavouriteStop(stop_number));
+                db.addFavouriteStop(new FavouriteStop(istop_number));
+
                 updateStops();
             }
 

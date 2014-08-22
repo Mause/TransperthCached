@@ -214,12 +214,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
-    public String getDescriptionOfStop(String stop_number) {
+    public String getDescriptionOfStop(int stop_number) {
         Cursor cursor = db.query(
             "stops",
             new String[] { "description" },
             "stop_num=?",
-            new String[] { stop_number },
+            new String[] { String.valueOf(stop_number) },
             null, null, null
         );
 

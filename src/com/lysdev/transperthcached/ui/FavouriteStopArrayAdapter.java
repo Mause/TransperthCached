@@ -48,8 +48,11 @@ public class FavouriteStopArrayAdapter extends ArrayAdapter<FavouriteStop> {
 
         if (item != null) {
             TextView stop_number = (TextView) view.findViewById(R.id.stop_number);
-            if (stop_number != null)
-                stop_number.setText(item.getStopNumber());
+            if (stop_number != null) {
+                stop_number.setText(
+                    String.valueOf(item.getStopNumber())
+                );
+            }
 
             TextView description = (TextView) view.findViewById(R.id.description);
             if (description != null)

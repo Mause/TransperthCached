@@ -3,20 +3,20 @@ package com.lysdev.transperthcached.models;
 import com.lysdev.transperthcached.activities.MainActivity;
 
 public class FavouriteStop {
-    private String stop_number;
+    private int stop_number;
     private Integer sid = null;
     private String description = null;
 
-    public FavouriteStop(String stop_number) {
+    public FavouriteStop(int stop_number) {
         this.stop_number = stop_number;
     }
 
-    public FavouriteStop(Integer sid, String stop_number) {
+    public FavouriteStop(Integer sid, int stop_number) {
         this(stop_number);
         this.sid = sid;
     }
 
-    public String getStopNumber() {
+    public int getStopNumber() {
         return this.stop_number;
     }
 
