@@ -19,7 +19,7 @@ def setup(conn):
 def dump_data(data, conn):
     cursor = conn.cursor()
 
-    print("Adding stops to visit table")
+    print("Dumping visits table")
 
     visits = (
         (
@@ -42,27 +42,39 @@ def valid_key(haystack, needle):
     return haystack.get(needle, "Unknown")
 
 
+def valid_int(haystack, needle):
+    try:
+        return int(haystack.get(needle))
+    except (ValueError, TypeError):
+        return 0
+
+
 def dump_stop_data(data, conn):
     cursor = conn.cursor()
 
     print("Dumping data into stops table")
 
-    transit_stops = (
-        (
-            valid_key(item, "DataSet"),
-            valid_key(item, "Code"),
-            valid_key(item, "StopUid"),
-            valid_key(item, "Description"),
-            valid_key(item, "Position"),
-            valid_key(item, "Zone"),
-            valid_key(item, "SupportedModes"),
-            valid_key(item, "Routes")
-        )
-        for item in data["TransitStopReferenceData"]
-    )
+    transit_stops = []
+    for item in data["TransitStopReferenceData"]:
+        if item.get('Code') == '':
+            continue
+
+        lat, long = map(float, item["Position"].split(', '))
+
+        transit_stops.append((
+            item["DataSet"],
+            valid_int(item, "Code"),
+            item["StopUid"],
+            item["Description"],
+            lat,
+            long,
+            valid_int(item, "Zone"),
+            item.get("SupportedModes", ""),
+            item.get("Routes", "")
+        ))
 
     cursor.executemany(
-        'INSERT INTO stops VALUES (?,?,?,?,?,?,?,?)',
+        'INSERT INTO stops VALUES (?,?,?,?,?,?,?,?,?)',
         transit_stops
     )
 

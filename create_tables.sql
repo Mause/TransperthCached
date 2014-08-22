@@ -1,22 +1,25 @@
 CREATE TABLE IF NOT EXISTS visit
 (
-    stop_num text,
-    visit_day_type integer,
-    route_num integer,
-    hour integer,
-    minute integer
+    stop_num INTEGER,
+    visit_day_type INTEGER,
+    route_num INTEGER,
+    hour INTEGER,
+    minute INTEGER,
+
+    FOREIGN KEY (stop_num) REFERENCES stops(stop_num)
 );
 
 CREATE TABLE IF NOT EXISTS stops
 (
-    dataset text,
-    stop_num text,
-    stop_uid text,
-    description text,
-    lat_long text,
-    zone text,
-    modes text,
-    routes text
+    dataset TEXT,
+    stop_num INTEGER PRIMARY KEY,
+    stop_uid TEXT,
+    description TEXT,
+    latitude REAL,
+    longitude REAL,
+    zone INTEGER,
+    modes TEXT,
+    routes TEXT
 );
 
 CREATE TABLE IF NOT EXISTS routes
