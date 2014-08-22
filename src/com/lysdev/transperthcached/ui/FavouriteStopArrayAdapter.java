@@ -9,18 +9,19 @@ import android.view.View;
 import android.widget.Button;
 
 import com.lysdev.transperthcached.R;
+import com.lysdev.transperthcached.models.FavouriteStop;
 
 
-public class DeleteButtonArrayAdapter<T> extends ArrayAdapter<T> {
-    public interface OnDeleteListener<T> {
-        void onDelete(T t);
+public class FavouriteStopArrayAdapter extends ArrayAdapter<FavouriteStop> {
+    public interface OnDeleteListener {
+        void onDelete(FavouriteStop t);
     }
 
-    public DeleteButtonArrayAdapter(Context context, int rida, int ridb, List<T> list) {
+    public FavouriteStopArrayAdapter(Context context, int rida, int ridb, List<FavouriteStop> list) {
         super(context, rida, ridb, list);
     }
 
-    public DeleteButtonArrayAdapter(Context context, int rida, List<T> list) {
+    public FavouriteStopArrayAdapter(Context context, int rida, List<FavouriteStop> list) {
         super(context, rida, list);
     }
 
@@ -29,8 +30,8 @@ public class DeleteButtonArrayAdapter<T> extends ArrayAdapter<T> {
         return true;
     }
 
-    private OnDeleteListener<T> deleteListener = null;
-    public void setOnDeleteListener(OnDeleteListener<T> listener) {
+    private OnDeleteListener deleteListener = null;
+    public void setOnDeleteListener(OnDeleteListener listener) {
         this.deleteListener = listener;
     }
 

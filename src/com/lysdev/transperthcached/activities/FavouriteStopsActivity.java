@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 import com.lysdev.transperthcached.R;
 import com.lysdev.transperthcached.database.FavouriteStopDatabaseHelper;
-import com.lysdev.transperthcached.ui.DeleteButtonArrayAdapter;
+import com.lysdev.transperthcached.ui.FavouriteStopArrayAdapter;
 
 import com.lysdev.transperthcached.models.FavouriteStop;
 
@@ -33,10 +33,10 @@ import com.lysdev.transperthcached.models.FavouriteStop;
 public class FavouriteStopsActivity extends FragmentActivity
                                  implements DialogInterface.OnClickListener,
                                             AdapterView.OnItemClickListener,
-                                            DeleteButtonArrayAdapter.OnDeleteListener<FavouriteStop> {
+                                            FavouriteStopArrayAdapter.OnDeleteListener {
 
     private Cursor stops_cursor;
-    private DeleteButtonArrayAdapter<FavouriteStop> stops_adapter;
+    private FavouriteStopArrayAdapter stops_adapter;
     private EditText stopInput;
     private FavouriteStopDatabaseHelper db;
     private ListView stops;
@@ -48,10 +48,9 @@ public class FavouriteStopsActivity extends FragmentActivity
         db = new FavouriteStopDatabaseHelper(this);
 
         stops = (ListView) findViewById(R.id.favourite_stops);
-        stops_adapter = new DeleteButtonArrayAdapter<FavouriteStop>(
+        stops_adapter = new FavouriteStopArrayAdapter(
             this,
             R.layout.favourite_stop_item,
-            R.id.text1,
             db.getFavouriteStops()
         );
         stops.setAdapter(stops_adapter);
