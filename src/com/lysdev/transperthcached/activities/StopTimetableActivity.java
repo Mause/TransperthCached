@@ -63,23 +63,11 @@ public class StopTimetableActivity extends FragmentActivity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d("TransperthCached", "initializing StopTimetableActivity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stop_timetable);
 
         this.timetable = new Timetable();
-        Log.d("TransperthCached", "initializing");
-
-        try {
-            this.timetable.initialize(getApplicationContext());
-        } catch (java.lang.Error e) {
-            ok_dialog("Could not initialize database", null);
-            throw new java.lang.Error(e.toString());
-        } catch (java.io.IOException e) {
-            ok_dialog("Could not initialize database", null);
-            throw new java.lang.Error(e.toString());
-        }
-
-        Log.d("TransperthCached", "initialized");
 
         if (savedInstanceState == null) {
             Log.d("TransperthCached", "No bundled state received");
@@ -90,6 +78,7 @@ public class StopTimetableActivity extends FragmentActivity {
         preUiLoadSaveInstanceState(savedInstanceState);
         setupUI();
         postUiLoadSaveInstanceState(savedInstanceState);
+        Log.d("TransperthCached", "initialized StopTimetableActivity");
     }
 
     protected void setupUI() {
@@ -140,11 +129,6 @@ public class StopTimetableActivity extends FragmentActivity {
         outState.putString("show_for_date", show_for_date.toString());
 
         outState.putString("stop_number", stop_num_widget.getText().toString());
-    }
-
-    protected void onDestroy() {
-        super.onDestroy();
-        this.timetable.onDestroy();
     }
 
     private void ok_dialog(String title, String message) {

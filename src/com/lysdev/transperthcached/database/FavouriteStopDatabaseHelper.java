@@ -21,6 +21,7 @@ public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
         // purely for use within onCreate; don't use it anywhere else!
         db = getWritableDatabase();
     }
+
     public void onUpgrade(SQLiteDatabase db, int a, int b) {}
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(

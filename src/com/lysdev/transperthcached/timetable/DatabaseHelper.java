@@ -53,7 +53,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String myPath = DB_PATH + DB_NAME;
 
         File dbFile = new File(myPath);
-        if (!dbFile.exists()) return false;
+        if (!dbFile.exists()) {
+            Log.d("TransperthCached", "Database does not yet exist");
+            return false;
+        }
 
         try {
             checkDB = SQLiteDatabase.openDatabase(
@@ -61,7 +64,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 null,
                 SQLiteDatabase.OPEN_READONLY
             );
-        } catch (SQLiteException e) {}
+        } catch (SQLiteException e) {
+            Log.d("TransperthCached", "SQLiteException whilst testing db");
+        }
 
         if (checkDB != null) {
             checkDB.close();
@@ -107,6 +112,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             myPath, null, SQLiteDatabase.OPEN_READONLY
         );
 
+        Log.d("TransperthCached", "DB Path: " + db.getPath());
+
         return db;
     }
 
@@ -149,9 +156,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public StopTimetable getVisitsForStop(String stop_num) {
         Log.d("TransperthCached", "getting results from db");
-
-        // SQLiteDatabase db = getReadableDatabase();
-
         Log.d("TransperthCached", "DB Path: " + db.getPath());
 
         assert ((
@@ -211,12 +215,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public String getDescriptionOfStop(String stop_number) {
-        SQLiteDatabase db = getReadableDatabase();
-
         Cursor cursor = db.query(
             "stops",
-            new String[] { "Description" },
-            "Code=?",
+            new String[] { "description" },
+            "stop_num=?",
             new String[] { stop_number },
             null, null, null
         );
@@ -228,8 +230,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<String> listTables() {
-        SQLiteDatabase db = getReadableDatabase();
-
         Cursor cursor = db.query(
             "sqlite_master",
             new String[] { "name" },
