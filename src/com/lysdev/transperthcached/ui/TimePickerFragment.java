@@ -8,11 +8,8 @@ import android.text.format.DateFormat;
 
 import org.joda.time.LocalTime;
 
-import com.lysdev.transperthcached.R;
-
 
 public class TimePickerFragment extends DialogFragment {
-
     private TimePickerDialog.OnTimeSetListener listener;
     private LocalTime default_time;
 
@@ -24,13 +21,11 @@ public class TimePickerFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // return new TimePickerDialog(
         return new CustomTimePickerDialog(
-            getActivity(), listener,
-
+            getActivity(),
+            listener,
             this.default_time.getHourOfDay(),
             this.default_time.getMinuteOfHour(),
-
             DateFormat.is24HourFormat(getActivity())
         );
     }
