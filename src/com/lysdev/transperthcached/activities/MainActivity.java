@@ -48,14 +48,14 @@ public class MainActivity extends TabActivity
         tab(FavouriteStopsActivity.class, "FavouriteStops", R.drawable.icon_star_config);
 
         Intent intent = new Intent(this, StopTimetableActivity.class);
-        String stop_num = getIntent().getStringExtra("stop_num");
-        if (stop_num != null) {
+        int stop_num = getIntent().getIntExtra("stop_num", 0);
+        if (stop_num != 0) {
             Log.d("TransperthCached", "Got bundled stop_num: " + stop_num);
             intent.putExtra("stop_num", stop_num);
         }
         tab(intent, "StopTimetable", R.drawable.icon_timetable_config);
 
-        if (stop_num == null) tabHost.setCurrentTab(0);
+        if (stop_num == 0) tabHost.setCurrentTab(0);
         else                  tabHost.setCurrentTab(2);
 
 

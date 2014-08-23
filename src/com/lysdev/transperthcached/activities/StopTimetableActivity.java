@@ -121,10 +121,13 @@ public class StopTimetableActivity extends FragmentActivity {
         // this is for when a user selects a stop in favourites
         Intent intent = getIntent();
         if (intent != null) {
-            String stop_num = intent.getStringExtra("stop_num");
+            int stop_num = intent.getIntExtra("stop_num", 0);
 
-            if (stop_num != null) {
-                stop_num_widget.setText(stop_num);
+            if (stop_num != 0) {
+                stop_num_widget.setText(
+                    String.valueOf(stop_num)
+                );
+                Util.hideSoftKeyboard(this);
             }
         }
     }
@@ -132,6 +135,7 @@ public class StopTimetableActivity extends FragmentActivity {
     protected void onSaveInstanceState(Bundle outState) {
         outState.putString("show_for_date", show_for_date.toString());
 
+        // this seems to work as is; no need to stringy or parseInt
         outState.putString("stop_number", stop_num_widget.getText().toString());
     }
 
