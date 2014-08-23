@@ -43,11 +43,15 @@ import com.lysdev.transperthcached.ui.TimePickerFragment;
 import com.lysdev.transperthcached.R;
 
 import com.lysdev.transperthcached.exceptions.StateException;
+
 import com.lysdev.transperthcached.silverrails.GetNearbyTransitStops;
 import com.lysdev.transperthcached.silverrails.NearbyTransitStop;
+
 import com.lysdev.transperthcached.utils.MyLocation.LocationResult;
 import com.lysdev.transperthcached.utils.MyLocation;
 import com.lysdev.transperthcached.utils.Util;
+
+import com.lysdev.transperthcached.business.StopTimetableBusinessLogic;
 
 
 public class StopTimetableActivity extends FragmentActivity {
