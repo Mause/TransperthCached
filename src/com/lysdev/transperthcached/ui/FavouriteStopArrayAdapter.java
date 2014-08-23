@@ -14,19 +14,15 @@ import com.lysdev.transperthcached.models.FavouriteStop;
 
 
 public class FavouriteStopArrayAdapter extends ArrayAdapter<FavouriteStop> {
-    public interface OnDeleteListener {
-        void onDelete(FavouriteStop t);
-    }
-
     List<FavouriteStop> items;
 
-    public FavouriteStopArrayAdapter(Context context, int rida, int ridb, List<FavouriteStop> list) {
-        super(context, rida, ridb, list);
-        this.items = list;
-    }
-
-    public FavouriteStopArrayAdapter(Context context, int rida, List<FavouriteStop> list) {
-        super(context, rida, list);
+    public FavouriteStopArrayAdapter(Context context, List<FavouriteStop> list) {
+        super(
+            context,
+            R.layout.favourite_stop_item,
+            R.id.description,
+            list
+        );
         this.items = list;
     }
 
@@ -71,5 +67,9 @@ public class FavouriteStopArrayAdapter extends ArrayAdapter<FavouriteStop> {
         });
 
         return view;
+    }
+
+    public interface OnDeleteListener {
+        void onDelete(FavouriteStop t);
     }
 }

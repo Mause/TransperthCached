@@ -45,7 +45,6 @@ public class FavouriteStopsActivity extends FragmentActivity
         stops = (ListView) findViewById(R.id.favourite_stops);
         stops_adapter = new FavouriteStopArrayAdapter(
             this,
-            R.layout.favourite_stop_item,
             db.getFavouriteStops()
         );
         stops.setAdapter(stops_adapter);
