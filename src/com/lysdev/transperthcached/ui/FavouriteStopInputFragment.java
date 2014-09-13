@@ -26,6 +26,8 @@ public class FavouriteStopInputFragment extends DialogFragment {
         this.listener = listener;
     }
 
+    public FavouriteStopInputFragment() {}
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final EditText stopInput = new EditText(getActivity());
