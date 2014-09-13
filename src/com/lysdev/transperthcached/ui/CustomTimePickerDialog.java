@@ -4,6 +4,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import org.joda.time.LocalTime;
 
@@ -21,9 +22,9 @@ public class CustomTimePickerDialog extends TimePickerDialog {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        setButton(TimePickerDialog.BUTTON_NEUTRAL, "Now", this);
+        Button neutral = getButton(TimePickerDialog.BUTTON_NEUTRAL);
 
-        getButton(TimePickerDialog.BUTTON_NEUTRAL).setOnClickListener(
+        neutral.setOnClickListener(
             new View.OnClickListener() {
                 public void onClick(View view) {
                     LocalTime now = LocalTime.now();
@@ -36,5 +37,8 @@ public class CustomTimePickerDialog extends TimePickerDialog {
                 }
             }
         );
+
+        neutral.setText("Now");
+        neutral.setVisibility(View.VISIBLE);
     }
 }
