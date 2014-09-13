@@ -112,8 +112,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             myPath, null, SQLiteDatabase.OPEN_READONLY
         );
 
-        Log.d("TransperthCached", "DB Path: " + db.getPath());
-
         return db;
     }
 
@@ -156,7 +154,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public StopTimetable getVisitsForStop(int stop_num) {
         Log.d("TransperthCached", "getting results from db");
-        Log.d("TransperthCached", "DB Path: " + db.getPath());
 
         assert ((
             "/sdcard/Android/data/" +

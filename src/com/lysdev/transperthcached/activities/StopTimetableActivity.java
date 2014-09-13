@@ -126,7 +126,6 @@ public class StopTimetableActivity extends FragmentActivity {
                 stop_num_widget.setText(
                     String.valueOf(stop_num)
                 );
-                Util.hideSoftKeyboard(this);
             }
         }
     }

@@ -22,7 +22,6 @@ public class StopTimetableBusinessLogic {
             DateTime show_for_date
         ) throws StateException {
 
-
         if (stop_num.length() != 5) {
             throw new StateException(
                 "Bad stop", "Please provide a 5 digit stop number"
