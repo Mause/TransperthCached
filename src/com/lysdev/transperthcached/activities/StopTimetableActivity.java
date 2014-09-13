@@ -61,8 +61,7 @@ public class StopTimetableActivity extends FragmentActivity {
     EditText stop_num_widget;
     ArrayAdapter<String> stop_display_source;
 
-    // TODO: mend the issue mentioned on the line below
-    public DateTime show_for_date; // public so the ui fragment can pass back data
+    private DateTime show_for_date;
 
     /** Called when the activity is first created. */
     @Override
