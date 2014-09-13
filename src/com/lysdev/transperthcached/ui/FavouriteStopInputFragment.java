@@ -28,25 +28,25 @@ public class FavouriteStopInputFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // EditText stopInput = new EditText(this);
-        // stopInput.setFilters(new InputFilter[] { new InputFilter.LengthFilter(5) });
-        // stopInput.setHint(R.string.stop_number_hint);
-        // stopInput.setRawInputType(InputType.TYPE_CLASS_NUMBER);
-        // stopInput.setGravity(
-        //     Gravity.CENTER_VERTICAL |
-        //     Gravity.CENTER
-        // );
-        final View layout = getActivity().getLayoutInflater().inflate(R.layout.favourite_stop_input, null);
+        final EditText stopInput = new EditText(getActivity());
+        stopInput.setFilters(new InputFilter[] { new InputFilter.LengthFilter(5) });
+        stopInput.setHint(R.string.stop_number_hint);
+        stopInput.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+        stopInput.setGravity(
+            Gravity.CENTER_VERTICAL |
+            Gravity.CENTER
+        );
+        // final View layout = getActivity().getLayoutInflater().inflate(R.layout.favourite_stop_input, null);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Add favourite stop")
             .setCancelable(true)
-            // .setView(stopInput)
-            .setView(layout)
+            .setView(stopInput)
+            // .setView(layout)
             .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
-                    EditText stopInput = (EditText) layout.findViewById(R.id.stop_number);
+                    // EditText stopInput = (EditText) layout.findViewById(R.id.stop_number);
                     String stop_number = stopInput.getText().toString();
 
                     FavouriteStopInputFragment.this.listener.onFavouriteStopAdd(
