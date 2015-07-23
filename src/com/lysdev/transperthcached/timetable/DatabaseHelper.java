@@ -220,9 +220,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             null, null, null
         );
 
-        if (cursor == null) return null;
+        if (cursor == null || !cursor.moveToFirst()) return null;
 
-        cursor.moveToFirst();
         return cursor.getString(0);
     }
 
