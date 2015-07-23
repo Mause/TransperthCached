@@ -1,5 +1,6 @@
 package com.lysdev.transperthcached.activities;
 
+import android.view.KeyEvent;
 
 import android.database.Cursor;
 
@@ -109,6 +110,15 @@ public class FavouriteStopsActivity extends FragmentActivity
                 Toast.LENGTH_LONG
             ).show();
         }
+    }
+
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode != KeyEvent.KEYCODE_MENU) {
+            return super.onKeyUp(keyCode, event);
+        }
+
+        addButtonClicked();
+        return true;
     }
 
     private void updateStops() {
