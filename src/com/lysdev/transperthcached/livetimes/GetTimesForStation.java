@@ -6,7 +6,7 @@ import java.util.List;
 import android.util.Log;
 
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.ISODateTimeFormat;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -27,7 +27,7 @@ public class GetTimesForStation {
         GetWrapper wrapper = new GetWrapper(doc.getDocumentElement());
 
         String s_last_update = wrapper.get("LastUpdate");
-        DateTime dt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss").parseDateTime(
+        DateTime dt = ISODateTimeFormat.dateHourMinuteSecond().parseDateTime(
             s_last_update
         );
 

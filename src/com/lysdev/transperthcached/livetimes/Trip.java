@@ -8,6 +8,7 @@ import org.w3c.dom.Element;
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 import org.joda.time.format.DateTimeFormat;
 
 public class Trip {
@@ -83,7 +84,7 @@ public class Trip {
             Integer.parseInt(enode.get("Uid")),    // int uid,
             enode.get("Cancelled").equals("True"), // boolean cancelled,
             Integer.parseInt(enode.get("Ncar")),   // int num_cars,
-            DateTimeFormat.forPattern("HH:mm:ss").parseLocalTime(
+            ISODateTimeFormat.hourMinuteSecond().parseLocalTime(
                 enode.get("Schedule")
             ),   // DateTime schedule,
             DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss").parseDateTime(
