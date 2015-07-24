@@ -43,10 +43,10 @@ public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.query(
-            "favourite_stops",
-            new String[] { "count(*)" },
-            "stop_number=?",
-            new String[] { String.valueOf(stop_number) },
+            "favourite_stops",           // table
+            new String[] { "count(*)" }, // selected fields
+            "stop_number=?",             // WHICH conditionals
+            new String[] { String.valueOf(stop_number) }, // substitute values
             null, null, null
         );
 

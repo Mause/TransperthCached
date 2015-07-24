@@ -1,17 +1,18 @@
 package com.lysdev.transperthcached.livetimes;
 
+import android.net.Uri;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-
-import android.net.Uri;
 
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;

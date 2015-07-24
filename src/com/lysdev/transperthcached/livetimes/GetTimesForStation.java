@@ -1,9 +1,10 @@
 package com.lysdev.transperthcached.livetimes;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import android.util.Log;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.ISODateTimeFormat;
@@ -45,9 +46,5 @@ public class GetTimesForStation {
             dt,
             tripList
         );
-    }
-
-    public static void main(String[] args) {
-        getTimes("Perth Underground Stn");
     }
 }

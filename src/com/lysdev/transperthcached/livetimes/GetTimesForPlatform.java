@@ -35,7 +35,7 @@ public class GetTimesForPlatform {
         if (nodeList == null) return null;
 
         ArrayList<Trip> trains = new ArrayList<Trip>();
-        for (Node node : NodeListIterator.iterator(nodeList)) {
+        for (Node node : new NodeListIterator(nodeList)) {
             trains.add(Trip.fromNode(node));
         }
 

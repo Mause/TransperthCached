@@ -58,7 +58,6 @@ public class MainActivity extends TabActivity
         if (stop_num == 0) tabHost.setCurrentTab(0);
         else                  tabHost.setCurrentTab(2);
 
-
         final ProgressDialog mDialog = new ProgressDialog(this);
                 mDialog.setMessage("Loading...");
                 mDialog.setCancelable(false);
