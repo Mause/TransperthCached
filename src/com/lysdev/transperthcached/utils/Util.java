@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.lang.StringBuilder;
 
 import android.app.Activity;
+import android.os.IBinder;
+import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
+import android.view.View;
 
 
 public class Util {
@@ -36,9 +39,18 @@ public class Util {
         inputMethodManager = (InputMethodManager) activity.getSystemService(
             Activity.INPUT_METHOD_SERVICE
         );
-        inputMethodManager.hideSoftInputFromWindow(
-            activity.getCurrentFocus().getWindowToken(),
-            0
-        );
+        View view = activity.getCurrentFocus();
+
+        if (view == null) {
+            Log.d("TransperthCached", "Couldn't find window to remove keyboard from");
+        } else {
+            IBinder bind = view.getWindowToken();
+
+            // inputMethodManager.hideSoftInputFromWindow(bind, 0);
+            inputMethodManager.hideSoftInputFromWindow(
+                bind,
+                InputMethodManager.RESULT_UNCHANGED_SHOWN
+            );
+        }
     }
 }
