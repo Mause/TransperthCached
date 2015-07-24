@@ -82,11 +82,11 @@ public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
             null, null, null, null, null
         );
 
-        if (cursor == null || !cursor.moveToFirst()) {
-            return null;
-        }
-
         ArrayList<FavouriteStop> stops = new ArrayList<FavouriteStop>();
+
+        if (cursor == null || !cursor.moveToFirst()) {
+            return stops;
+        }
 
         while (!cursor.isAfterLast()) {
             stops.add(
