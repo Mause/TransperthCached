@@ -19,7 +19,6 @@ import android.util.Log;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static String DB_PATH = "/sdcard/Android/data/com.lysdev.transperthcached/databases/";
     private static String DB_NAME = "transperthcache.db";
 
     private SQLiteDatabase db;
@@ -29,6 +28,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, 1);
         this.myContext = context;
+    }
+
+    private static File get_db_path() {
+        return new File(
+            Environment.getExternalStorageDirectory(),
+            "Android/data/com.lysdev.transperthcached/databases/"
+        );
     }
 
     public void createDataBase() throws Error {
@@ -50,17 +56,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private boolean checkDataBase() {
         SQLiteDatabase checkDB = null;
-        String myPath = DB_PATH + DB_NAME;
+        File dbPath = new File(get_db_path(), DB_NAME);
 
-        File dbFile = new File(myPath);
-        if (!dbFile.exists()) {
+        if (!dbPath.exists()) {
             Log.d("TransperthCached", "Database does not yet exist");
             return false;
         }
 
         try {
             checkDB = SQLiteDatabase.openDatabase(
-                myPath,
+                dbPath.getPath(),
                 null,
                 SQLiteDatabase.OPEN_READONLY
             );
@@ -80,11 +85,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         InputStream myInput = myContext.getAssets().open(DB_NAME);
 
         // Path to the just created empty db
-        String outFileName = DB_PATH + DB_NAME;
+        String outFileName = new File(get_db_path(), DB_NAME).getPath();
 
-        File folder = new File(DB_PATH);
-        if (!folder.exists())
+        File folder = get_db_path();
+        if (!folder.exists()) {
             folder.mkdirs();
+        }
 
         // Open the empty db as the output stream
         OutputStream myOutput = new FileOutputStream(outFileName);
@@ -101,12 +107,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         myOutput.close();
         myInput.close();
 
-        new File(DB_PATH + "/.nomedia").createNewFile();
+        new File(get_db_path(), "/.nomedia").createNewFile();
     }
 
     // Open the database
     public SQLiteDatabase openDataBase() throws SQLException {
-        String myPath = DB_PATH + DB_NAME;
+        String myPath = new File(get_db_path(), DB_NAME).getPath();
 
         db = SQLiteDatabase.openDatabase(
             myPath, null, SQLiteDatabase.OPEN_READONLY
