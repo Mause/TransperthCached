@@ -29,8 +29,8 @@ public class Util {
         URL url = null;
 
         Uri.Builder uri = Uri.parse(Constants.BASE_URL + raw_url).buildUpon();
-        for (int i=0; i<(queryParams.size() / 2); i+=2) {
-            uri.appendQueryParameter(queryParams.get(i), queryParams.get(i+1));
+        for (Map.Entry<String,String> entry : queryParams.entrySet()) {
+            uri.appendQueryParameter(entry.getKey(), entry.getValue());
         }
 
         try {
