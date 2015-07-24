@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    >
+
+    <!-- android:layout_alignParentRight="true" -->
+    <Button
+        android:id="@+id/to_perth"
+
+        android:gravity="center_vertical|center"
+
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+
+        android:text="@string/to_perth"
+        android:onClick="onClickDirection"
+        />
+
+    <Button
+        android:id="@+id/from_perth"
+
+        android:layout_below="@id/to_perth"
+        android:gravity="center_vertical|center"
+
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+
+        android:text="@string/from_perth"
+        android:onClick="onClickDirection"
+        />
+
+</RelativeLayout>
