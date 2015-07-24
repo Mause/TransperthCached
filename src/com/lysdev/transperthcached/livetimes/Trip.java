@@ -5,9 +5,12 @@ import java.util.Arrays;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.util.List;
+import android.util.Log;
 
+import org.joda.time.LocalDate;
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
+import org.joda.time.IllegalFieldValueException;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 import org.joda.time.format.DateTimeFormat;
@@ -17,7 +20,7 @@ public class Trip {
     private int uid;
     private boolean cancelled;
     private int num_cars;
-    private LocalTime schedule;
+    private DateTime schedule;
     private DateTime actual;
     private int delay;
     private String destination;
@@ -38,7 +41,7 @@ public class Trip {
         int minutesDelayTime,
         boolean cancelled,
         DateTime actual,
-        LocalTime schedule,
+        DateTime schedule,
         int delay,
         int num_cars,
         int uid,
@@ -87,7 +90,7 @@ public class Trip {
     public List<String> getPatternFullDisplay()  { return this.patternFullDisplay; }
     public String       getPlatform()            { return this.platform; }
     public String       getRun()                 { return this.run; }
-    public LocalTime    getSchedule()            { return this.schedule; }
+    public DateTime     getSchedule()            { return this.schedule; }
     public String       getState()               { return this.state; }
     public int          getUid()                 { return this.uid; }
 
@@ -104,9 +107,46 @@ public class Trip {
         return fromElement((Element) node);
     }
 
+    public static DateTime parse_scheduled_correctly(String s) {
+        DateTimeFormatter formatter = ISODateTimeFormat.hourMinuteSecond();
+        LocalTime dt_schedule;
+        DateTime ref_data = DateTime.now();
+        try {
+            dt_schedule = formatter.parseLocalTime(s);
+        } catch (IllegalFieldValueException ifve) {
+            String[] parts = s.split(":");
+            Integer parsed = Integer.parseInt(parts[0]);
+            if (parsed > 23) {
+                Log.d("TransperthCached", "Well fuck");
+                parts[0] = Integer.toString(parsed % 24);
+            }
+            dt_schedule = formatter.parseLocalTime(
+                parts[0] + ":" +
+                parts[1] + ":" +
+                parts[2]
+            );
+            ref_data = ref_data.plusDays(1);
+        }
+
+        return (
+            ref_data
+            .withTime(
+                dt_schedule.getHourOfDay(),
+                dt_schedule.getMinuteOfHour(),
+                dt_schedule.getSecondOfMinute(),
+                0
+            )
+        );
+    }
+
     public static Trip fromElement(Element el) {
         GetWrapper enode = new GetWrapper(el);
         DateTimeFormatter actualP = DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss");
+
+        // someone inside transperth decided the best way to show that a time
+        // was tomorrow, would be to simply allow the hours to go above 23.
+        // we mend that here
+        DateTime dt_schedule = parse_scheduled_correctly(enode.get("Schedule"));
 
         return new Trip(
             Arrays.asList(enode.get("Pattern").split(",")),
@@ -114,7 +154,7 @@ public class Trip {
             Integer.parseInt(enode.get("MinutesDelayTime")),
             enode.get("Cancelled").equals("True"),
             actualP.parseDateTime(enode.get("Actual")),
-            ISODateTimeFormat.hourMinuteSecond().parseLocalTime(enode.get("Schedule")),
+            dt_schedule,
             Integer.parseInt(enode.get("Delay")),
             Integer.parseInt(enode.get("Ncar")),
             Integer.parseInt(enode.get("Uid")),
