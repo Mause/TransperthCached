@@ -271,8 +271,10 @@ public class StopTimetableActivity extends FragmentActivity {
         }
         waiting_for_user_selection = true;
 
+        String api_key = getResources().getString(R.string.silverrails_apikey);
+
         ArrayList<NearbyTransitStop> stops = GetNearbyTransitStops.getNearby(
-            getResources().getString(R.string.silverrails_apikey),
+            api_key,
             location.getLatitude(),
             location.getLongitude()
         );
