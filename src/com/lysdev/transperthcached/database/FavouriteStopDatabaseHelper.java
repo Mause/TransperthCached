@@ -13,13 +13,9 @@ import com.lysdev.transperthcached.models.FavouriteStop;
 
 public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "FavouriteStopDatabase";
-    private SQLiteDatabase db; // purely for use within onCreate; don't use it anywhere else!
 
     public FavouriteStopDatabaseHelper(Context context) {
         super(context, DB_NAME, null, 1);
-
-        // purely for use within onCreate; don't use it anywhere else!
-        db = getWritableDatabase();
     }
 
     public void onUpgrade(SQLiteDatabase db, int a, int b) {}
@@ -36,7 +32,7 @@ public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put("stop_number", toAdd.getStopNumber());
 
-        db.insert("favourite_stops", null, values);
+        getWritableDatabase().insert("favourite_stops", null, values);
     }
 
     public boolean stopExists(FavouriteStop stop) {
@@ -78,7 +74,6 @@ public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<FavouriteStop> getFavouriteStops() {
-
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.query(
@@ -87,9 +82,7 @@ public class FavouriteStopDatabaseHelper extends SQLiteOpenHelper {
             null, null, null, null, null
         );
 
-        if (cursor != null) {
-            cursor.moveToFirst();
-        } else {
+        if (cursor == null || !cursor.moveToFirst()) {
             return null;
         }
 
