@@ -9,6 +9,7 @@ import org.joda.time.DateTime;
 import org.joda.time.format.ISODateTimeFormat;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -31,11 +32,9 @@ public class GetTimesForStation {
             s_last_update
         );
 
-        NodeList nodeList = (
-            doc
-            .getElementsByTagName("Trips").item(0)
-            .getChildNodes()
-        );
+        NodeList nodeList = doc.getElementsByTagName("Trips");
+        nodeList = ((Element)nodeList.item(0)).getElementsByTagName("SercoTrip");
+
         List<Trip> tripList = new ArrayList<Trip>();
         for (Node node : new NodeListIterator(nodeList)) {
             tripList.add(Trip.fromNode(node));
