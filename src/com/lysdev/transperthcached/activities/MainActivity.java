@@ -70,27 +70,25 @@ public class MainActivity extends TabActivity
                     MainActivity.this.
                     initializeDB();
                 } catch (java.lang.Error e) {
-                    mDialog.dismiss();
-                    Toast.makeText(
-                        MainActivity.this,
-                        "Could not initialize database",
-                        Toast.LENGTH_LONG
-                    ).show();
-                    throw new java.lang.Error(e.toString());
+                    db_error(mDialog, e);
                 } catch (java.io.IOException e) {
-                    mDialog.dismiss();
-                    Toast.makeText(
-                        MainActivity.this,
-                        "Could not initialize database",
-                        Toast.LENGTH_LONG
-                    ).show();
-                    throw new java.lang.Error(e.toString());
+                    db_error(mDialog, e);
                 }
 
                 mDialog.dismiss();
                 Log.d("TransperthCached", "initialized");
             }
         }.start();
+    }
+
+    private void db_error(ProgressDialog mDialog, Exception e) {
+        Log.e("TransperthCached", "Couldn't initialize database", e);
+        mDialog.dismiss();
+        Toast.makeText(
+            MainActivity.this,
+            "Could not initialize database",
+            Toast.LENGTH_LONG
+        ).show();
     }
 
     public void initializeDB() throws IOException {
