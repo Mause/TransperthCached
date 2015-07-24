@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+import java.util.List;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
@@ -14,54 +15,81 @@ import org.joda.time.format.DateTimeFormat;
 public class Trip {
     private String run;
     private int uid;
-    private boolean cancelled = false;
-    private int num_cars = 0;
+    private boolean cancelled;
+    private int num_cars;
     private LocalTime schedule;
     private DateTime actual;
     private int delay;
     private String destination;
-    private ArrayList<String> pattern;
+    private List<String> pattern;
     private String line;
     private String link;
+    private List<String> patternFullDisplay;
+    private int minutesDelayTime;
+    private String state; // Pred-icted, or Plat-form
+    private String displayDelayTime;
+    private String lineFull;
+    private String platform;
+    private LocalTime actualDisplayTime24;
 
     public Trip(
-        String run,
-        int uid,
+        List<String> pattern,
+        List<String> patternFullDisplay,
+        int minutesDelayTime,
         boolean cancelled,
-        int num_cars,
-        LocalTime schedule,
         DateTime actual,
+        LocalTime schedule,
         int delay,
+        int num_cars,
+        int uid,
         String destination,
-        ArrayList<String> pattern,
+        String run,
+        String state,
+        String displayDelayTime,
         String line,
-        String link
-        ) {
+        String lineFull,
+        String link,
+        String platform,
+        LocalTime actualDisplayTime24) {
 
-        this.run = run;
-        this.uid = uid;
-        this.cancelled = cancelled;
-        this.num_cars = num_cars;
-        this.schedule = schedule;
-        this.actual = actual;
-        this.delay = delay;
-        this.destination = destination;
         this.pattern = pattern;
+        this.patternFullDisplay = patternFullDisplay;
+        this.minutesDelayTime = minutesDelayTime;
+        this.cancelled = cancelled;
+        this.actual = actual;
+        this.schedule = schedule;
+        this.delay = delay;
+        this.num_cars = num_cars;
+        this.uid = uid;
+        this.destination = destination;
+        this.run = run;
+        this.state = state;
+        this.displayDelayTime = displayDelayTime;
         this.line = line;
+        this.lineFull = lineFull;
         this.link = link;
+        this.platform = platform;
+        this.actualDisplayTime24 = actualDisplayTime24;
     }
 
-    public String getRun()                { return this.run; }
-    public int getUID()                   { return this.uid; }
-    public boolean getCancelled()         { return this.cancelled; }
-    public int getNumCars()               { return this.num_cars; }
-    public LocalTime getScheduledTime()   { return this.schedule; }
-    public DateTime getActualTime()       { return this.actual; }
-    public int getDelay()                 { return this.delay; }
-    public String getDestination()        { return this.destination; }
-    public ArrayList<String> getPattern() { return this.pattern; }
-    public String getLine()               { return this.line; }
-    public String getLink()               { return this.link; }
+    public DateTime     getActual()              { return this.actual; }
+    public LocalTime    getActualDisplayTime24() { return this.actualDisplayTime24; }
+    public boolean      getCancelled()           { return this.cancelled; }
+    public int          getDelay()               { return this.delay; }
+    public String       getDestination()         { return this.destination; }
+    public String       getDisplayDelayTime()    { return this.displayDelayTime; }
+    public String       getLine()                { return this.line; }
+    public String       getLineFull()            { return this.lineFull; }
+    public String       getLink()                { return this.link; }
+    public int          getMinutesDelayTime()    { return this.minutesDelayTime; }
+    public int          getNumCars()             { return this.num_cars; }
+    public List<String> getPattern()             { return this.pattern; }
+    public List<String> getPatternFullDisplay()  { return this.patternFullDisplay; }
+    public String       getPlatform()            { return this.platform; }
+    public String       getRun()                 { return this.run; }
+    public LocalTime    getSchedule()            { return this.schedule; }
+    public String       getState()               { return this.state; }
+    public int          getUid()                 { return this.uid; }
 
     public String toString() {
         return String.format(
@@ -78,25 +106,27 @@ public class Trip {
 
     public static Trip fromElement(Element el) {
         GetWrapper enode = new GetWrapper(el);
+        DateTimeFormatter actualP = DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss");
 
         return new Trip(
-            enode.get("Run"),                      // String run,
-            Integer.parseInt(enode.get("Uid")),    // int uid,
-            enode.get("Cancelled").equals("True"), // boolean cancelled,
-            Integer.parseInt(enode.get("Ncar")),   // int num_cars,
-            ISODateTimeFormat.hourMinuteSecond().parseLocalTime(
-                enode.get("Schedule")
-            ),   // DateTime schedule,
-            DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss").parseDateTime(
-                enode.get("Actual")
-            ),      // DateTime actual,
-            Integer.parseInt(enode.get("Delay")),  // int delay,
-            enode.get("Destination"),              // String destination,
-            new ArrayList<String>(
-                Arrays.asList(enode.get("Pattern").split(","))
-            ),       // ArrayList<String> pattern,
-            enode.get("Line"),                     // String line,
-            enode.get("Link")                      // String link
+            Arrays.asList(enode.get("Pattern").split(",")),
+            Arrays.asList(enode.get("PatternFullDisplay").split(",")),
+            Integer.parseInt(enode.get("MinutesDelayTime")),
+            enode.get("Cancelled").equals("True"),
+            actualP.parseDateTime(enode.get("Actual")),
+            ISODateTimeFormat.hourMinuteSecond().parseLocalTime(enode.get("Schedule")),
+            Integer.parseInt(enode.get("Delay")),
+            Integer.parseInt(enode.get("Ncar")),
+            Integer.parseInt(enode.get("Uid")),
+            enode.get("Destination"),
+            enode.get("Run"),
+            enode.get("State"),
+            enode.get("DisplayDelayTime"),
+            enode.get("Line"),
+            enode.get("LineFull"),
+            enode.get("Link"),
+            enode.get("Platform"),
+            DateTimeFormat.forPattern("HH:mm").parseLocalTime(enode.get("actualDisplayTime24"))
         );
     }
 }
