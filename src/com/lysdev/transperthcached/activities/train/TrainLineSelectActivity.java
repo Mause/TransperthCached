@@ -55,10 +55,11 @@ public class TrainLineSelectActivity extends Activity
     }
 
     public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(this, TrainStationSelectActivity.class);
-        intent.putExtra("direction", this.direction.ordinal());
-        intent.putExtra("line_name", (((TextView)view).getText().toString()));
-        startActivity(intent);
+        startActivity(
+            new Intent(this, TrainStationSelectActivity.class)
+            .putExtra("direction", this.direction.ordinal())
+            .putExtra("line_name", (((TextView)view).getText().toString()))
+        );
     }
 
     public List<String> fromIterator(Iterator<String> iter) {

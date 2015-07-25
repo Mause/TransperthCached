@@ -71,10 +71,10 @@ public class FavouriteStopsActivity extends FragmentActivity
         Log.d("TransperthCached", "Selected stop: " + selected_stop.toString());
 
         // http://stackoverflow.com/questions/19286970/using-intents-to-pass-data-between-activities-in-android
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("stop_num", selected_stop.getStopNumber());
-
-        startActivity(intent);
+        startActivity(
+            new Intent(this, MainActivity.class)
+            .putExtra("stop_num", selected_stop.getStopNumber())
+        );
     }
 
     public void deleteButtonClicked(View view) {}

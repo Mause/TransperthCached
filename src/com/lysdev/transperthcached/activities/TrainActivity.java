@@ -25,8 +25,9 @@ public class TrainActivity extends Activity {
             Direction.TO
         );
 
-        Intent intent = new Intent(this, TrainLineSelectActivity.class);
-        intent.putExtra("direction", dir.ordinal());
-        startActivity(intent);
+        startActivity(
+            new Intent(this, TrainLineSelectActivity.class)
+            .putExtra("direction", dir.ordinal())
+        );
     }
 }
