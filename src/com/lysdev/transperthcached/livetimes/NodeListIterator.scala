@@ -1,38 +1,34 @@
-package com.lysdev.transperthcached.livetimes;
+package com.lysdev.transperthcached.livetimes
 
-import java.util.Iterator;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
+import org.w3c.dom.NodeList
+import org.w3c.dom.Node
 
 
-public class NodeListIterator implements Iterator<Node>, Iterable<Node> {
-    private NodeList nodeList;
-    private int idx;
+object NodeListExtras {
+    implicit def nodeListIterator(nl : NodeList) = {
+        for (i <- 0 to (nl.getLength() - 1)) yield nl.item(i)
+    }
+}
 
-    public NodeListIterator(NodeList nodeList) {
-        this.nodeList = nodeList;
-        this.idx = 0;
+
+class NodeListIteratorActual(val nodeList: NodeList) extends java.util.Iterator[Node] {
+    var idx : Int = 0
+    def next : Node = {
+        this.idx += 1
+        this.nodeList.item(idx)
     }
 
-    public static NodeListIterator iterator(NodeList nodeList) {
-        return new NodeListIterator(nodeList);
-    }
+    def hasNext = idx != nodeList.getLength()
 
-    public NodeListIterator iterator() {
-        return this;
+    def remove() {
+        throw new UnsupportedOperationException()
     }
+}
 
-    public Node next() {
-        return nodeList.item(idx++);
-    }
 
-    public boolean hasNext() {
-        return idx != nodeList.getLength();
-    }
+class NodeListIterator(val nodeList : NodeList)
+                       extends Object
+                       with java.lang.Iterable[Node] {
 
-    public void remove() {
-        throw new UnsupportedOperationException();
-    }
+    def iterator = new NodeListIteratorActual(this.nodeList)
 }
