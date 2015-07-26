@@ -1,32 +1,18 @@
-package com.lysdev.transperthcached.models;
+package com.lysdev.transperthcached.models
 
-import com.lysdev.transperthcached.activities.MainActivity;
+import com.lysdev.transperthcached.activities.MainActivity
 
-public class FavouriteStop {
-    private int stop_number;
-    private Integer sid = null;
-    private String description = null;
-
-    public FavouriteStop(int stop_number) {
-        this.stop_number = stop_number;
+class FavouriteStop(val sid: Int, val stop_number: Int) {
+    def this(stop_number: Integer) {
+        this(0, stop_number)
     }
 
-    public FavouriteStop(Integer sid, int stop_number) {
-        this(stop_number);
-        this.sid = sid;
-    }
+    lazy val description = (
+        MainActivity.getConstantDB().getDescriptionOfStop(this.stop_number)
+    )
 
-    public int getStopNumber() {
-        return this.stop_number;
-    }
+    def getStopNumber = this.stop_number
+    def getDescription = this.description
 
-    public String getDescription() {
-        if (this.description == null) {
-            this.description = MainActivity.getConstantDB().getDescriptionOfStop(
-                this.stop_number
-            );
-        }
-
-        return this.description;
-    }
+    // override def toString : String = String.format("%s - %s", this.stop_number)
 }
