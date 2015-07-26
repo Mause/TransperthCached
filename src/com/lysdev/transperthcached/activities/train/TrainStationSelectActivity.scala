@@ -1,66 +1,55 @@
-package com.lysdev.transperthcached.activities.train;
+package com.lysdev.transperthcached.activities.train
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView.OnItemClickListener
+import android.widget.{
+    Adapter,
+    AdapterView,
+    ListView,
+    TextView
+}
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.scaloid.common._
+import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.lysdev.transperthcached.activities.train.Direction;
-import com.lysdev.transperthcached.R;
+import com.lysdev.transperthcached.{TR, R}
 
 
-public class TrainStationSelectActivity extends Activity
-                                        implements OnItemClickListener {
-    String line_name;
-    Direction direction;
+class TrainStationSelectActivity extends SActivity
+                                 with OnItemClickListener {
+    var line_name : String = null
+    var direction : Direction = null
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.train_stations);
+    lazy val station_list = find[ListView](TR.stations.id)
 
-        this.line_name = getIntent().getStringExtra("line_name");
-        this.direction = Direction.from_val("direction", getIntent());
-
-        List<String> stations = new ArrayList<String>();
-        try {
-            JSONObject json = Stations.loadJSON(this);
-            JSONArray arr = json.getJSONArray(this.line_name);
-            for (int i=0; i<arr.length(); i++) {
-                stations.add(arr.getString(i));
+    def createOnItemClick(f: (AdapterView[_], View, Int, Long) => Unit) : OnItemClickListener = (
+        new OnItemClickListener() {
+            def onItemClick(parent: AdapterView[_], view: View, position: Int, id: Long) : Unit = {
+                f(parent, view, position, id)
             }
-        } catch (JSONException e) {
-            Log.e("TransperthCached", "JSONException", e);
         }
+    )
 
-        Log.d("TransperthCached", String.format("Line: %s", line_name));
-        ListView stations_lv = (ListView) findViewById(R.id.stations);
-        ListAdapter ad = new ArrayAdapter<String>(
-            this,
-            android.R.layout.simple_list_item_1,
-            android.R.id.text1,
-            stations
-        );
-        stations_lv.setAdapter(ad);
-        stations_lv.setOnItemClickListener(this);
+    override def onCreate(savedInstanceState: Bundle) = {
+        super.onCreate(savedInstanceState)
+        setContentView(TR.layout.train_stations.id)
+
+        this.line_name = getIntent().getStringExtra("line_name")
+        this.direction = Direction.from_val("direction", getIntent())
+
+        Log.d("TransperthCached", String.format("Line: %s", line_name))
+
+        val stations = Stations.stationNames(this.line_name).getOrElse(Seq[String]())
+        this.station_list.setAdapter(SArrayAdapter(stations.toArray : _*))
+        this.station_list.setOnItemClickListener(createOnItemClick(this.onItemClick))
     }
 
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String station_name = ((TextView)view).getText().toString();
+    def onItemClick(parent: AdapterView[_], view: View, position: Int, id: Long) = {
+        val station_name = view.asInstanceOf[TextView].getText().toString()
 
         Log.d(
             "TransperthCached",
@@ -70,12 +59,13 @@ public class TrainStationSelectActivity extends Activity
                 this.line_name,
                 station_name
             )
-        );
+        )
 
-        Intent intent = new Intent(this, TrainStationTimesActivity.class);
-        intent.putExtra("direction", this.direction.ordinal());
-        intent.putExtra("line_name", this.line_name);
-        intent.putExtra("station_name", station_name);
-        startActivity(intent);
+        startActivity(
+            new Intent(this, classOf[TrainStationTimesActivity])
+            .putExtra("direction", this.direction.ordinal())
+            .putExtra("line_name", this.line_name)
+            .putExtra("station_name", station_name)
+        )
     }
 }

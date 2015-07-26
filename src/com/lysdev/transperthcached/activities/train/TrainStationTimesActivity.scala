@@ -1,104 +1,91 @@
-package com.lysdev.transperthcached.activities.train;
+package com.lysdev.transperthcached.activities.train
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.ListView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
+import android.app.Activity
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView.OnItemClickListener
+import android.widget.{AdapterView, ArrayAdapter, ListAdapter, ListView, Toast}
 
-import java.util.ArrayList;
-import java.util.List;
+import org.scaloid.common._
+import scala.collection.JavaConverters._
+import scala.collection.JavaConversions._
 
-import org.joda.time.Minutes;
-import org.joda.time.DateTime;
+import org.joda.time.{Minutes, DateTime}
 
-import com.lysdev.transperthcached.livetimes.Trip;
-import com.lysdev.transperthcached.livetimes.GetTimesForStation;
-import com.lysdev.transperthcached.livetimes.TimesForStation;
-import com.lysdev.transperthcached.livetimes.InvalidPlatformCodeException;
-import com.lysdev.transperthcached.R;
+import com.lysdev.transperthcached.livetimes.{
+    Trip,
+    GetTimesForStation,
+    TimesForStation,
+    InvalidPlatformCodeException
+}
+import com.lysdev.transperthcached.R
 
 
-class TripDisplayWrapper {
-    Trip t;
-    public TripDisplayWrapper(Trip t) {
-        this.t = t;
-    }
-    public String toString() {
-        return String.format(
+case class TripDisplayWrapper(trip: Trip) {
+    override def toString() : String = {
+        var s : String = this.trip.getLineFull()
+        val mins : Integer = Minutes.minutesBetween(
+            DateTime.now(),
+            this.trip.getActual()
+        ).getMinutes
+        val cars : Integer = this.trip.getNumCars
+
+        String.format(
             "%s - %d minutes - %d cars",
-            this.t.getLineFull(),
-            Minutes.minutesBetween(
-                DateTime.now(),
-                this.t.getActual()
-            ).getMinutes(),
-            this.t.getNumCars()
-        );
+            s, mins, cars
+        )
     }
 }
 
 
-public class TrainStationTimesActivity extends Activity {
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.station_times);
+class TrainStationTimesActivity extends SActivity
+                                        with OnItemClickListener {
+    var filtered : List[TripDisplayWrapper] = null
+    lazy val times_lv = find[ListView](R.id.times)
 
-        String line_name = getIntent().getStringExtra("line_name");
-        String station_name = getIntent().getStringExtra("station_name");
-        Direction direction = Direction.from_val("direction", getIntent());
+    override def onCreate(savedInstanceState: Bundle) = {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.station_times)
 
-        display_data(line_name, station_name, direction);
+        val line_name = getIntent().getStringExtra("line_name")
+        val station_name = getIntent().getStringExtra("station_name")
+        val direction = Direction.from_val("direction", getIntent())
+
+        display_data(line_name, station_name, direction)
     }
 
-    public String b_to_s(boolean b) {
-        return b ? "true" : "false";
+    def display_data(line_name: String, station_name: String, direction: Direction) = {
+        val tfp = GetTimesForStation.getTimes(station_name)
+
+        val trips = tfp.getTrips().asScala.toList
+
+        this.filtered = (
+            trips
+            .filter(trip => {
+                val coming = trip.getDestination().equals("Perth") && direction == Direction.TO
+                val going =  !trip.getDestination().equals("Perth") && direction == Direction.FROM
+
+                going || coming
+            })
+            .map(new TripDisplayWrapper(_))
+        )
+
+        val ad = SArrayAdapter(this.filtered.toArray : _*)
+        times_lv.setAdapter(ad)
+        times_lv.setOnItemClickListener(this)
     }
 
-    public void display_data(String line_name, String station_name, Direction direction) {
-        TimesForStation tfp = GetTimesForStation.getTimes(station_name);
+    def onItemClick(parent: AdapterView[_], view: View, position: Int, id: Long) : Unit = {
+        val trp = this.filtered(position).trip
 
-        List<Trip> trips = tfp.getTrips();
-        List<TripDisplayWrapper> filtered = new ArrayList<TripDisplayWrapper>();
+        Log.d("TransperthCached", String.format("Clicked: %s", new TripDisplayWrapper(trp)))
 
-        for (Trip t : trips) {
-            boolean going, coming;
-
-            Log.d(
-                "TransperthCached",
-                String.format(
-                    "%s %s",
-                    t.getDestination(),
-                    direction.toString()
-                )
-            );
-
-            coming = t.getDestination().equals("Perth") && direction == Direction.TO;
-            going =  !t.getDestination().equals("Perth") && direction == Direction.FROM;
-
-            Log.d("TransperthCached", String.format("going: %s", b_to_s(going)));
-            Log.d("TransperthCached", String.format("coming: %s", b_to_s(coming)));
-
-            if (going || coming) filtered.add(new TripDisplayWrapper(t));
-        }
-
-        Log.d(
-            "TransperthCached",
-            String.format(
-                "%d before, %d now",
-                trips.size(),
-                filtered.size()
-            )
-        );
-
-        ListView times_lv = (ListView) findViewById(R.id.times);
-        ListAdapter ad = new ArrayAdapter<TripDisplayWrapper>(
+        Toast.makeText(
             this,
-            android.R.layout.simple_list_item_1,
-            android.R.id.text1,
-            filtered
-        );
-        times_lv.setAdapter(ad);
-        // times_lv.setOnItemClickListener(this);
+            trp.getPatternFullDisplay().asScala.mkString(", "),
+            // "Could not initialize database",
+            Toast.LENGTH_LONG
+        ).show()
     }
 }
