@@ -1,34 +1,21 @@
-package com.lysdev.transperthcached.activities.train;
+package com.lysdev.transperthcached.activities.train
 
-import android.util.Log;
-import android.content.Context;
+import android.content.Context
+import play.api.libs.json._
+import com.lysdev.transperthcached.utils.Util
 
-import java.io.InputStream;
-import java.io.IOException;
+object Stations {
+    def loadJSON(ctx: Context) : JsValue = {
+        val myInput = ctx.getAssets.open("train_stations.json")
 
-import org.json.JSONException;
-import org.json.JSONObject;
+        Json.parse(Util.convertStreamToString(myInput))
+    }
 
-import com.lysdev.transperthcached.utils.Util;
+    def lineNames(ctx: Context) = {
+        loadJSON(ctx).as[JsObject].keys
+    }
 
-public class Stations {
-    public static JSONObject loadJSON(Context ctx) throws JSONException {
-        InputStream myInput = null;
-        try {
-            myInput = ctx.getAssets().open("train_stations.json");
-        } catch (IOException ioe) {
-            Log.e("TransperthCached", "Couldn't get station data", ioe);
-            return null;
-        }
-
-        String json = "";
-        try {
-            json = Util.convertStreamToString(myInput);
-        } catch (IOException ioe) {
-            Log.e("TransperthCached", "Couldn't parse string to stream", ioe);
-            return null;
-        }
-
-        return new JSONObject(json);
+    def stationNames(ctx: Context, line_name: String) = {
+        (loadJSON(ctx) \ line_name).as[Seq[String]]
     }
 }
