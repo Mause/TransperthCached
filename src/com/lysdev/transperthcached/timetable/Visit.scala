@@ -22,14 +22,15 @@ object Visit {
 }
 
 
-class Visit(stop_num: Int, route_number: String, time: LocalTime) {
-
+class Visit(val stop_num: Int, val route_number: String, val time: LocalTime) {
     // override def toString : String = String.format(
     //     "<Visit stop_num:%d route_number:%s time:%s>",
     //     this.stop_num,
     //     this.route_number,
     //     this.time.toString()
     // )
+
+    def getTime = this.time
 
     def formatTime = DateTimeFormat.forPattern("hh:mmaa").print(this.time)
 }

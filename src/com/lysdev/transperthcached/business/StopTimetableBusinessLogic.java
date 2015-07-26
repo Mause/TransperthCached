@@ -68,7 +68,7 @@ public class StopTimetableBusinessLogic {
 
         Vector<Visit> valid = new Vector<Visit>();
         for (Visit visit : forDayType) {
-            if (visit.time.isAfter(forTime)) {
+            if (visit.getTime().isAfter(forTime)) {
                 valid.add(visit);
             }
         }
