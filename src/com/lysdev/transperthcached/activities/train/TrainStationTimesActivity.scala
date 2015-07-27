@@ -1,11 +1,15 @@
 package com.lysdev.transperthcached.activities.train
 
-import android.app.Activity
+import java.util.ArrayList
+
+import android.app.ProgressDialog
 import android.os.Bundle
+import android.os.AsyncTask
 import android.util.Log
+import android.os.Looper
 import android.view.View
 import android.widget.AdapterView.OnItemClickListener
-import android.widget.{AdapterView, ArrayAdapter, ListAdapter, ListView, Toast}
+import android.widget.{AdapterView, ArrayAdapter, ListAdapter, TextView, ListView, Toast}
 
 import org.scaloid.common._
 import scala.collection.JavaConverters._
@@ -39,6 +43,66 @@ case class TripDisplayWrapper(trip: Trip) {
 }
 
 
+class FetchTimesTask[V <: android.view.View, T <: AnyRef]
+                    (var klass : TrainStationTimesActivity,
+                     var direction : Direction,
+                     var ad : SArrayAdapter[V, T])
+                     extends AsyncTask[AnyRef, Void, List[Trip]] {
+    var mDialog : ProgressDialog = null
+
+    override protected def onPreExecute() {
+        this.mDialog = new ProgressDialog(this.klass)
+        this.mDialog.setMessage("Loading...")
+        this.mDialog.setCancelable(true)
+        this.mDialog.show()
+    }
+
+    override protected def doInBackground(p1: AnyRef*) : List[Trip] = {
+        (
+            GetTimesForStation
+            .getTimes(p1.head.asInstanceOf[String])
+            .getTrips().asScala.toList
+        )
+    }
+
+    override protected def onPostExecute(trips: List[Trip]) {
+        Log.d(
+            "TransperthCached",
+            String.format(
+                "%s trips",
+                trips.length.toString()
+            )
+        )
+
+        this.klass.filtered = (
+            trips
+            .filter(trip => {
+                val coming = (
+                    trip.getDestination().equals("Perth") &&
+                    this.direction == Direction.TO
+                )
+                val going =  (
+                    !trip.getDestination().equals("Perth") &&
+                    this.direction == Direction.FROM
+                )
+
+                going || coming
+            })
+            .map(new TripDisplayWrapper(_))
+        )
+
+        this.ad.clear()
+        this.klass.filtered.foreach((t:TripDisplayWrapper) => {
+            this.ad.add(t.asInstanceOf[T])
+        })
+        this.ad.notifyDataSetChanged()
+
+        this.mDialog.dismiss()
+        Log.d("TransperthCached", "initialized")
+    }
+}
+
+
 class TrainStationTimesActivity extends SActivity
                                         with OnItemClickListener {
     var filtered : List[TripDisplayWrapper] = null
@@ -56,24 +120,17 @@ class TrainStationTimesActivity extends SActivity
     }
 
     def display_data(line_name: String, station_name: String, direction: Direction) = {
-        val tfp = GetTimesForStation.getTimes(station_name)
-
-        val trips = tfp.getTrips().asScala.toList
-
-        this.filtered = (
-            trips
-            .filter(trip => {
-                val coming = trip.getDestination().equals("Perth") && direction == Direction.TO
-                val going =  !trip.getDestination().equals("Perth") && direction == Direction.FROM
-
-                going || coming
-            })
-            .map(new TripDisplayWrapper(_))
+        val ad = SArrayAdapter[TripDisplayWrapper](
+            android.R.layout.simple_list_item_1,
+            new ArrayList[TripDisplayWrapper]()
         )
+        this.times_lv.setOnItemClickListener(this)
+        this.times_lv.setAdapter(ad)
 
-        val ad = SArrayAdapter(this.filtered.toArray : _*)
-        times_lv.setAdapter(ad)
-        times_lv.setOnItemClickListener(this)
+        (
+            new FetchTimesTask[TextView, TripDisplayWrapper](this, direction, ad)
+            .execute(station_name)
+        )
     }
 
     def onItemClick(parent: AdapterView[_], view: View, position: Int, id: Long) : Unit = {
