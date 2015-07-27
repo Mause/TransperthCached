@@ -20,7 +20,7 @@ import scala.collection.JavaConversions._
 object GetTimesForStation {
     def getTimes(station_name: String) : TimesForStation = {
         val doc = Util.getXML(
-            "GetSercoTimesForStation", Seq("stationname" -> station_name).toMap.asJava
+            "GetSercoTimesForStation", Seq("stationname" -> station_name).toMap
         )
         if (doc == null) {
             Log.d("TransperthCached", "Bad document")
