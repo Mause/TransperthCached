@@ -1,6 +1,5 @@
 package com.lysdev.transperthcached.livetimes
 
-import java.util.Arrays
 import android.util.Log
 
 import org.joda.time.DateTime
@@ -9,7 +8,7 @@ import org.joda.time.IllegalFieldValueException
 import org.joda.time.format.ISODateTimeFormat
 import org.joda.time.format.DateTimeFormat
 
-import scala.xml.Elem
+import scala.xml.Node
 import scala.collection.JavaConverters._
 
 class Trip(
@@ -51,7 +50,7 @@ class Trip(
     def getState()               = this.state
     def getUid()                 = this.uid
 
-    def toString() = "Run $getRun on line $getLine with $getNumCars cars"
+    override def toString() = "Run $getRun on line $getLine with $getNumCars cars"
 }
 
 
@@ -86,21 +85,21 @@ object Trip {
         )
     }
 
-    class BetterElem(e: Elem) {
+    class BetterNode(e: Node) {
         def apply(name: String) : String = {
             (this.e \ name).text
         }
     }
 
-    implicit def elemBetterer(e: Elem) : BetterElem = {
-        new BetterElem(e)
+    implicit def elemBetterer(e: Node) : BetterNode = {
+        new BetterNode(e)
     }
 
     def csv(s: String) : java.util.List[String] = {
         s.split(",").toList.asJava
     }
 
-    def fromElement(el: Elem) : Trip = {
+    def fromRaw(el: Node) : Trip = {
         val actualP = DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss")
 
         // someone inside transperth decided the best way to show that a time
