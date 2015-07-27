@@ -4,6 +4,8 @@ android.Plugin.androidBuild
 resolvers += "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/"
 
 scalaVersion := "2.10.3"
+javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
+scalacOptions += "-target:jvm-1.7"
 
 libraryDependencies ++= Seq(
     "net.sf.proguard" % "proguard-base" % "5.2.1",
