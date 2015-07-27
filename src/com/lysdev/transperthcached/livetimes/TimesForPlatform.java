@@ -1,6 +1,6 @@
 package com.lysdev.transperthcached.livetimes;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
@@ -11,14 +11,14 @@ public class TimesForPlatform {
     private String stop_number;
     private String position;
 
-    private ArrayList<Trip> times;
+    private List<Trip> times;
 
     public TimesForPlatform(
         int number,
         String code,
         String stop_number,
         String position,
-        ArrayList<Trip> times) {
+        List<Trip> times) {
 
         this.number = number;
         this.code = code;
@@ -31,7 +31,7 @@ public class TimesForPlatform {
     public String getCode()       { return this.code; }
     public String getStopNumber() { return this.stop_number; }
     public String getPosition()   { return this.position; }
-    public ArrayList<Trip> getTimes() { return this.times; }
+    public List<Trip> getTimes() { return this.times; }
 
     public String toString() {
         return String.format(
