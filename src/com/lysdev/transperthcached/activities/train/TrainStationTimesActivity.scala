@@ -46,7 +46,7 @@ case class TripDisplayWrapper(trip: Trip) {
 class FetchTimesTask[V <: android.view.View, T <: AnyRef]
                     (var klass : TrainStationTimesActivity,
                      var direction : Direction,
-                     var ad : SArrayAdapter[V, T])
+                     var ad : ArrayAdapter[TripDisplayWrapper])
                      extends AsyncTask[AnyRef, Void, List[Trip]] {
     var mDialog : ProgressDialog = null
 
@@ -108,14 +108,17 @@ class TrainStationTimesActivity extends SActivity
         val line_name = getIntent().getStringExtra("line_name")
         val station_name = getIntent().getStringExtra("station_name")
         val direction = Direction.from_val("direction", getIntent())
+        this.filtered = List[TripDisplayWrapper]()
 
         display_data(line_name, station_name, direction)
     }
 
     def display_data(line_name: String, station_name: String, direction: Direction) = {
-        val ad = SArrayAdapter[TripDisplayWrapper](
+        // https://stackoverflow.com/questions/3200551/unable-to-modify-arrayadapter-in-listview-unsupportedoperationexception
+        val ad = new ArrayAdapter(
+            this,
             android.R.layout.simple_list_item_1,
-            new ArrayList[TripDisplayWrapper]()
+            new ArrayList(this.filtered.asJavaCollection)
         )
         this.times_lv.setOnItemClickListener(this)
         this.times_lv.setAdapter(ad)

@@ -84,9 +84,10 @@ class StopTimetableActivity extends FragmentActivity with SActivity {
     }
 
     def setupUI() {
-        stop_display_source = SArrayAdapter(
-            android.R.layout.simple_list_item_1
-
+        stop_display_source = new ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1,
+            new ArrayList[String]()
         )
         stop_display.setAdapter(stop_display_source)
 
@@ -215,8 +216,8 @@ class StopTimetableActivity extends FragmentActivity with SActivity {
         // clear so we can display the new data
         stop_display_source.clear()
 
-        visits.foreach((visit : Visit) =>
-            stop_display_source.add(
+        stop_display_source.addAll(
+            visits.map(visit =>
                 String.format(
                     "%s : %s",
                     visit.getRouteNumber,
