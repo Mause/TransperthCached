@@ -31,6 +31,7 @@ class Visit(val stop_num: Int, val route_number: String, val time: LocalTime) {
     // )
 
     def getTime = this.time
+    def getRouteNumber = this.route_number
 
     def formatTime = DateTimeFormat.forPattern("hh:mmaa").print(this.time)
 }
