@@ -1,7 +1,5 @@
 package com.lysdev.transperthcached.ui
 
-import java.util.ArrayList
-
 import android.app.AlertDialog
 import android.app.Dialog
 
@@ -27,7 +25,7 @@ class SelectStopDialogItem(stop: NearbyTransitStop) {
 }
 
 
-class SelectStopDialog(stops: ArrayList[NearbyTransitStop],
+class SelectStopDialog(stops: List[NearbyTransitStop],
                        callback: (NearbyTransitStop => Unit))
                       extends DialogFragment {
 
@@ -47,7 +45,6 @@ class SelectStopDialog(stops: ArrayList[NearbyTransitStop],
         )
         modeAdapter.addAll(
             stops
-            .asScala
             .map(new SelectStopDialogItem(_))
             .asJavaCollection
         )

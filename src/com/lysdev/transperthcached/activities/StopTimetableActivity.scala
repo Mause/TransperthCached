@@ -143,7 +143,7 @@ class StopTimetableActivity extends FragmentActivity with SActivity {
         try {
             visits = StopTimetableBusinessLogic.getVisitsForStop(
                 stop_num, timetable, show_for_date
-            ).asScala.toList
+            )
 
         } catch {
             case state: StateException => {
