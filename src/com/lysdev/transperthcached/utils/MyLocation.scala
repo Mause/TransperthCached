@@ -10,6 +10,13 @@ import android.location.LocationManager
 import android.os.Bundle
 
 
+class SimpleLocationListener extends LocationListener {
+    def onProviderDisabled(provider: String) = {}
+    def onProviderEnabled(provider: String) = {}
+    def onStatusChanged(provider: String, status: Int, extras: Bundle) = {}
+}
+
+
 class MyLocation {
     var timer1 : Timer = null
     var locationCallback : (Location => Unit) = null
@@ -54,28 +61,22 @@ class MyLocation {
         }
     }
 
-    val locationListenerGps : LocationListener = new LocationListener() {
+    val locationListenerGps : LocationListener = new SimpleLocationListener() {
         def onLocationChanged(location: Location) {
             timer1.cancel()
             locationCallback(location)
             lm.removeUpdates(this)
             lm.removeUpdates(locationListenerNetwork)
         }
-        def onProviderDisabled(provider: String) = {}
-        def onProviderEnabled(provider: String) = {}
-        def onStatusChanged(provider: String, status: Int, extras: Bundle) = {}
     }
 
-    val locationListenerNetwork : LocationListener = new LocationListener() {
+    val locationListenerNetwork : LocationListener = new SimpleLocationListener() {
         def onLocationChanged(location: Location) {
             timer1.cancel()
             locationCallback(location)
             lm.removeUpdates(this)
             lm.removeUpdates(locationListenerGps)
         }
-        def onProviderDisabled(provider: String) = {}
-        def onProviderEnabled(provider: String) = {}
-        def onStatusChanged(provider: String, status: Int, extras: Bundle) {}
     }
 
     class GetLastLocation extends TimerTask {
