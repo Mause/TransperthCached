@@ -1,5 +1,8 @@
 package com.lysdev.transperthcached.activities;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import android.view.KeyEvent;
 
 import android.database.Cursor;
@@ -43,11 +46,14 @@ public class FavouriteStopsActivity extends FragmentActivity
 
         db = new FavouriteStopDatabaseHelper(this);
 
+        List<FavouriteStop> stop_db = db.getFavouriteStops();
+        if (stop_db == null) {
+            Log.d("TransperthCached", "Got null from db");
+            stop_db = new ArrayList<FavouriteStop>();
+        }
+
         stops = (ListView) findViewById(R.id.favourite_stops);
-        stops_adapter = new FavouriteStopArrayAdapter(
-            this,
-            db.getFavouriteStops()
-        );
+        stops_adapter = new FavouriteStopArrayAdapter(this, stop_db);
         stops.setAdapter(stops_adapter);
         stops.setOnItemClickListener(this);
         stops_adapter.setOnDeleteListener(this);
