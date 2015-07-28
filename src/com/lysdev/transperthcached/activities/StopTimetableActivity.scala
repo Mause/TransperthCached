@@ -47,7 +47,6 @@ import com.lysdev.transperthcached.exceptions.StateException
 import com.lysdev.transperthcached.silverrails.GetNearbyTransitStops
 import com.lysdev.transperthcached.silverrails.NearbyTransitStop
 
-import com.lysdev.transperthcached.utils.MyLocation.LocationResult
 import com.lysdev.transperthcached.utils.MyLocation
 import com.lysdev.transperthcached.utils.Util
 
@@ -251,15 +250,10 @@ class StopTimetableActivity extends FragmentActivity with SActivity {
         mDialog.setCancelable(false)
         mDialog.show()
 
-        val locationResult = new LocationResult() {
-            override
-            def gotLocation(location: Location){
-                mDialog.dismiss()
-                nearbyButtonCallback(location)
-            }
-        }
-
-        new MyLocation().getLocation(this, locationResult)
+        new MyLocation().getLocation((location: Location) => {
+            mDialog.dismiss()
+            nearbyButtonCallback(location)
+        })
     }
 
     // should stop multiple dialogs

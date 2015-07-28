@@ -9,16 +9,17 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 
+
 class MyLocation {
     var timer1 : Timer = null
-    var locationResult : LocationResult = null
+    var locationCallback : (Location => Unit) = null
     var gps_enabled : Boolean = false
     var network_enabled : Boolean = false
 
     var lm : LocationManager = null
 
-    def getLocation(result: LocationResult)(implicit context: Context) : Boolean = {
-        this.locationResult = result;
+    def getLocation(locationCallback: (Location => Unit))(implicit context: Context) : Boolean = {
+        this.locationCallback = locationCallback;
         if (lm == null) {
             lm = (
                 context
@@ -56,7 +57,7 @@ class MyLocation {
     val locationListenerGps : LocationListener = new LocationListener() {
         def onLocationChanged(location: Location) {
             timer1.cancel()
-            locationResult.gotLocation(location)
+            locationCallback(location)
             lm.removeUpdates(this)
             lm.removeUpdates(locationListenerNetwork)
         }
@@ -68,7 +69,7 @@ class MyLocation {
     val locationListenerNetwork : LocationListener = new LocationListener() {
         def onLocationChanged(location: Location) {
             timer1.cancel()
-            locationResult.gotLocation(location)
+            locationCallback(location)
             lm.removeUpdates(this)
             lm.removeUpdates(locationListenerGps)
         }
@@ -94,28 +95,24 @@ class MyLocation {
              //if there are both values use the latest one
             if (gps_loc != null && net_loc != null){
                 if (gps_loc.getTime() > net_loc.getTime()) {
-                    locationResult.gotLocation(gps_loc)
+                    locationCallback(gps_loc)
                 } else {
-                    locationResult.gotLocation(net_loc)
+                    locationCallback(net_loc)
                }
                return
             }
 
             if(gps_loc != null){
-                locationResult.gotLocation(gps_loc)
+                locationCallback(gps_loc)
                 return
             }
 
             if(net_loc != null){
-                locationResult.gotLocation(net_loc)
+                locationCallback(net_loc)
                 return
             }
 
-            locationResult.gotLocation(null)
+            locationCallback(null)
         }
-    }
-
-    trait LocationResult {
-        def gotLocation(location: Location) : Unit
     }
 }
