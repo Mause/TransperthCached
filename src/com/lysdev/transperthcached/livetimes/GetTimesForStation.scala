@@ -1,11 +1,13 @@
 package com.lysdev.transperthcached.livetimes
 
 import android.util.Log
-
 import org.joda.time.format.ISODateTimeFormat
-import scala.collection.JavaConverters._
 
 object GetTimesForStation {
+
+
+
+
     def getTimes(station_name: String) : TimesForStation = {
         val doc = Util.getXML(
             "GetSercoTimesForStation", Seq("stationname" -> station_name).toMap
@@ -24,7 +26,6 @@ object GetTimesForStation {
             (doc \ "Trips" \ "SercoTrip")
             .map(Trip.fromRaw(_))
             .toList
-            .asJava
         )
 
         return new TimesForStation(

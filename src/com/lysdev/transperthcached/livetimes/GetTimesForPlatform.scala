@@ -1,7 +1,7 @@
 package com.lysdev.transperthcached.livetimes
 
 import java.util.regex.Pattern
-import scala.collection.JavaConverters._
+
 
 object GetTimesForPlatform {
     lazy val patt = Pattern.compile("[A-Z]{3}\\d")
@@ -21,7 +21,6 @@ object GetTimesForPlatform {
             (doc \ "Trip")
             .map(Trip.fromRaw(_))
             .toList
-            .asJava
         )
 
         new TimesForPlatform(
