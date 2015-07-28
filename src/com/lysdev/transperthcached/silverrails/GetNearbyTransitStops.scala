@@ -1,117 +1,115 @@
-package com.lysdev.transperthcached.silverrails;
+package com.lysdev.transperthcached.silverrails
 
-import android.net.Uri;
-import android.util.Log;
+import android.net.Uri
+import android.util.Log
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
+import java.io.IOException
+import java.net.MalformedURLException
+import java.net.URL
+import java.net.URLConnection
+import java.util.ArrayList
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 
-import com.lysdev.transperthcached.utils.Util;
-import com.lysdev.transperthcached.silverrails.Constants;
+import com.lysdev.transperthcached.utils.Util
+
+import scala.util.Try
 
 
-public class GetNearbyTransitStops {
-    public static ArrayList<NearbyTransitStop> getNearby(String apikey, String loco) {
-        String[] parts = loco.split(",");
-        return getNearby(apikey, parts[0].trim(), parts[1].trim());
+object GetNearbyTransitStops {
+    def getNearby(apikey: String, loco: String) : List[NearbyTransitStop] = {
+        val latlon = loco.split(",").map(_.trim)
+        getNearby(apikey, latlon(0), latlon(1))
     }
 
-    public static ArrayList<NearbyTransitStop> getNearby(
-            String apikey, String latitude, String longitude) {
-        return getNearby(
+    def getNearby(apikey: String, latitude: String, longitude: String) : List[NearbyTransitStop] = {
+        getNearby(
             apikey,
-            Double.parseDouble(latitude),
-            Double.parseDouble(longitude)
-        );
+            parseDouble(latitude),
+            parseDouble(longitude)
+        )
     }
 
-    public static ArrayList<NearbyTransitStop> getNearby(
-            String apikey, double latitude, double longitude) {
-
-        String url = Constants.BASE_URL + "Datasets/PerthRestricted/NearbyTransitStops";
+    def getNearby(apikey: String, latitude: Double, longitude: Double) : List[NearbyTransitStop] = {
+        var url = Constants.BASE_URL + "Datasets/PerthRestricted/NearbyTransitStops"
 
         url = Uri.parse(url).buildUpon()
             .appendQueryParameter("ApiKey", apikey)
             .appendQueryParameter("format", "json")
-            .appendQueryParameter(
-                "GeoCoordinate", String.format("%f,%f", latitude, longitude)
-            )
-            .build().toString();
+            .appendQueryParameter("GeoCoordinate", "$latitude,$longitude")
+            .build().toString()
 
-        URL url_obj = null;
+        val url_obj = new URL(url)
+
+        var conn : URLConnection = null
         try {
-            url_obj = new URL(url);
-        } catch (MalformedURLException e) {
-            // why java? why do you force me to handle every url, however
-            // unlikely their occurance?
-            Log.e("TransperthCached", "bad url", e);
+            conn = url_obj.openConnection()
+        } catch {
+            case e: IOException => {
+                Log.e("TransperthCached", "Couldn't open connection!", e)
+                throw new java.lang.Error("Couldn't open connection!")
+            }
         }
 
-        URLConnection conn;
+        var raw_json : String = ""
         try {
-            conn = url_obj.openConnection();
-        } catch (IOException e) {
-            Log.e("TransperthCached", "Couldn't open connection!", e);
-            throw new java.lang.Error("Couldn't open connection!");
-        }
-
-        // ?ApiKey=eac7a147-0831-4fcf-8fa8-a5e8ffcfa039
-        // GeoCoordinate=-32.0102024,115.8853261
-
-        String raw_json = "";
-        try {
-            raw_json = Util.convertStreamToString(conn.getInputStream());
-        } catch (IOException e) {
-            Log.e("TransperthCached", "Couldn't convert stream to string", e);
+            raw_json = Util.convertStreamToString(conn.getInputStream())
+        } catch {
+            case e: IOException => Log.e("TransperthCached", "Couldn't convert stream to string", e)
         }
 
         try {
-            return parseJSON(raw_json);
-        } catch (JSONException e) {
-            Log.e("TransperthCached", "Couldn't parse JSON", e);
-            return new ArrayList<NearbyTransitStop>();
+            parseJSON(raw_json)
+        } catch {
+            case e: JSONException => {
+                Log.e("TransperthCached", "Couldn't parse JSON", e)
+                List[NearbyTransitStop]()
+            }
         }
     }
 
-    private static ArrayList<NearbyTransitStop> parseJSON(String raw_json) throws JSONException {
-        JSONObject json = new JSONObject(raw_json);
-
-        JSONArray stop_paths = json.optJSONArray("TransitStopPaths");
-        if (stop_paths == null) return null;
-
-        ArrayList<NearbyTransitStop> parsed = new ArrayList<NearbyTransitStop>();
-        for (int i = 0; i < stop_paths.length(); i++) {
-            JSONObject cur = stop_paths.getJSONObject(i);
-
-            Integer distance = cur.getInt("Distance");
-            JSONObject transitStop = cur.getJSONObject("TransitStop");
-
-            String[] location_parts = transitStop.getString("Position").split(", ");
-
-            // Iterator<String> keys = cur.keys();
-            // while (keys.hasNext()) {
-            //     Log.d("TransperthCached", "Key; " + keys.next());
-            // }
-
-            parsed.add(
-                new NearbyTransitStop(
-                    distance,
-
-                    Double.parseDouble(location_parts[0].trim()),
-                    Double.parseDouble(location_parts[1].trim()),
-                    transitStop.getString("Description"),
-                    Integer.parseInt(transitStop.getString("Code"))
-                )
-            );
+    def parseDouble(s: String) : Double = {
+        Try(s.toDouble).toOption match {
+            case None    => 0
+            case Some(x) => x
         }
+    }
 
-        return parsed;
+    def parseIndividual(obj: JSONObject) : NearbyTransitStop = {
+        val distance = obj.getInt("Distance")
+        val transitStop = obj.getJSONObject("TransitStop")
+        val location_parts = (
+            transitStop
+            .getString("Position")
+            .split(", ")
+            .map(_.trim)
+            .map(parseDouble)
+        )
+
+        new NearbyTransitStop(
+            distance,
+
+            location_parts(0),
+            location_parts(1),
+            transitStop.getString("Description"),
+            transitStop.getInt("Code")
+        )
+    }
+
+    def parseJSON(raw_json: String) : List[NearbyTransitStop] = {
+        val json = new JSONObject(raw_json)
+        val stop_paths = json.optJSONArray("TransitStopPaths")
+
+        if (stop_paths == null) {
+            List()
+
+        } else {
+            (
+                for (i <- 0 until stop_paths.length())
+                    yield parseIndividual(stop_paths.getJSONObject(i))
+            ).toList
+        }
     }
 }

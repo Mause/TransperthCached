@@ -1,30 +1,14 @@
-package com.lysdev.transperthcached.silverrails;
+package com.lysdev.transperthcached.silverrails
 
+class NearbyTransitStop(
+            distance: Int,
 
-public class NearbyTransitStop extends TransitStop {
-    public NearbyTransitStop(
-            int distance,
+            latitude: Double, longitude: Double,
+            description: String,
+            code: Int
+            ) extends TransitStop(latitude, longitude, description, code) {
 
-            double latitude, double longitude,
-            String description,
-            int code
-            ) {
-        super(latitude, longitude, description, code);
-        this.distance = distance;
-    }
-
-    public String toString() {
-        return String.format(
-            "%d metres to %s",
-            getDistance().intValue(),
-            getDescription()
-        );
-    }
-
-
-    private Integer distance;
-
-    public Integer getDistance() {
-        return this.distance;
-    }
+    override
+    def toString() = "$getDistance.intValue metres to $getDescription"
+    def getDistance() = this.distance
 }
