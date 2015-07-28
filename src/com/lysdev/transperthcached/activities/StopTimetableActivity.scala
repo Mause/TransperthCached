@@ -133,18 +133,6 @@ class StopTimetableActivity extends FragmentActivity with SActivity {
         outState.putString("stop_number", stop_num_widget.getText().toString())
     }
 
-    def ok_dialog(title: String, message: String) {
-        val dialog = new OkDialog()
-
-        val args = new Bundle()
-        args.putString("title", title)
-        args.putString("message", message)
-        dialog.setArguments(args)
-
-        // dialog.setTargetFragment(this, 0)
-        dialog.show(getSupportFragmentManager(), "TransperthCached")
-    }
-
     def showForStop(view: View) {
         Util.hideSoftKeyboard(this)
 
@@ -160,7 +148,7 @@ class StopTimetableActivity extends FragmentActivity with SActivity {
         } catch {
             case state: StateException => {
                 stop_display_source.clear()
-                this.ok_dialog(state.getTitle(), state.getMessage())
+                OkDialog.ok_dialog(state.getTitle(), state.getMessage())
             }
         }
 
