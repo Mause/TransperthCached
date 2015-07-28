@@ -61,7 +61,7 @@ class FetchTimesTask[V <: android.view.View, T <: AnyRef]
         (
             GetTimesForStation
             .getTimes(p1.head.asInstanceOf[String])
-            .getTrips().asScala.toList
+            .getTrips().toList
         )
     }
 
@@ -77,14 +77,9 @@ class FetchTimesTask[V <: android.view.View, T <: AnyRef]
         this.klass.filtered = (
             trips
             .filter(trip => {
-                val coming = (
-                    trip.getDestination().equals("Perth") &&
-                    this.direction == Direction.TO
-                )
-                val going =  (
-                    !trip.getDestination().equals("Perth") &&
-                    this.direction == Direction.FROM
-                )
+                val to_perth = trip.getDestination().equals("Perth")
+                val coming = to_perth && this.direction == Direction.TO
+                val going = !to_perth && this.direction == Direction.FROM
 
                 going || coming
             })
@@ -92,9 +87,7 @@ class FetchTimesTask[V <: android.view.View, T <: AnyRef]
         )
 
         this.ad.clear()
-        this.klass.filtered.foreach((t:TripDisplayWrapper) => {
-            this.ad.add(t.asInstanceOf[T])
-        })
+        this.ad.addAll(this.klass.filtered.asJavaCollection)
         this.ad.notifyDataSetChanged()
 
         this.mDialog.dismiss()
@@ -141,7 +134,6 @@ class TrainStationTimesActivity extends SActivity
         Toast.makeText(
             this,
             trp.getPatternFullDisplay().asScala.mkString(", "),
-            // "Could not initialize database",
             Toast.LENGTH_LONG
         ).show()
     }
