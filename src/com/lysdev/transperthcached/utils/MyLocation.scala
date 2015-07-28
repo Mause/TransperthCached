@@ -9,6 +9,7 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 
+import org.scaloid.common._
 
 
 abstract class SimpleLocationListener extends LocationListener {
@@ -23,18 +24,12 @@ class MyLocation {
     var locationCallback : (Location => Unit) = null
     var gps_enabled : Boolean = false
     var network_enabled : Boolean = false
-
     var lm : LocationManager = null
 
     def getLocation(locationCallback: (Location => Unit))(implicit context: Context) : Boolean = {
         this.locationCallback = locationCallback;
-        if (lm == null) {
-            lm = (
-                context
-                .getSystemService(Context.LOCATION_SERVICE)
-                .asInstanceOf[LocationManager]
-            )
-        }
+
+        this.lm = if (this.lm == null) locationManager else this.lm
 
         gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER)
         network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
