@@ -8,7 +8,6 @@ javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 scalacOptions += "-target:jvm-1.7"
 
 libraryDependencies ++= Seq(
-    "net.sf.proguard" % "proguard-base" % "5.2.1",
     "org.scaloid" % "scaloid_2.10" % "3.3-8",
     "joda-time" % "joda-time" % "2.8.1",
     "org.joda" % "joda-convert" % "1.7"
