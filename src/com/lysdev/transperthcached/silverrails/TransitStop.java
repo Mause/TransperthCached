@@ -19,6 +19,9 @@ public class TransitStop {
     public TransitStop(double latitude, double longitude, String description, int code) {
         this.latitude = latitude;
         this.longitude = longitude;
+        this.position = new Location("TransitStop");
+        this.position.setLatitude(latitude);
+        this.position.setLongitude(longitude);
 
         this.description = description;
         this.code = code;
