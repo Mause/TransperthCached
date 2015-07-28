@@ -10,7 +10,8 @@ import android.location.LocationManager
 import android.os.Bundle
 
 
-class SimpleLocationListener extends LocationListener {
+
+abstract class SimpleLocationListener extends LocationListener {
     def onProviderDisabled(provider: String) = {}
     def onProviderEnabled(provider: String) = {}
     def onStatusChanged(provider: String, status: Int, extras: Bundle) = {}
