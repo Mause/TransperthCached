@@ -28,7 +28,7 @@ class SelectStopDialogItem(stop: NearbyTransitStop) {
 
 
 class SelectStopDialog(stops: ArrayList[NearbyTransitStop],
-                       callback: SelectStopDialogOnSelected)
+                       callback: (NearbyTransitStop => Unit))
                       extends DialogFragment {
 
     override
@@ -66,7 +66,7 @@ class SelectStopDialog(stops: ArrayList[NearbyTransitStop],
                     )
 
                     Log.d("TransperthCached", "selected: " + selected_stop.toString())
-                    callback.onSelected(selected_stop)
+                    callback(selected_stop)
                 }
             }
         )

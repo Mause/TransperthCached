@@ -34,7 +34,6 @@ import com.lysdev.transperthcached.timetable.Visit
 import com.lysdev.transperthcached.ui.DatePickerFragment
 import com.lysdev.transperthcached.ui.OkDialog
 import com.lysdev.transperthcached.ui.SelectStopDialog
-import com.lysdev.transperthcached.ui.SelectStopDialogOnSelected
 import com.lysdev.transperthcached.ui.TimePickerFragment
 
 import com.lysdev.transperthcached.R
@@ -258,11 +257,9 @@ class StopTimetableActivity extends FragmentActivity with SActivity {
             location.getLongitude()
         )
 
-        val callback = new SelectStopDialogOnSelected() {
-            def onSelected(stop: NearbyTransitStop) {
-                waiting_for_user_selection = false
-                stop_num_widget.setText(stop.getCode())
-            }
+        val callback = (stop: NearbyTransitStop) => {
+            waiting_for_user_selection = false
+            stop_num_widget.setText(stop.getCode())
         }
 
         new SelectStopDialog(stops, callback).show(
