@@ -1,7 +1,7 @@
 package com.lysdev.transperthcached.livetimes
 
 class TimesForPlatform(
-        number: int,
+        number: Int,
         code: String,
         stop_number: String,
         position: String,
