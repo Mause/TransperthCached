@@ -12,7 +12,7 @@ class DatePickerFragment(listener: DatePickerDialog.OnDateSetListener,
                          default_date: DateTime)
                         extends DialogFragment {
     override
-    def onCreateDialog(savedInstanceState: Bundle) : Dialog {
+    def onCreateDialog(savedInstanceState: Bundle) : Dialog = {
         new DatePickerDialog(
             getActivity(),
             listener,

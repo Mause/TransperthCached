@@ -9,7 +9,7 @@ import android.text.format.DateFormat
 import org.joda.time.LocalTime
 
 
-class TimePickerFragment(listener : TimePickerDialog.OnTimeSetListener
+class TimePickerFragment(listener : TimePickerDialog.OnTimeSetListener,
                          default_time : LocalTime)
                         extends DialogFragment {
 

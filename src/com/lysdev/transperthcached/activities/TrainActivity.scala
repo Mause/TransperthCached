@@ -11,6 +11,7 @@ import com.lysdev.transperthcached.activities.train.Direction
 import com.lysdev.transperthcached.R
 
 class TrainActivity extends Activity {
+    override
     def onCreate(savedInstanceState: Bundle) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.trains)
@@ -19,13 +20,12 @@ class TrainActivity extends Activity {
     def onClickDirection(viewery: View) {
         val button = viewery.asInstanceOf[Button]
         val dir = (
-            button.getId() == R.id.from_perth ?
-            Direction.FROM :
-            Direction.TO
+            if (button.getId() == R.id.from_perth) Direction.FROM
+            else                                   Direction.TO
         )
 
         startActivity(
-            new Intent(this, TrainLineSelectActivity.class)
+            new Intent(this, classOf[TrainLineSelectActivity])
             .putExtra("direction", dir.ordinal())
         )
     }
