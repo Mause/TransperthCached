@@ -1,11 +1,8 @@
 package com.lysdev.transperthcached.activities
 
-import java.util.List
 import java.util.ArrayList
 
 import android.view.KeyEvent
-
-import android.database.Cursor
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -16,7 +13,6 @@ import android.util.Log
 import android.view.View
 
 import android.widget.AdapterView
-import android.widget.EditText
 import android.widget.ListView
 import android.widget.Toast
 
@@ -36,7 +32,6 @@ class FavouriteStopsActivity extends FragmentActivity
                              with AdapterView.OnItemClickListener
                              with FavouriteStopArrayAdapter.OnDeleteListener {
 
-    var stops_cursor : Cursor = null
     var stops_adapter : FavouriteStopArrayAdapter = null
     var db : FavouriteStopDatabaseHelper = null
     lazy val stops = find[ListView](R.id.favourite_stops)
