@@ -91,16 +91,18 @@ class MainActivity extends TabActivity
     }
 
     def initializeDB() {
-        MainActivity.instance = new DatabaseHelper(this)
+        MainActivity.instance = DatabaseHelper()
 
         MainActivity.instance.createDataBase()
 
-        // try {
+        try {
             MainActivity.instance.openDataBase()
-        // } catch (SQLException sqle) {
-        //     Log.d("TransperthCached", "Caught SQLException")
-        //     throw sqle
-        // }
+        } catch {
+            case sqle: SQLException => {
+                Log.d("TransperthCached", "Caught SQLException")
+                throw sqle
+            }
+        }
     }
 
     override
