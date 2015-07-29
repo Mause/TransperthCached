@@ -29,8 +29,7 @@ import org.scaloid.common._
 class FavouriteStopsActivity extends FragmentActivity
                              with SActivity
                              with FavouriteStopInputFragment.OnFavouriteStopAddListener
-                             with AdapterView.OnItemClickListener
-                             with FavouriteStopArrayAdapter.OnDeleteListener {
+                             with AdapterView.OnItemClickListener {
 
     var stops_adapter : FavouriteStopArrayAdapter = null
     var db : FavouriteStopDatabaseHelper = null
@@ -48,10 +47,10 @@ class FavouriteStopsActivity extends FragmentActivity
             .getOrElse(new ArrayList[FavouriteStop]())
         )
 
-        stops_adapter = new FavouriteStopArrayAdapter(this, stop_db)
+        stops_adapter = new FavouriteStopArrayAdapter(stop_db)
         stops.setAdapter(stops_adapter)
         stops.setOnItemClickListener(this)
-        stops_adapter.setOnDeleteListener(this)
+        stops_adapter.setOnDeleteListener(this.onDelete)
     }
 
     def onDelete(fav: FavouriteStop) {
