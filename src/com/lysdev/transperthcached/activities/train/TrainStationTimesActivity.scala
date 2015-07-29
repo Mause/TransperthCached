@@ -134,7 +134,7 @@ class TrainStationTimesActivity extends SActivity
 
         Toast.makeText(
             this,
-            trp.getPatternFullDisplay().asScala.mkString(", "),
+            trp.getPatternFullDisplay().mkString(", "),
             Toast.LENGTH_LONG
         ).show()
     }

@@ -12,8 +12,8 @@ import scala.xml.Node
 import scala.collection.JavaConverters._
 
 class Trip(
-        pattern: java.util.List[String],
-        patternFullDisplay: java.util.List[String],
+        pattern: List[String],
+        patternFullDisplay: List[String],
         minutesDelayTime: Int,
         cancelled: Boolean,
         actual: DateTime,
@@ -95,8 +95,8 @@ object Trip {
         new BetterNode(e)
     }
 
-    def csv(s: String) : java.util.List[String] = {
-        s.split(",").toList.asJava
+    def csv(s: String) : List[String] = {
+        s.split(",").toList
     }
 
     def fromRaw(el: Node) : Trip = {

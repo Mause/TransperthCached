@@ -39,7 +39,7 @@ object StopTimetableBusinessLogic {
 
         val forDayType = stop_timetable.getForWeekdayNumber(
             show_for_date.getDayOfWeek() - 1  // getDayOfWeek returns 1 through 7
-        ).asScala
+        )
 
         Log.d(
             "TransperthCached",
