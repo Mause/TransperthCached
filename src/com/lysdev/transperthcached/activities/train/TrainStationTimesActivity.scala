@@ -74,7 +74,7 @@ class FetchTimesTask[V <: android.view.View, T <: AnyRef]
             )
         )
 
-        this.klass.filtered = (
+        val filtered = (
             trips
             .filter(trip => {
                 val to_perth = trip.getDestination().equals("Perth")
@@ -87,7 +87,7 @@ class FetchTimesTask[V <: android.view.View, T <: AnyRef]
         )
 
         this.ad.clear()
-        this.ad.addAll(this.klass.filtered.asJavaCollection)
+        this.ad.addAll(filtered.asJavaCollection)
         this.ad.notifyDataSetChanged()
 
         this.mDialog.dismiss()
@@ -98,7 +98,6 @@ class FetchTimesTask[V <: android.view.View, T <: AnyRef]
 
 class TrainStationTimesActivity extends SActivity
                                         with OnItemClickListener {
-    var filtered : List[TripDisplayWrapper] = null
     lazy val times_lv = find[ListView](R.id.times)
 
     override def onCreate(savedInstanceState: Bundle) = {
@@ -108,7 +107,6 @@ class TrainStationTimesActivity extends SActivity
         val line_name = getIntent().getStringExtra("line_name")
         val station_name = getIntent().getStringExtra("station_name")
         val direction = Direction.from_val("direction", getIntent())
-        this.filtered = List[TripDisplayWrapper]()
 
         display_data(line_name, station_name, direction)
     }
@@ -118,7 +116,7 @@ class TrainStationTimesActivity extends SActivity
         val ad = new ArrayAdapter(
             this,
             android.R.layout.simple_list_item_1,
-            new ArrayList(this.filtered.asJavaCollection)
+            new ArrayList(List[TripDisplayWrapper]().asJavaCollection)
         )
         this.times_lv.setOnItemClickListener(this)
         this.times_lv.setAdapter(ad)
@@ -130,7 +128,7 @@ class TrainStationTimesActivity extends SActivity
     }
 
     def onItemClick(parent: AdapterView[_], view: View, position: Int, id: Long) : Unit = {
-        val trp = this.filtered(position).trip
+        val trp = parent.getItemAtPosition(position).asInstanceOf[TripDisplayWrapper].trip
 
         Log.d("TransperthCached", String.format("Clicked: %s", new TripDisplayWrapper(trp)))
 
