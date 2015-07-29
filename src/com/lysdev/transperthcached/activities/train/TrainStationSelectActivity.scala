@@ -49,7 +49,7 @@ class TrainStationSelectActivity extends SActivity
     }
 
     def onItemClick(parent: AdapterView[_], view: View, position: Int, id: Long) = {
-        val station_name = view.asInstanceOf[TextView].getText().toString()
+        val station_name = parent.getItemAtPosition(position).asInstanceOf[String]
 
         Log.d(
             "TransperthCached",

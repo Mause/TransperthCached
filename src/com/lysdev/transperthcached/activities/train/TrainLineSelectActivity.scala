@@ -36,7 +36,7 @@ class TrainLineSelectActivity extends SActivity
         startActivity(
             new Intent(this, classOf[TrainStationSelectActivity])
             .putExtra("direction", this.direction.ordinal())
-            .putExtra("line_name", (view.asInstanceOf[TextView].getText().toString()))
+            .putExtra("line_name", parent.getItemAtPosition(position).asInstanceOf[String])
         )
     }
 }
