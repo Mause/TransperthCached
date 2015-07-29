@@ -13,5 +13,5 @@ class TimesForPlatform(
     def getPosition()   = this.position
     def getTimes()      = this.times
 
-    override def toString() = "Platform $getCode at $getPosition with stop number $getStopNumber"
+    override def toString() = f"Platform $getCode at $getPosition with stop number $getStopNumber"
 }

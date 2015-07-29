@@ -28,7 +28,7 @@ class StopTimetable(stop_num: Int,
         "saturday"
     )
 
-    override def toString() = "<StopTimetable for $stop_num>"
+    override def toString() = f"<StopTimetable for $stop_num>"
 
     def getForWeekdayNumber(day_num: Int) : List[Visit] = {
         assert(0 <= day_num && day_num <= 6)

@@ -50,7 +50,7 @@ class Trip(
     def getState()               = this.state
     def getUid()                 = this.uid
 
-    override def toString() = "Run $getRun on line $getLine with $getNumCars cars"
+    override def toString() = f"Run $getRun on line $getLine with $getNumCars cars"
 }
 
 

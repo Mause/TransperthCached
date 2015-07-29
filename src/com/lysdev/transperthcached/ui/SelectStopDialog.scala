@@ -21,7 +21,7 @@ import scala.collection.JavaConversions._
 
 class SelectStopDialogItem(stop: NearbyTransitStop) {
     def getStop() = this.stop
-    override def toString() = "${stop.getDescription} ${stop.getDistance} metres away"
+    override def toString() = f"${stop.getDescription} ${stop.getDistance} metres away"
 }
 
 

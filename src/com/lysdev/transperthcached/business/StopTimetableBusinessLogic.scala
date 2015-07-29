@@ -43,7 +43,7 @@ object StopTimetableBusinessLogic {
 
         Log.d(
             "TransperthCached",
-            "Showing for day number ${show_for_date.getDayOfWeek() - 1}"
+            f"Showing for day number ${show_for_date.getDayOfWeek() - 1}"
         )
 
         if (forDayType == null || forDayType.isEmpty()) {

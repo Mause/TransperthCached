@@ -38,7 +38,7 @@ object GetNearbyTransitStops {
         url = Uri.parse(url).buildUpon()
             .appendQueryParameter("ApiKey", apikey)
             .appendQueryParameter("format", "json")
-            .appendQueryParameter("GeoCoordinate", "$latitude,$longitude")
+            .appendQueryParameter("GeoCoordinate", f"$latitude,$longitude")
             .build().toString()
 
         val url_obj = new URL(url)

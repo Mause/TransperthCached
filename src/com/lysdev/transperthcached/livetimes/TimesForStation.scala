@@ -12,5 +12,5 @@ class TimesForStation(
     def getLastUpdated() = this.last_updated
     def getStationName() = this.station_name
 
-    override def toString() = "<TimesForStation $getStationName - $getLastUpdated - ${getTrips.size} trips>"
+    override def toString() = f"<TimesForStation $getStationName - $getLastUpdated - ${getTrips.size} trips>"
 }

@@ -23,12 +23,7 @@ object Visit {
 
 
 class Visit(val stop_num: Int, val route_number: String, val time: LocalTime) {
-    // override def toString : String = String.format(
-    //     "<Visit stop_num:%d route_number:%s time:%s>",
-    //     this.stop_num,
-    //     this.route_number,
-    //     this.time.toString()
-    // )
+    override def toString() = f"<Visit stop_num:$stop_num route_number:$route_number time:$time>"
 
     def getTime = this.time
     def getRouteNumber = this.route_number

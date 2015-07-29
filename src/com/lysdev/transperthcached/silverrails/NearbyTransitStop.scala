@@ -9,6 +9,6 @@ class NearbyTransitStop(
             ) extends TransitStop(latitude, longitude, description, code) {
 
     override
-    def toString() = "$getDistance.intValue metres to $getDescription"
+    def toString() = f"$getDistance.intValue metres to $getDescription"
     def getDistance() = this.distance
 }
